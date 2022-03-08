@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomProgressBar">
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="progress" format="float" />
+        <attr name="foreground_progress_color" format="color" />
+        <attr name="background_progress_color" format="color" />
+        <attr name="foreground_progress_thickness" format="integer" />
+        <attr name="background_progress_thickness" format="integer" />
+        <attr name="foreground_progress_gradient_colors" format="reference" />
+        <attr name="rounded_corner" format="boolean" />
+    </declare-styleable>
+</resources>

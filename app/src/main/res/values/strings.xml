@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Beetlebug</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signup_name_text">Please input your name</string>
+    <!-- On-boarding Screen -->
+    <string name="onboarding_one">Learn Android security from real-world bugs</string>
+    <string name="onboarding_two">Capture all flags to complete the challenges</string>
+    <string name="signup_description">A very insecure and vulnerable Android Application for pentesters and bug hunters</string>
+
+    <!-- Insecure Storage -->
+    <string name="insecure_1_name">Find out where the sensitive credentials are being stored</string>
+    <string name="insecure_1_title">Part 1 - Shared Preferences</string>
+    <string name="embedded_secrets">Find out where sensitive credentials are stored</string>
+
+    <string name="vul_activity1">Please input your Master Secret password and place of birth to grant access</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

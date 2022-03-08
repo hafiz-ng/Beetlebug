@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ctf.BiometricActivityFrida">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/current_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Biometric By-Pass II"
+            android:textColor="#000"
+            android:textSize="27sp" />
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout2"
+        android:padding="16dp"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="16dp"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Hint: "
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/hintText"
+            android:layout_width="309dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
+            android:text="Securely login to Beetlebug by placing your finger over the touch sensor"
+            android:textColor="#bfbfbf"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearlayout2"
+        android:layout_width="360dp"
+        android:layout_height="195dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="222dp"
+        android:background="@drawable/rectangle_green"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text"
+            android:drawableStart="@drawable/baseline_person_24"
+            android:ems="10"
+            android:fontFamily="@font/kanit_regular"
+            android:hint=" Password"
+            android:inputType="textPassword"
+            android:paddingLeft="11dp"
+            android:paddingRight="12dp"
+            android:textSize="17dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="logInUser"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fingerPrintImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/linear_layout2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="289dp"
+        android:src="@drawable/fingerprint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp">
+
+        <EditText
+            android:hint=" Enter Flag"
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:textSize="17dp"
+            android:layout_marginLeft="25sp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/kanit_regular"
+            android:id="@+id/editTextFlag"/>
+
+
+        <Button
+            android:id="@+id/buttonCaptureFlag"
+            android:layout_width="130dp"
+            android:layout_height="65dp"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="captureFlag"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
