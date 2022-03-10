@@ -52,6 +52,8 @@ public class InsecureStorageFragment extends Fragment {
             public void onClick(View v) {
                 Intent ctf_intent = new Intent(getActivity(), FlagsOverview.class);
                 startActivity(ctf_intent);
+
+//                getActivity().onBackPressed();
             }
         });
         mButton.setOnClickListener(new View.OnClickListener() {

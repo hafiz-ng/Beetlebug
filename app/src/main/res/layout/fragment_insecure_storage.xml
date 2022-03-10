@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Insecure Data Storage"
+            android:text="Data Storage"
             android:textColor="#000"
             android:textSize="27sp" />
 

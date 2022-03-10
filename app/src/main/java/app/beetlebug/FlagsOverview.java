@@ -14,11 +14,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import app.beetlebug.ctf.VulnerableActivity1;
+import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.fragments.AndroidComponentsFragment;
 import app.beetlebug.fragments.BiometricFragment;
 import app.beetlebug.fragments.DatabasesFragment;
 import app.beetlebug.fragments.InsecureStorageFragment;
+import app.beetlebug.fragments.SensitiveDataFragment;
 import app.beetlebug.fragments.WebViewFragment;
 import app.beetlebug.utils.CustomProgressBar;
 
@@ -89,13 +90,8 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-//    public void  inSecureLoggingFlag (View v) {
-//        Intent i = new Intent(FlagsOverview.this, InsecureLogging.class);
-//        startActivity(i);
-//    }
-
     public void  inSecureActivity (View v) {
-        Intent i = new Intent(FlagsOverview.this, VulnerableActivity1.class);
+        Intent i = new Intent(FlagsOverview.this, VulnerableActivityIntent.class);
         startActivity(i);
     }
 
@@ -134,4 +130,14 @@ public class FlagsOverview extends AppCompatActivity {
 
     }
 
+    public void inSecureLoggingFlag(View view) {
+        mScrollView.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        Fragment fragment = new SensitiveDataFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void submitFlags(View view) {
+    }
 }

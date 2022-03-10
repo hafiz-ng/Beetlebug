@@ -10,8 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
         <activity
-            android:name=".Walkthrough"
+            android:name=".ctf.InsecureLogging"
             android:exported="true" />
+        <activity
+            android:name=".auth.UserSignUp"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Walkthrough"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".ctf.InsecureStorageExternal"
             android:exported="true" />
@@ -37,7 +52,7 @@
             android:name=".ctf.InsecureStorageSharedPref"
             android:exported="true" />
         <activity
-            android:name=".ctf.VulnerableActivity1"
+            android:name=".ctf.VulnerableActivityIntent"
             android:exported="true" />
         <activity
             android:name=".FlagsOverview"
@@ -47,13 +62,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -24,8 +24,12 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.concurrent.Executor;
 
+import app.beetlebug.fragments.AndroidComponentsFragment2;
+import app.beetlebug.fragments.BiometricFragment;
+import app.beetlebug.fragments.DatabasesFragment;
 import app.beetlebug.fragments.InsecureStorageFragment;
 import app.beetlebug.fragments.SecretsFragment;
+import app.beetlebug.fragments.WebViewFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,6 +95,51 @@ public class MainActivity extends AppCompatActivity {
         mScrollview.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
         Fragment fragment = new SecretsFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void dataStorageFragment(View view) {
+        mScrollview.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
+        Fragment fragment = new InsecureStorageFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void webViewFragment(View view) {
+        mScrollview.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
+        Fragment fragment = new WebViewFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void databaseFragment(View view) {
+        mScrollview.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
+        Fragment fragment = new DatabasesFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void biometricFragment(View view) {
+        mScrollview.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
+        Fragment fragment = new BiometricFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    public void AndroidComponentsFragment(View view) {
+        mScrollview.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        bottomNavigationView.setVisibility(View.GONE);
+        Fragment fragment = new AndroidComponentsFragment2();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }

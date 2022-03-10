@@ -15,15 +15,6 @@
         android:layout_height="68dp"
         android:padding="15dp">
 
-        <ImageView
-            android:id="@+id/arrowLeft"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:onClick="buttonBack"
-            android:src="@drawable/left3" />
-
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"

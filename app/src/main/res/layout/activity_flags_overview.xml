@@ -193,12 +193,12 @@
 
 
                     <ImageView
-                        android:layout_width="40dp"
+                        android:layout_width="35dp"
                         android:layout_height="40dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="22dp"
-                        android:layout_marginEnd="21dp"
+                        android:layout_marginEnd="23dp"
                         android:src="@drawable/key" />
 
                     <TextView
@@ -365,8 +365,24 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/continue_button"
+                android:layout_width="320dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rectangle_yellow"
+                android:fontFamily="@font/kanit_regular"
+                android:onClick="submitFlags"
+                android:text="Submit"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
         </LinearLayout>
 
     </ScrollView>
+
+
 
 </RelativeLayout>

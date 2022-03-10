@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/main_container"
+    android:id="@+id/container"
     tools:context=".MainActivity"
     android:paddingRight="16dp"
     android:paddingLeft="16dp">
@@ -56,13 +56,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="75dp"
         android:scrollbars="none">
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -136,6 +136,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="dataStorageFragment"
                 app:cardCornerRadius="28dp"
                 app:cardUseCompatPadding="true">
 
@@ -198,6 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="28dp"
+                android:onClick="webViewFragment"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
@@ -234,7 +236,7 @@
                         android:layout_toEndOf="@+id/imageViewWebView"
                         android:layout_toRightOf="@+id/imageViewWebView"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Data Storage"
+                        android:text="WebViews"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -259,13 +261,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="28dp"
+                android:onClick="databaseFragment"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_line"
-
                     android:padding="20dp">
 
                     <ImageView
@@ -296,7 +298,7 @@
                         android:layout_toEndOf="@+id/imageViewDatabases"
                         android:layout_toRightOf="@+id/imageViewDatabases"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Data Storage"
+                        android:text="Databases"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -320,6 +322,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="AndroidComponentsFragment"
                 app:cardCornerRadius="28dp"
                 app:cardUseCompatPadding="true">
 
@@ -445,6 +448,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="28dp"
+                android:onClick="biometricFragment"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
@@ -482,7 +486,7 @@
                         android:layout_toEndOf="@+id/imageViewBiometric"
                         android:layout_toRightOf="@+id/imageViewBiometric"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Insecure Deeplinks"
+                        android:text="Biometric Authentication"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -500,6 +504,68 @@
 
             </androidx.cardview.widget.CardView>
 
+
+            <!-- Auth CardView -->
+            <androidx.cardview.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="28dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/card_line"
+
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageViewSensitive"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/alert" />
+
+                    <TextView
+                        android:id="@+id/textViewSensitive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toEndOf="@+id/imageViewSensitive"
+                        android:layout_toRightOf="@+id/imageViewSensitive"
+                        android:fontFamily="@font/kanit_regular"
+                        android:text="Flag 7"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textViewSensitiveDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewSensitive"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toEndOf="@+id/imageViewSensitive"
+                        android:layout_toRightOf="@+id/imageViewSensitive"
+                        android:fontFamily="@font/kanit_regular"
+                        android:text="Sensitive Info Disclosure"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/imageViewRightArrow8"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/angle_right_48" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

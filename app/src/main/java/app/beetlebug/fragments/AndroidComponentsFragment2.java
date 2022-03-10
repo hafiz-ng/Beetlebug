@@ -3,7 +3,6 @@ package app.beetlebug.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,22 +13,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import app.beetlebug.FlagsOverview;
+import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.ctf.VulnerableBroadcastReceiver;
 import app.beetlebug.ctf.VulnerableService;
 
 
-public class AndroidComponentsFragment extends Fragment {
+public class AndroidComponentsFragment2 extends Fragment {
 
     Button mButton, mButton2, mButton3;
     TextView mCtfTitle;
 
     ImageView mBackButton;
 
-    public AndroidComponentsFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -47,7 +44,7 @@ public class AndroidComponentsFragment extends Fragment {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ctf_intent = new Intent(getActivity(), FlagsOverview.class);
+                Intent ctf_intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(ctf_intent);
             }
         });

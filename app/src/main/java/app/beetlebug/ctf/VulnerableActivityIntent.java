@@ -14,14 +14,14 @@ import android.widget.TextView;
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
-public class VulnerableActivity1 extends AppCompatActivity {
+public class VulnerableActivityIntent extends AppCompatActivity {
 
     TextView mCtfTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vulnerable1);
+        setContentView(R.layout.activity_vulnerable_intent);
         mCtfTitle = findViewById(R.id.ctfTitle);
 
         if(Build.VERSION.SDK_INT>=21){
@@ -35,7 +35,7 @@ public class VulnerableActivity1 extends AppCompatActivity {
 
 
     public void captureFlag(View view) {
-        Intent captured_intent = new Intent(VulnerableActivity1.this, FlagCaptured.class);
+        Intent captured_intent = new Intent(VulnerableActivityIntent.this, FlagCaptured.class);
         startActivity(captured_intent);
     }
 }
