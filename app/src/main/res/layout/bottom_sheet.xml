@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_background"
+    tools:context=".FlagsOverview">
+
+
+    <TextView
+        style="@style/lesson_bar_text"
+        android:layout_below="@+id/bottom_sheet_title"
+        android:layout_gravity="center"
+        android:fontFamily="@font/kanit_regular"
+        android:text="Congratulations!"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/bottom_sheet_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/kanit_regular"
+        android:text="Find out how sensitive credentials is being stored in plaintext, without encryption"
+        android:textColor="#9a9a9a"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/kanit_regular"
+        android:onClick="shareResult"
+        android:background="@drawable/rectangle_green"
+        android:text="Share result"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="17sp" />
+
+
+
+
+</LinearLayout>

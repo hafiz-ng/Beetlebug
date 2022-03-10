@@ -29,10 +29,10 @@
         </activity>
         <activity
             android:name=".ctf.InsecureStorageExternal"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".FlagCaptured"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ctf.BiometricActivityFrida"
             android:exported="true" />
