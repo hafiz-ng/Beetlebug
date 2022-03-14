@@ -6,4 +6,4 @@ Beetlebug is an open source insecure Android application with CTF challenges bui
 
 
 
-[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button.png)](https://pages.github.com/).
+[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](https://pages.github.com/)
