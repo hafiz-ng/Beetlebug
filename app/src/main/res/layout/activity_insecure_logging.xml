@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ctf.InsecureLogging">
+    tools:context=".ctf.InsecureLoggingActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -13,13 +13,6 @@
         android:layout_height="68dp"
         android:padding="16dp">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/left3"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/arrowLeft"/>
 
         <TextView
             android:id="@+id/current_language"
@@ -48,7 +41,7 @@
 
 
     <EditText
-        android:id="@+id/cardNumber"
+        android:id="@+id/editTextCardNumber"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_below="@+id/textView2"
@@ -58,35 +51,35 @@
         android:ems="10"
         android:fontFamily="@font/kanit_regular"
         android:hint="Card Number"
-        android:inputType="textPersonName"
-        android:paddingLeft="16dp"
-        android:paddingRight="12dp"
-        android:textSize="17dp" />
-
-    <EditText
-        android:id="@+id/expires"
-        android:layout_width="170dp"
-        android:layout_height="65dp"
-        android:layout_below="@id/cardNumber"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text"
-        android:ems="10"
-        android:fontFamily="@font/kanit_regular"
-        android:hint="Expires MM/YY"
         android:inputType="number"
         android:paddingLeft="16dp"
         android:paddingRight="12dp"
         android:textSize="17dp" />
 
     <EditText
-        android:id="@+id/cvv"
+        android:id="@+id/editTextExpires"
+        android:layout_width="170dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/editTextCardNumber"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:ems="10"
+        android:fontFamily="@font/kanit_regular"
+        android:hint="Expires MM/YY"
+        android:inputType="date"
+        android:paddingLeft="16dp"
+        android:paddingRight="12dp"
+        android:textSize="17dp" />
+
+    <EditText
+        android:id="@+id/editTextCvv"
         android:layout_width="120dp"
         android:layout_height="65dp"
-        android:layout_below="@+id/cardNumber"
+        android:layout_below="@+id/editTextCardNumber"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/expires"
+        android:layout_toRightOf="@id/editTextExpires"
         android:background="@drawable/edit_text"
         android:ems="10"
         android:fontFamily="@font/kanit_regular"
@@ -96,10 +89,10 @@
         android:textSize="17dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPay"
         android:layout_width="320dp"
         android:layout_height="65dp"
-        android:layout_below="@+id/expires"
+        android:layout_below="@+id/editTextExpires"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/rectangle_yellow"
@@ -127,11 +120,11 @@
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/kanit_regular"
-            android:id="@+id/editTextFlag"/>
+            android:id="@+id/editTextEnterFlag"/>
 
 
         <Button
-            android:id="@+id/buttonCaptureFlag"
+            android:id="@+id/buttonSubmitFlag"
             android:layout_width="130dp"
             android:layout_height="65dp"
             android:text="Submit"

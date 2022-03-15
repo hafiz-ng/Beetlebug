@@ -212,7 +212,7 @@
                         android:id="@+id/imageViewWebView"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/browser" />
+                        android:src="@drawable/www" />
 
                     <TextView
                         android:id="@+id/textViewWebViewFlag"
@@ -399,7 +399,7 @@
                         android:id="@+id/imageViewDeeplinks"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/freedom" />
+                        android:src="@drawable/net" />
 
                     <TextView
                         android:id="@+id/textViewDeeplinksTitle"
@@ -423,7 +423,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Insecure Deeplinks"
+                        android:text="Network Communication"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -518,7 +518,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_line"
-
+                    android:onClick="infoDisclosureCTF"
                     android:padding="20dp">
 
                     <ImageView

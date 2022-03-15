@@ -68,7 +68,7 @@
 
 
         <EditText
-            android:id="@+id/editTextUsername"
+            android:id="@+id/editTextIRSId"
             android:layout_width="320dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
@@ -77,7 +77,7 @@
             android:drawableStart="@drawable/baseline_person_24"
             android:ems="10"
             android:fontFamily="@font/kanit_regular"
-            android:hint=" Username"
+            android:hint=" IRS User ID"
             android:inputType="textPersonName"
             android:paddingLeft="11dp"
             android:paddingRight="12dp"
@@ -107,7 +107,7 @@
             android:layout_marginTop="22dp"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
-            android:onClick="saveDetails"
+            android:onClick="saveCreds"
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/black"
@@ -121,31 +121,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp">
+        android:layout_marginBottom="70dp"
+        android:orientation="horizontal">
 
         <EditText
-            android:hint=" Enter Flag"
+            android:id="@+id/editTextFlag"
             android:layout_width="200dp"
             android:layout_height="65dp"
-            android:textSize="17dp"
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/kanit_regular"
-            android:id="@+id/editTextFlag"/>
+            android:hint=" Enter Flag"
+            android:textSize="17dp" />
 
 
         <Button
             android:id="@+id/buttonCaptureFlag"
             android:layout_width="130dp"
             android:layout_height="65dp"
-            android:text="Submit"
-            android:onClick="captureFlag"
-            android:textColor="@android:color/black"
-            android:textAllCaps="false"
             android:background="@drawable/rectangle_yellow"
-            android:fontFamily="@font/kanit_regular"/>
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="captureFlag"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 

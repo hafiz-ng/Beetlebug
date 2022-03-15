@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" +10XP"
+            android:id="@+id/ctfPoints"
             android:fontFamily="@font/kanit_regular"
             android:textSize="23sp"/>
 
@@ -63,14 +64,15 @@
         android:textSize="22dp" />
 
     <TextView
+        android:id="@+id/totalCTFPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22dp"
-        android:text="+10XP"
+        android:layout_below="@+id/user_progress_bar"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/kanit_light"
         android:layout_toRightOf="@+id/beetlePoints"
-        android:layout_below="@+id/user_progress_bar" />
+        android:fontFamily="@font/kanit_light"
+        android:text="+10XP"
+        android:textSize="22dp" />
 
     <Button
         android:id="@+id/continue_button"

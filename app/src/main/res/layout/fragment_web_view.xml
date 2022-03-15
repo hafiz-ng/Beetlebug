@@ -21,6 +21,15 @@
             android:onClick="goBack"
             android:src="@drawable/left3" />
 
+        <ImageView
+            android:id="@+id/arrowLeft2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:onClick="goBack"
+            android:src="@drawable/left3" />
+
         <TextView
             android:id="@+id/embedded_secrets_toolbar"
             android:layout_width="wrap_content"
@@ -105,7 +114,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Universal XSS"
+            android:text="Insecure Deeplinks"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

@@ -1,4 +1,4 @@
-package app.beetlebug.fragments;
+package app.beetlebug.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import app.beetlebug.ctf.VulnerableBroadcastReceiver;
 import app.beetlebug.ctf.VulnerableService;
 
 
-public class AndroidComponentsFragment2 extends Fragment {
+public class AndroidComponentsHome extends Fragment {
 
     Button mButton, mButton2, mButton3;
     TextView mCtfTitle;
@@ -73,14 +73,6 @@ public class AndroidComponentsFragment2 extends Fragment {
                 startActivity(ctf_intent3);
             }
         });
-
-//        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-//            @Override
-//            public void handleOnBackPressed() {
-//
-//            }
-//        };
-//        requireActivity().getOnBackPressedDispatcher().addCallback(getActivity(), callback);
         return view;
     }
 }

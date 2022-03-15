@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import app.beetlebug.adapter.SlideViewPagerAdapter;
+import app.beetlebug.user.UserSignUp;
 
 public class Walkthrough extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class Walkthrough extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         if(isOpenAlready()) {
-            Intent intent = new Intent(Walkthrough.this, MainActivity.class);
+            Intent intent = new Intent(Walkthrough.this, UserSignUp.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } else {

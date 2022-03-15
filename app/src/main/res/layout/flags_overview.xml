@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp">
+
+            <app.beetlebug.utils.CustomProgressBar
+                android:id="@+id/insecure_storage_bar"
+                style="@style/lesson_bar"
+                android:layout_centerInParent="true"
+                android:onClick="embeddeSecrets" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/key" />
+
+            <TextView
+                style="@style/lesson_bar_text"
+                android:layout_below="@id/insecure_storage_bar"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/kanit_regular"
+                android:text="Embedded Secrets" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/progress_bar_webview"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:onClick="inSecureStorage" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="53dp"
+                    android:src="@drawable/storage" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_below="@id/progress_bar_webview"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Data Storage" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1">
+
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/greeting_bar"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="0dp"
+                    android:onClick="webViewFlag" />
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/www" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_below="@id/greeting_bar"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:paddingStart="5dp"
+                    android:text="WebViews" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/food_bar"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="35dp"
+                    android:onClick="AndroidComponents" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="55dp"
+                    android:src="@drawable/android" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_width="149dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/food_bar"
+                    android:layout_alignStart="@+id/food_bar"
+                    android:layout_marginStart="-36dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Android Components"
+                    android:textAlignment="center" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1">
+
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/animal_bar"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="3dp"
+                    android:onClick="networkComCTF" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="23dp"
+                    android:src="@drawable/fingerprint" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_width="172dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@+id/animal_bar"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="-11dp"
+                    android:layout_marginTop="-2dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Biometric Authentication"
+                    android:textAlignment="center" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="8dp">
+
+            <app.beetlebug.utils.CustomProgressBar
+                android:id="@+id/clothing_bar"
+                style="@style/lesson_bar"
+                android:layout_centerInParent="true"
+
+                android:onClick="inSecureLoggingFlag" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/alert" />
+
+
+            <TextView
+                style="@style/lesson_bar_text"
+                android:layout_below="@id/clothing_bar"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/kanit_regular"
+                android:text="Sensitive Info Disclosure" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/food_bar2"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="33dp"
+                    android:onClick="databaseFlag" />
+
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="54dp"
+                    android:src="@drawable/database" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_below="@+id/food_bar2"
+                    android:layout_alignStart="@+id/food_bar2"
+                    android:layout_marginStart="-8dp"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Databases" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="1">
+
+                <app.beetlebug.utils.CustomProgressBar
+                    android:id="@+id/animal_bar2"
+                    style="@style/lesson_bar"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="0dp"
+                    android:onClick="biometricAuthentication" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="62dp"
+                    android:layout_marginTop="22dp"
+                    android:src="@drawable/fingerprint" />
+
+                <TextView
+                    style="@style/lesson_bar_text"
+                    android:layout_width="136dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/animal_bar2"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Biometric Authentication"
+                    android:textAlignment="center" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/finish_button"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="submitFlags"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+    </LinearLayout>

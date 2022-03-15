@@ -77,13 +77,6 @@ public class AndroidComponentsFragment extends Fragment {
             }
         });
 
-//        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-//            @Override
-//            public void handleOnBackPressed() {
-//
-//            }
-//        };
-//        requireActivity().getOnBackPressedDispatcher().addCallback(getActivity(), callback);
         return view;
     }
 }

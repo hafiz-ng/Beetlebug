@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "704139909593",
+    "project_id": "beetlebug-374fc",
+    "storage_bucket": "beetlebug-374fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704139909593:android:72ae2d9fd6e561617b61c8",
+        "android_client_info": {
+          "package_name": "app.beetlebug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704139909593-nvuu39eh2236q6188qkpvo6obi16njbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEiE2fGIPnsQdIyHZh264aburdyMgIhbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704139909593-nvuu39eh2236q6188qkpvo6obi16njbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

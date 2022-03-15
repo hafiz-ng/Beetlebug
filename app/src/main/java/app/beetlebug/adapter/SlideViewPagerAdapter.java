@@ -12,11 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import app.beetlebug.FlagsOverview;
-import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.Walkthrough;
-import app.beetlebug.auth.UserSignUp;
+import app.beetlebug.user.UserSignUp;
 
 public class SlideViewPagerAdapter extends PagerAdapter {
 

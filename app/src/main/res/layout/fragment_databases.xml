@@ -91,7 +91,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="400dp"
-        android:layout_height="148dp"
+        android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
@@ -116,7 +116,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Once triggered, the deeplink would direct users to load any attacker-controlled"
+            android:text="Common misconfigurations on Firebase databases allow unauthorized parties to easily find and access users' personal data."
             android:textSize="14sp" />
 
         <Button

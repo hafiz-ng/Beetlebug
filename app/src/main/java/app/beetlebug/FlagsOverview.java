@@ -30,6 +30,8 @@ import app.beetlebug.fragments.AndroidComponentsFragment;
 import app.beetlebug.fragments.BiometricFragment;
 import app.beetlebug.fragments.DatabasesFragment;
 import app.beetlebug.fragments.InsecureStorageFragment;
+import app.beetlebug.fragments.NetworkFragment;
+import app.beetlebug.fragments.SecretsFragment;
 import app.beetlebug.fragments.SensitiveDataFragment;
 import app.beetlebug.fragments.WebViewFragment;
 import app.beetlebug.utils.CustomProgressBar;
@@ -125,10 +127,6 @@ public class FlagsOverview extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void fingerActivity(View view) {
-        Intent finger_intent = new Intent(FlagsOverview.this, FingerPrintActivity.class);
-        startActivity(finger_intent);
-    }
 
     public void AndroidComponents(View view) {
         mScrollView.setVisibility(View.GONE);
@@ -165,6 +163,14 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
+    public void networkComCTF(View view) {
+        mScrollView.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        Fragment fragment = new NetworkFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
+
+    }
     public void submitFlags(View view) {
     }
 
@@ -185,7 +191,15 @@ public class FlagsOverview extends AppCompatActivity {
         ShareCompat.IntentBuilder
                 .from(this)
                 .setType(mimeType)
-                .setText("Get Started today " + url + "CTF Author " + author_twitter_url)
+                .setText("Get Started today " + url + " CTF Author " + author_twitter_url)
                 .startChooser();
+    }
+
+    public void embeddeSecrets(View view) {
+        mScrollView.setVisibility(View.GONE);
+        mToolbar.setVisibility(View.GONE);
+        Fragment fragment = new SecretsFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 }

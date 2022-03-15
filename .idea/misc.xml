@@ -13,33 +13,54 @@
         <entry key="app/src/main/res/drawable/rectangle_yellow.xml" value="0.161" />
         <entry key="app/src/main/res/layout/activity_biometric.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_biometric_frida.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_deeplink_account.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_embedded_secert_source_code.xml" value="0.1453125" />
+        <entry key="app/src/main/res/layout/activity_embedded_secret_source_code.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_embedded_secret_strings.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_finger_print.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_flag_captured.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_firebase_database.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_flag_captured.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_flags.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.2962226640159046" />
+        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_insecure_deep_link.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_insecure_logging.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_insecure_storage_external.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_insecure_storage_external.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_internal_external.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_sharedpref.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_sql.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_temp.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2671232876712329" />
-        <entry key="app/src/main/res/layout/activity_user_sign_up.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_registration_web_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sqlinjection.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_sslpinning.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_user_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_vulnerable1.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_vulnerable_broadcast_receiver.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_vulnerable_intent.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_vulnerable_service.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_walkthrough.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_web_view_injection.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/activity_web_view_urlactivity.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_web_view_xssactivity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottom_sheet.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/cards.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/flags_overview.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_android_components.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_biometric.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/fragment_databases.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_biometric_home.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/fragment_database_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_databases.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_deeplinks.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_insecure_storage.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_secrets.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_insecure_storage_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_network.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_secrets.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_secrets_fragments_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_sensitive_data.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_web_view.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_sensitive_data_home.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/layout/fragment_web_view.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_web_view_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/slide_screen.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3098958333333333" />

@@ -17,9 +17,8 @@
             android:src="@drawable/left3"
             android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-
             android:layout_marginTop="5dp"
-            android:id="@+id/arrowLeft"/>
+            android:id="@+id/back"/>
 
         <TextView
             android:id="@+id/ctfTitle"
@@ -27,9 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Sensitve Info Disclosure"
+            android:text="Sensitive Info Disclosure"
             android:textColor="#000"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
+
     </RelativeLayout>
 
     <FrameLayout
@@ -62,7 +62,7 @@
 
         <TextView
             android:id="@+id/textDescription"
-            android:layout_width="250dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle"
             android:layout_marginLeft="15dp"
@@ -146,3 +146,4 @@
 
 
 </RelativeLayout>
+

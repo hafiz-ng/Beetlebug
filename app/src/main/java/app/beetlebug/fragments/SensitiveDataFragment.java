@@ -1,7 +1,6 @@
 package app.beetlebug.fragments;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,8 +13,7 @@ import android.widget.ImageView;
 
 import app.beetlebug.FlagsOverview;
 import app.beetlebug.R;
-import app.beetlebug.ctf.BiometricActivityDeeplink;
-import app.beetlebug.ctf.InsecureLogging;
+import app.beetlebug.ctf.InsecureLoggingActivity;
 
 
 public class SensitiveDataFragment extends Fragment {
@@ -30,13 +28,13 @@ public class SensitiveDataFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sensitive_data, container, false);
 
-        mBackButton = view.findViewById(R.id.arrowLeft);
+        mBackButton = view.findViewById(R.id.back);
         mButton = view.findViewById(R.id.button);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ctf_intent = new Intent(getActivity(), InsecureLogging.class);
+                Intent ctf_intent = new Intent(getActivity(), InsecureLoggingActivity.class);
                 startActivity(ctf_intent);
             }
         });

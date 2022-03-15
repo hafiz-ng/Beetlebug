@@ -151,7 +151,7 @@
                     android:id="@+id/imageViewWebView"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/browser" />
+                    android:src="@drawable/www" />
 
                 <TextView
                     android:id="@+id/textViewWebViewFlag"

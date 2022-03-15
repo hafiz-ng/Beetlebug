@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.beetlebug">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +14,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
         <activity
-            android:name=".ctf.InsecureLogging"
+            android:name=".ctf.WebViewXSSActivity"
             android:exported="true" />
         <activity
-            android:name=".auth.UserSignUp"
+            android:name=".ctf.DeeplinkAccountActivity"
             android:exported="true">
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="beetlebug"
+                    android:path="/account"
+                    android:scheme="app" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ctf.RegistrationWebView"
+            android:exported="true" />
+        <activity android:name=".ctf.FirebaseDatabaseActivity" />
+        <activity
+            android:name=".ctf.SQLInjectionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".user.UserProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ctf.WebViewURLActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ctf.InsecureDeepLinkActivity"
+            android:exported="true" />
+        <activity android:name=".ctf.EmbeddedSecretSourceCode" />
+        <activity android:name=".ctf.EmbeddedSecretStrings" />
+        <activity
+            android:name=".ctf.InsecureLoggingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".user.UserSignUp"
+            android:exported="true"></activity>
         <activity
             android:name=".Walkthrough"
             android:exported="true">
@@ -25,7 +62,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ctf.InsecureStorageExternal"
@@ -38,7 +74,7 @@
             android:exported="true" />
         <activity
             android:name=".ctf.BiometricActivityDeeplink"
-            android:exported="true" />
+            android:exported="true"></activity>
         <activity
             android:name=".ctf.VulnerableService"
             android:exported="true" />
@@ -56,9 +92,6 @@
             android:exported="true" />
         <activity
             android:name=".FlagsOverview"
-            android:exported="true" />
-        <activity
-            android:name=".FingerPrintActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
