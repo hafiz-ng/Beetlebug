@@ -28,20 +28,20 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linear_layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:orientation="horizontal"
-        android:id="@+id/linear_layout2"
-        android:padding="16dp"
-        android:layout_below="@+id/toolbar">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="16dp"
             android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
             android:text="Hint: "
             android:textAlignment="center"
             android:textColor="@color/green"
@@ -52,62 +52,116 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="16dp"
             android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
             android:text="You can bypass an exported Android Activity component using adb or drozer"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="285dp"
+        android:id="@+id/linear_layout3"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout2"
         android:layout_centerInParent="true"
-        android:background="@drawable/rectangle_green"
         android:orientation="vertical">
 
-
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edit_text"
-            android:drawableStart="@drawable/baseline_person_24"
-            android:ems="10"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:hint=" Username"
-            android:inputType="textPersonName"
-            android:paddingLeft="11dp"
-            android:paddingRight="12dp"
-            android:textSize="17dp" />
+            android:text="Enter your passcode"
+            android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edit_text"
-            android:drawableStart="@drawable/baseline_person_24"
-            android:ems="10"
-            android:fontFamily="@font/kanit_regular"
-            android:hint=" Password"
-            android:inputType="textPassword"
-            android:paddingLeft="11dp"
-            android:paddingRight="12dp"
-            android:textSize="17dp" />
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="50dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text"
+                android:ems="2"
+                android:fontFamily="@font/kanit_regular"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="12dp"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="50dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text"
+                android:ems="2"
+                android:fontFamily="@font/kanit_regular"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="12dp"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="50dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text"
+                android:ems="2"
+                android:fontFamily="@font/kanit_regular"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="12dp"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="50dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text"
+                android:ems="2"
+                android:fontFamily="@font/kanit_regular"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="12dp"
+                android:textSize="17dp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"
             android:layout_width="320dp"
             android:layout_height="65dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="22dp"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
-            android:onClick="saveDetails"
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/black"
@@ -121,30 +175,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp">
+        android:layout_below="@+id/linear_layout3"
+        android:orientation="horizontal">
 
         <EditText
-            android:hint=" Enter Flag"
-            android:layout_width="200dp"
+            android:id="@+id/editTextFlag"
+            android:layout_width="209dp"
             android:layout_height="65dp"
-            android:textSize="17dp"
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/kanit_regular"
-            android:id="@+id/editTextFlag"/>
+            android:hint=" Enter Flag"
+            android:textSize="17dp" />
 
 
         <Button
-            android:id="@+id/buttonCaptureFlag"
+            android:id="@+id/buttonFlag"
             android:layout_width="130dp"
             android:layout_height="65dp"
-            android:text="Submit"
-            android:onClick="captureFlag"
-            android:textColor="@android:color/black"
-            android:textAllCaps="false"
             android:background="@drawable/rectangle_yellow"
-            android:fontFamily="@font/kanit_regular"/>
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="captureFlag"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 </RelativeLayout>

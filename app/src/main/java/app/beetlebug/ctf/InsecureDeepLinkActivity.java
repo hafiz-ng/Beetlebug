@@ -40,6 +40,7 @@ public class InsecureDeepLinkActivity extends AppCompatActivity {
                     m_deeplink.setError("Enter Deeplink URI");
                     return;
                 }
+
                 Intent i = new Intent("android.intent.action.VIEW");
                 i.setData(Uri.parse(data));
                 try {

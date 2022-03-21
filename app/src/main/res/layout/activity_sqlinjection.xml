@@ -26,22 +26,21 @@
     </RelativeLayout>
 
 
-
     <LinearLayout
+        android:id="@+id/linear_layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:orientation="horizontal"
-        android:id="@+id/linear_layout2"
-        android:padding="16dp"
-        android:layout_below="@+id/toolbar">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="16dp"
             android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
             android:text="Hint: "
             android:textAlignment="center"
             android:textColor="@color/green"
@@ -60,6 +59,48 @@
 
     </LinearLayout>
 
+
+    <EditText
+        android:id="@+id/editTextSearchUser"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/linear_layout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text"
+        android:ems="10"
+        android:fontFamily="@font/kanit_regular"
+        android:hint=" Enter Username"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textSize="17dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/editTextSearchUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/rectangle_yellow"
+        android:fontFamily="@font/kanit_regular"
+        android:onClick="search"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:cornerRadius="14dp" />
+
+    <TextView
+        android:id="@+id/textViewSqliResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/kanit_light"
+        android:textSize="16sp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="30dp" />
 
 
     <LinearLayout

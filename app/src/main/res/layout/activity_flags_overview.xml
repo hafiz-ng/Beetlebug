@@ -69,9 +69,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-3dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginBottom="-1dp">
+        android:layout_marginBottom="-2dp">
 
         <include layout="@layout/flags_overview" />
 

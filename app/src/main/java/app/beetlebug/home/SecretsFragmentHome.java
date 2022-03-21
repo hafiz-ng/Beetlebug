@@ -42,7 +42,7 @@ public class SecretsFragmentHome extends Fragment {
         m_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), EmbeddedSecretSourceCode.class);
+                Intent i = new Intent(getActivity(), EmbeddedSecretStrings.class);
                 startActivity(i);
             }
         });
@@ -50,7 +50,7 @@ public class SecretsFragmentHome extends Fragment {
         m_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), EmbeddedSecretStrings.class);
+                Intent i = new Intent(getActivity(), EmbeddedSecretSourceCode.class);
                 startActivity(i);
             }
         });

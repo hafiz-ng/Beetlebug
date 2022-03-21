@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".ctf.InsecureStorageExternal">
 
     <RelativeLayout
@@ -62,14 +64,14 @@
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="285dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:layout_centerInParent="true"
         android:background="@drawable/rectangle_green"
         android:orientation="vertical">
-
-
         <EditText
             android:id="@+id/editTextIRSId"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
@@ -85,7 +87,7 @@
 
         <EditText
             android:id="@+id/editTextPassword"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
@@ -98,6 +100,39 @@
             android:paddingLeft="11dp"
             android:paddingRight="12dp"
             android:textSize="17dp" />
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextIRSId"-->
+<!--            android:layout_width="320dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@drawable/edit_text"-->
+<!--            android:drawableStart="@drawable/baseline_person_24"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/kanit_regular"-->
+<!--            android:hint=" IRS User ID"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:paddingLeft="11dp"-->
+<!--            android:paddingRight="12dp"-->
+<!--            android:textSize="17dp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextPassword"-->
+<!--            android:layout_width="320dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@drawable/edit_text"-->
+<!--            android:drawableStart="@drawable/baseline_person_24"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/kanit_regular"-->
+<!--            android:hint=" Password"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:paddingLeft="11dp"-->
+<!--            android:paddingRight="12dp"-->
+<!--            android:textSize="17dp" />-->
 
         <Button
             android:id="@+id/button"
@@ -121,6 +156,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:id="@+id/flagLayout"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:orientation="horizontal">

@@ -12,12 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import app.beetlebug.FlagsOverview;
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.ctf.VulnerableBroadcastReceiver;
-import app.beetlebug.ctf.VulnerableService;
+import app.beetlebug.ctf.VulnerableServiceActivity;
 
 
 public class AndroidComponentsHome extends Fragment {
@@ -69,7 +68,7 @@ public class AndroidComponentsHome extends Fragment {
         mButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ctf_intent3 = new Intent(getActivity(), VulnerableService.class);
+                Intent ctf_intent3 = new Intent(getActivity(), VulnerableServiceActivity.class);
                 startActivity(ctf_intent3);
             }
         });

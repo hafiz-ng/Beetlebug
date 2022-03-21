@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     tools:context=".user.UserProfileActivity"
+    android:padding="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -69,10 +70,10 @@
             android:id="@+id/divider"
             android:layout_width="200dp"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:background="?android:attr/listDivider" />
 
         <TextView
@@ -80,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="22dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/kanit_regular"
             android:text="Flags Captured"
@@ -90,21 +91,53 @@
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginTop="4dp"
             android:layout_gravity="center"
+            android:layout_marginTop="4dp"
             android:layout_toRightOf="@id/flag_score"
-            android:src="@drawable/flag5"/>
+            android:src="@drawable/flag5" />
 
         <TextView
+            android:id="@+id/flag_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/kanit_light"
             android:text="0/16"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:id="@+id/flag_score"
-            android:textColor="#9e9e9e"/>
+            android:textColor="#9e9e9e"
+            android:textSize="24sp" />
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:background="@drawable/card_line2"-->
+        <!--            android:gravity="center"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="30dp"-->
+        <!--            android:paddingRight="30dp">-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="50dp"-->
+        <!--                android:layout_height="50dp"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginRight="20dp"-->
+        <!--                android:src="@drawable/beetle10" />-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="80dp"-->
+        <!--                android:layout_height="80dp"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginRight="20dp"-->
+        <!--                android:src="@drawable/beetle11" />-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="120dp"-->
+        <!--                android:layout_height="120dp"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:src="@drawable/beetle3" />-->
+        <!--        </LinearLayout>-->
+
     </LinearLayout>
 
 

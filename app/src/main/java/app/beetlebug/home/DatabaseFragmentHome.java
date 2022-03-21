@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import app.beetlebug.FlagsOverview;
 import app.beetlebug.MainActivity;
@@ -20,7 +23,7 @@ import app.beetlebug.ctf.SQLInjectionActivity;
 public class DatabaseFragmentHome extends Fragment {
     ImageView m_back_btn;
     Button m_btn, m_btn2;
-
+    SharedPreferences sharedPreferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +33,15 @@ public class DatabaseFragmentHome extends Fragment {
         m_back_btn = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
         m_btn2 = view.findViewById(R.id.button2);
+
+
+        sharedPreferences = getContext().getSharedPreferences("flag_score", 0);
+        boolean status = sharedPreferences.getBoolean("ctf_status_firebase", false);
+        Toast.makeText(getContext(), "Boolean result: " + status, Toast.LENGTH_LONG).show();
+        if(!status) {
+            m_btn2.setText("Done");
+            m_btn2.setEnabled(false);
+        }
 
 
         m_back_btn.setOnClickListener(new View.OnClickListener() {

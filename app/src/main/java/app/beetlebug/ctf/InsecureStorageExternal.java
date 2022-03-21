@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.File;
@@ -28,6 +29,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
     EditText m_pass, m_userIrs;
     public static String sqli_pref = "sqli_pref";
     public static String m_score = "score";
+    LinearLayout mFlagLayout;
 
 
     SharedPreferences sharedPreferences;
@@ -38,6 +40,9 @@ public class InsecureStorageExternal extends AppCompatActivity {
         setContentView(R.layout.activity_insecure_storage_external);
         m_pass = findViewById(R.id.editTextPassword);
         m_userIrs = findViewById(R.id.editTextIRSId);
+        mFlagLayout = findViewById(R.id.flagLayout);
+
+        mFlagLayout.setVisibility(View.GONE);
 
         sharedPreferences = getSharedPreferences(sqli_pref, Context.MODE_PRIVATE);
 
@@ -79,13 +84,14 @@ public class InsecureStorageExternal extends AppCompatActivity {
 
     public void saveCreds(View view) {
         // Requesting Permission to access External Storage
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                EXTERNAL_STORAGE_PERMISSION_CODE);
+
         StringBuilder sb = new StringBuilder();
         sb.append(m_pass.getText().toString());
         sb.append(m_userIrs.getText().toString());
         String data = sb.toString();
 
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                EXTERNAL_STORAGE_PERMISSION_CODE);
 
         // getExternalStoragePublicDirectory() represents root of external storage, we are using DOWNLOADS
         // We can use following directories: MUSIC, PODCASTS, ALARMS, RINGTONES, NOTIFICATIONS, PICTURES, MOVIES

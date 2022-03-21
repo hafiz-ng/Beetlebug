@@ -1,6 +1,5 @@
 package app.beetlebug;
 
-import static app.beetlebug.MainActivity.flag_result;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ShareCompat;
@@ -24,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.fragments.AndroidComponentsFragment;
@@ -39,12 +39,13 @@ import app.beetlebug.utils.CustomProgressBar;
 public class FlagsOverview extends AppCompatActivity {
 
 
+
     ImageView mBackButton;
     ScrollView mScrollView;
     RelativeLayout mToolbar;
     Button mfinish;
 
-    CustomProgressBar dailyProgressBar1;
+    CustomProgressBar insecureStorageProgressBar;
     CustomProgressBar dailyProgressBar2;
 
     SharedPreferences sharedPreferences;
@@ -56,11 +57,11 @@ public class FlagsOverview extends AppCompatActivity {
         mBackButton = findViewById(R.id.arrowLeft);
         mScrollView = findViewById(R.id.scrollview_flags);
         mToolbar = findViewById(R.id.toolbar);
-        dailyProgressBar1 = findViewById(R.id.insecure_storage_bar);
+        insecureStorageProgressBar = findViewById(R.id.insecure_storage_bar);
         dailyProgressBar2 = findViewById(R.id.progress_bar_webview);
         mfinish = findViewById(R.id.finish_button);
 
-
+        sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         if(Build.VERSION.SDK_INT>=21){
             Window window=this.getWindow();
@@ -90,10 +91,8 @@ public class FlagsOverview extends AppCompatActivity {
                 finish_dialog.getWindow().setGravity(Gravity.BOTTOM);
             }
         });
-
         setupProgress2();
-        setupProgressBar();
-
+        setupProgressBarInsecureStorage();
     }
 
     public void inSecureStorage (View v) {
@@ -105,7 +104,7 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    public void biometricAuthentication (View v) {
+    public void biometricAuth (View v) {
         mScrollView.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
         Fragment fragment = new BiometricFragment();
@@ -144,9 +143,18 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    private void setupProgressBar() {
-        int dailyXp = 25;
-        dailyProgressBar1.setProgressWithAnimation(dailyXp, 2000);
+    private void setupProgressBarInsecureStorage() {
+        int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
+        int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
+
+        int total_score = secret_source_score + secret_string_score;
+//        Toast.makeText(FlagsOverview.this, "Total Score: " + total_score, Toast.LENGTH_LONG).show();
+        String total_string = Integer.toString(total_score);
+        if(total_string.equals("9")) {
+            insecureStorageProgressBar.setProgressWithAnimation(50, 2000);
+        } else if (total_string.equals("18")){
+            insecureStorageProgressBar.setProgressWithAnimation(100, 2000);
+        }
     }
 
     private void setupProgress2() {
@@ -163,7 +171,7 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    public void networkComCTF(View view) {
+    public void networkCom(View view) {
         mScrollView.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
         Fragment fragment = new NetworkFragment();

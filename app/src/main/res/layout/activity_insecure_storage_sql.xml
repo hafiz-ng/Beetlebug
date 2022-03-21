@@ -25,22 +25,21 @@
     </RelativeLayout>
 
 
-
     <LinearLayout
+        android:id="@+id/linear_layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:orientation="horizontal"
-        android:id="@+id/linear_layout2"
-        android:padding="16dp"
-        android:layout_below="@+id/toolbar">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="16dp"
             android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
             android:text="Hint: "
             android:textAlignment="center"
             android:textColor="@color/green"
@@ -51,8 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="16dp"
             android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
             android:text="Find out how sensitive credentials is being stored in plaintext, without encryption"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />

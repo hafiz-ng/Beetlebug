@@ -13,13 +13,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // define constants that represent the table name columns in our database
 
-    // table name
     public static final String TABLE_NAME = "USER";
 
-    // table columns
     public static final String _ID = "_id";
     public static final String NAME = "name";
     public static final String PASSWORD = "password";
+
+    // TODO: Create constant for flag
 
     // database info
     static final String DB_NAME = "user_info.db";
@@ -57,6 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // remember you have to call the getWritableDatabase before you perform any operation on the database
         database = this.getWritableDatabase();
     }
+
 
     public void close() {
         database.close();

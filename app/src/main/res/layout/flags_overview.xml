@@ -174,7 +174,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="34dp"
                     android:layout_marginTop="3dp"
-                    android:onClick="networkComCTF" />
+                    android:onClick="biometricAuth" />
 
                 <ImageView
                     android:layout_width="36dp"
@@ -182,7 +182,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="56dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="26dp"
                     android:src="@drawable/fingerprint" />
 
                 <TextView
@@ -290,7 +290,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="0dp"
-                    android:onClick="biometricAuthentication" />
+                    android:onClick="networkCom" />
 
                 <ImageView
                     android:layout_width="37dp"
@@ -299,7 +299,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="62dp"
                     android:layout_marginTop="22dp"
-                    android:src="@drawable/fingerprint" />
+                    android:src="@drawable/net" />
 
                 <TextView
                     style="@style/lesson_bar_text"
@@ -309,7 +309,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/kanit_regular"
-                    android:text="Biometric Authentication"
+                    android:text="Network Comm."
                     android:textAlignment="center" />
 
             </RelativeLayout>

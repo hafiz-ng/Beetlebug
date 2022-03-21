@@ -91,5 +91,4 @@
         android:textSize="17sp"
         app:cornerRadius="14dp" />
 
-
 </RelativeLayout>

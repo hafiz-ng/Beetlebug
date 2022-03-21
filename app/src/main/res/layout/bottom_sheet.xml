@@ -3,24 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_background"
     tools:context=".FlagsOverview">
 
-
-    <TextView
-        style="@style/lesson_bar_text"
-        android:layout_below="@+id/bottom_sheet_title"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
-        android:fontFamily="@font/kanit_regular"
-        android:text="Congratulations!"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        app:lottie_rawRes="@raw/welldone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
     <TextView
         android:id="@+id/bottom_sheet_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:textAlignment="center"

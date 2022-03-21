@@ -61,7 +61,7 @@ public class InsecureStorageSQLite extends AppCompatActivity {
             int user_score_sqlite = 9;
 
             myHelper.add(name, password);
-            Toast.makeText(InsecureStorageSQLite.this, "User details saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(InsecureStorageSQLite.this, "Data saved successfully", Toast.LENGTH_LONG).show();
             SharedPreferences.Editor editor = sharedPreferences.edit();
 //            editor.putString(m_name, name);
 //            editor.putString(m_password, password);
