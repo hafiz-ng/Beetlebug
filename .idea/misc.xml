@@ -12,7 +12,7 @@
         <entry key="app/src/main/res/drawable/rectangle_green.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/rectangle_yellow.xml" value="0.161" />
         <entry key="app/src/main/res/layout/activity_biometric.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_biometric_frida.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_biometric_frida.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_deeplink_account.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_embedded_secert_source_code.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/activity_embedded_secret_source_code.xml" value="0.25" />

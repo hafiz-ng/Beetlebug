@@ -116,7 +116,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Identify sensitive data stored on the device memory"
+            android:text="Bypass fingerprint authentication if the app accept NULL cryptoObject in onAuthenticationSucceeded(...)"
             android:textSize="14sp" />
 
         <Button

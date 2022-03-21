@@ -76,7 +76,7 @@
         android:textSize="17dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_below="@+id/editTextSearchUser"
@@ -95,7 +95,7 @@
         android:id="@+id/textViewSqliResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/save"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/kanit_light"
         android:textSize="16sp"
@@ -106,28 +106,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <EditText
-            android:hint=" Enter Flag"
-            android:layout_width="200dp"
+            android:id="@+id/flag"
+            android:layout_width="0dp"
             android:layout_height="65dp"
-            android:textSize="17dp"
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
+            android:layout_weight="0.5"
             android:fontFamily="@font/kanit_regular"
-            android:id="@+id/editTextFlag"/>
+            android:hint=" Enter Flag"
+            android:textSize="17dp" />
 
 
         <Button
-            android:id="@+id/buttonCaptureFlag"
-            android:layout_width="130dp"
+            android:id="@+id/button"
+            android:layout_width="0dp"
             android:layout_height="65dp"
+            android:layout_weight="0.5"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
-            android:onClick="captureFlag"
             android:text="Submit"
             android:textAllCaps="false"
             android:textColor="@android:color/black" />

@@ -37,7 +37,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "com.airbnb.android:lottie:3.4.0"
     implementation 'com.google.firebase:firebase-database:20.0.3'
-
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
     implementation 'com.google.gms:google-services:4.3.10'
 
     testImplementation 'junit:junit:4.13.2'

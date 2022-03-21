@@ -47,8 +47,9 @@ public class FlagCaptured extends AppCompatActivity {
         int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
         int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
         int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
-
-        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + firebase_score;
+        int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + firebase_score
+                + sqli_score;
 
         String str_score = Integer.toString(total_score);
         m_total_ctf_points.setText(str_score + "XP");
