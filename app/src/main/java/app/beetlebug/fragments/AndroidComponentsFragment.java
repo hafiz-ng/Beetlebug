@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import app.beetlebug.FlagsOverview;
 import app.beetlebug.R;
+import app.beetlebug.ctf.InsecureContentProvider;
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.ctf.VulnerableBroadcastReceiver;
 import app.beetlebug.ctf.VulnerableServiceActivity;
@@ -21,7 +22,7 @@ import app.beetlebug.ctf.VulnerableServiceActivity;
 
 public class AndroidComponentsFragment extends Fragment {
 
-    Button mButton, mButton2, mButton3;
+    Button mButton, mButton2, mButton3, mButton4;
     TextView mCtfTitle;
 
     ImageView mBackButton;
@@ -40,6 +41,8 @@ public class AndroidComponentsFragment extends Fragment {
         mButton = view.findViewById(R.id.button);
         mButton2 = view.findViewById(R.id.button2);
         mButton3 = view.findViewById(R.id.button3);
+        mButton4 = view.findViewById(R.id.button4);
+
         mCtfTitle = view.findViewById(R.id.textViewComponentsTitle);
         mBackButton = view.findViewById(R.id.arrowLeft);
 
@@ -73,6 +76,14 @@ public class AndroidComponentsFragment extends Fragment {
             public void onClick(View v) {
                 Intent ctf_intent3 = new Intent(getActivity(), VulnerableServiceActivity.class);
                 startActivity(ctf_intent3);
+            }
+        });
+
+        mButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ctf_intent4 = new Intent(getActivity(), InsecureContentProvider.class);
+                startActivity(ctf_intent4);
             }
         });
 

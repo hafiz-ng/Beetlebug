@@ -37,9 +37,9 @@
         android:layout_width="400dp"
         android:layout_height="148dp"
         android:layout_marginTop="87dp"
-        android:padding="10dp"
         android:layout_marginBottom="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/ctfTitle"
@@ -86,7 +86,6 @@
         android:layout_below="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
         android:background="?android:attr/listDivider" />
-
 
 
     <RelativeLayout

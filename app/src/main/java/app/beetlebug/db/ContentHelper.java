@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ContentHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "pivaaDB";
+    private static final String DATABASE_NAME = "beetleDB";
     private static final String TABLE_DATA = "data";
     // Table Columns names
     private static final String KEY_ID = "id";
@@ -210,7 +210,6 @@ public class ContentHelper extends SQLiteOpenHelper {
      */
     public String rawSQLQuery(String query) {
 
-
         StringBuilder sb = new StringBuilder();
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -238,7 +237,6 @@ public class ContentHelper extends SQLiteOpenHelper {
         return sb.toString();
     }
 
-
     /**
      * Raw SQL Query
      * @param query
@@ -259,7 +257,6 @@ public class ContentHelper extends SQLiteOpenHelper {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

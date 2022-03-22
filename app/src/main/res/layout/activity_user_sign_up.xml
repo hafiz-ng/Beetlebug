@@ -41,20 +41,20 @@
         android:layout_below="@+id/imageView"/>
 
 
-
-
     <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="285dp"
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
         android:layout_below="@+id/textViewTitle"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
         android:background="@drawable/rectangle_green"
         android:orientation="vertical">
 
 
         <EditText
             android:id="@+id/editTextUsername"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
@@ -64,37 +64,23 @@
             android:fontFamily="@font/kanit_regular"
             android:hint=" Username"
             android:inputType="textPersonName"
-            android:paddingLeft="11dp"
-            android:paddingRight="12dp"
-            android:textSize="17dp" />
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edit_text"
-            android:drawableStart="@drawable/baseline_person_24"
-            android:ems="10"
-            android:fontFamily="@font/kanit_regular"
-            android:hint=" Password"
-            android:inputType="textPassword"
-            android:paddingLeft="11dp"
+            android:paddingLeft="12dp"
             android:paddingRight="12dp"
             android:textSize="17dp" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
             android:onClick="buttonSignUp"
             android:text="Sign Up"
             android:textAllCaps="false"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:cornerRadius="14dp" />

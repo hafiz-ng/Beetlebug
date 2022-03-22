@@ -61,7 +61,7 @@
 
 
     <EditText
-        android:id="@+id/editTextSearchUser"
+        android:id="@+id/username"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_below="@+id/linear_layout2"
@@ -79,7 +79,7 @@
         android:id="@+id/save"
         android:layout_width="320dp"
         android:layout_height="65dp"
-        android:layout_below="@+id/editTextSearchUser"
+        android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:background="@drawable/rectangle_yellow"

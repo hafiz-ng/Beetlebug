@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
@@ -73,7 +72,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
     }
 
     public void search(View view) {
-        EditText search_text = (EditText) findViewById(R.id.editTextSearchUser);
+        EditText search_text = (EditText) findViewById(R.id.username);
         Cursor cr = null;
         try {
             cr = mDB.rawQuery("SELECT * FROM sqliuser WHERE user = '" + search_text.getText().toString() + "'", null);

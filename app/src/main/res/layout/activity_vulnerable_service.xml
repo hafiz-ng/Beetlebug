@@ -52,37 +52,10 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Attention should be given to the exported services, as without the specific permissions, they can be used by any other application including malicious ones."
+            android:text="To start service, type the following in the adb console: adb shell startservice app.beetlebug/.handlers/VulnerableService"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linear_layout3"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_below="@+id/linear_layout2"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/card_line2"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/kanit_regular"
-            android:text="To start service, type the following in the adb console"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/kanit_regular"
-            android:text="adb shell am startservice app.beetle/.handlers.VulnerableService" />
-        
     </LinearLayout>
 
 
@@ -110,7 +83,7 @@
 
 
     <LinearLayout
-        android:layout_below="@+id/linear_layout3"
+        android:layout_below="@+id/linear_layout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"

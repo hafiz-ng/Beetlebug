@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.beetlebug">
+    package="app.beetlebug" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +12,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Beetlebug">
+        android:theme="@style/Theme.Beetlebug" >
+        <activity
+            android:name=".ctf.InsecureContentProvider"
+            android:exported="false" />
+
+        <provider
+            android:name=".handlers.VulnerableContentProvider"
+            android:authorities="app.beetlebug.provider"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".ctf.SSLPinningByPassActivity"
             android:exported="true" />
@@ -21,7 +31,7 @@
             android:exported="true" />
         <activity
             android:name=".ctf.DeeplinkAccountActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -51,7 +61,7 @@
         <activity android:name=".user.UserSignUp" />
         <activity
             android:name=".Walkthrough"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,19 +95,24 @@
             android:name=".MainActivity"
             android:exported="true" />
 
-        <provider
-            android:name=".ctf.VulnerableContentProvider"
-            android:authorities="app.beetlebug"
-            android:enabled="true"
-            android:exported="true"
-            android:grantUriPermissions="true"
-            android:protectionLevel="dangerous" />
-
         <service
             android:name=".handlers.VulnerableService"
             android:enabled="true"
             android:exported="true"
             android:protectionLevel="dangerous" />
+
+        <provider
+            android:name="app.beetlebug.handlers.VulnerableContentProvider"
+            android:authorities="app.beetlebug.provider"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver android:name=".handlers.VulnerableReceiver" android:protectionLevel="dangerous" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="vulnerable.vulnerablereceiver.LOG" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

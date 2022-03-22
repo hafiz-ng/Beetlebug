@@ -35,9 +35,9 @@
         android:paddingBottom="@dimen/activity_vertical_margin">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/linear_layout2"
@@ -72,37 +72,35 @@
 
             </LinearLayout>
 
-
-            <EditText
-                android:id="@+id/editTextURI"
-                android:layout_width="320dp"
-                android:layout_height="65dp"
-                android:layout_marginTop="70dp"
-                android:background="@drawable/edit_text"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/kanit_regular"
-                android:hint="app://beetlebug/"
-                android:inputType="textUri"
-                android:textSize="17dp" />
+                android:text="Send GET request to https://example.com" />
 
             <Button
-                android:id="@+id/buttonGoToUri"
+                android:id="@+id/send"
                 android:layout_width="320dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rectangle_yellow"
                 android:fontFamily="@font/kanit_regular"
-                android:text="Go to URI"
+                android:text="Send Request"
                 android:textAllCaps="false"
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
-
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/kanit_regular" />
 
 
 

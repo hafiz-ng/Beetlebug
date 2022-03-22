@@ -60,7 +60,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Identify where sensitive information is stored within an application"
+            android:text="Weak Deeplink implementation can result to by-pass of Biometric Authentication"
             android:textSize="14sp" />
 
         <Button
@@ -90,12 +90,12 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="148dp"
-        android:padding="10dp"
+        android:layout_below="@+id/divider"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
-        android:layout_below="@+id/divider">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/ctfTitle2"
@@ -110,7 +110,7 @@
 
         <TextView
             android:id="@+id/textDescription2"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ctfTitle2"
             android:layout_marginLeft="15dp"

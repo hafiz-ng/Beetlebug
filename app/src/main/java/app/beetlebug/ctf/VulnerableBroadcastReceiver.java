@@ -2,25 +2,33 @@ package app.beetlebug.ctf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 
 import app.beetlebug.R;
 
 public class VulnerableBroadcastReceiver extends AppCompatActivity {
 
-    private String location;
-    private WebView webView;
+    private String input_broadcast = "2000";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vulnerable_broadcast_receiver);
-        webView = (WebView) findViewById(R.id.webView);
 
         if(Build.VERSION.SDK_INT>=21){
             Window window=this.getWindow();
@@ -29,11 +37,16 @@ public class VulnerableBroadcastReceiver extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
-        location = this.getExternalFilesDir(null) + "/broadcast.html";
-        webView.loadUrl("file://" + location);
+
+
     }
 
-    public void buttonBack(View view) {
+    public void sendBroadcastData(View view) {
+        Intent intent = new Intent(getApplicationContext(), VulnerableBroadcastReceiver.class);
+        intent.setAction("vulnerable.vulnerablereceiver.LOG");
+        intent.putExtra("data", input_broadcast);
+
+        sendBroadcast(intent);
 
     }
 }

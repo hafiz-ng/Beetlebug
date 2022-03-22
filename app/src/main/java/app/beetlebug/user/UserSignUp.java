@@ -37,7 +37,7 @@ public class UserSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sign_up);
         m_username = findViewById(R.id.editTextUsername);
-        m_password = findViewById(R.id.editTextPassword);
+//        m_password = findViewById(R.id.editTextPassword);
 
         sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
 
@@ -60,11 +60,11 @@ public class UserSignUp extends AppCompatActivity {
     public void buttonSignUp(View view) {
 
         String username = m_username.getText().toString();
-        String pass = m_password.getText().toString();
+//        String pass = m_password.getText().toString();
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("user", username);
-        editor.putString("password", encrypt(pass));
+//        editor.putString("password", encrypt(pass));
         editor.putBoolean("is_logged_in", true);
         editor.apply();
 
@@ -82,10 +82,10 @@ public class UserSignUp extends AppCompatActivity {
             return false;
         }
 
-        if (m_password.length() == 0) {
-            m_password.setError("This field is required");
-            return false;
-        }
+//        if (m_password.length() == 0) {
+//            m_password.setError("This field is required");
+//            return false;
+//        }
         return true;
 
     }
