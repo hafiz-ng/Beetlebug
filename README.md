@@ -8,8 +8,8 @@ Beetlebug is an open source insecure Android application with CTF challenges bui
 
 - Insecure Data Storage
 - Sensitive Information Disclosure
-- Vulnerable Android IPC Components (Broadcast Receivers, Servers & Content Providers)
-- Exploiting Webview
+- Vulnerable Android IPC Components (Broadcast Receivers, Services & Content Providers)
+- Exploiting Webviews
 - Fingerprint Authentication By-pass
 - Insecure Deeplinks
 - Firebase Database Misconfiguration
