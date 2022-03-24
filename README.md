@@ -1,7 +1,7 @@
 ![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/github_header.png)
 
 # Beetlebug
-Beetlebug is an open source insecure Android application with CTF challenges built for Android Penetration Testers, Bug Bounty hunters and Mobile Security enthusiasts. 
+Beetlebug is an open source insecure Android application with CTF challenges built for Android Penetration Testers, Bug hunters and Mobile Security enthusiasts. 
 
 
 ## Vulnerabilities and CTF Challenges include:
@@ -16,4 +16,4 @@ Beetlebug is an open source insecure Android application with CTF challenges bui
 - SQLite Injection
 - PIN Py-pass
 
-[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](https://pages.github.com/)
+[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](#)
