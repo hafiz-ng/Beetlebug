@@ -25,26 +25,24 @@ import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
 public class InsecureStorageExternal extends AppCompatActivity {
-    private int EXTERNAL_STORAGE_PERMISSION_CODE = 23;
-    EditText m_pass, m_userIrs;
-    public static String sqli_pref = "sqli_pref";
-    public static String m_score = "score";
+    EditText m_pass, m_email;
+    public static String flag_scores = "flag_scores";
+    public static String ctf_score_external = "ctf_score_external";
     LinearLayout mFlagLayout;
 
 
     SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences_ext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insecure_storage_external);
-        m_pass = findViewById(R.id.editTextPassword);
-        m_userIrs = findViewById(R.id.editTextIRSId);
         mFlagLayout = findViewById(R.id.flagLayout);
 
         mFlagLayout.setVisibility(View.GONE);
 
-        sharedPreferences = getSharedPreferences(sqli_pref, Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
 
         boolean isAvailable= false;
         boolean isWritable= false;
@@ -77,39 +75,46 @@ public class InsecureStorageExternal extends AppCompatActivity {
         }
     }
 
-    public void captureFlag(View view) {
-        Intent ctf_captured = new Intent(InsecureStorageExternal.this, FlagCaptured.class);
-        startActivity(ctf_captured);
-    }
-
     public void saveCreds(View view) {
-        // Requesting Permission to access External Storage
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(m_pass.getText().toString());
-        sb.append(m_userIrs.getText().toString());
-        String data = sb.toString();
+        m_pass = findViewById(R.id.editTextPassword);
+        m_email = findViewById(R.id.editTextEmail);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                EXTERNAL_STORAGE_PERMISSION_CODE);
+        String email = m_email.getText().toString();
+        String pass = m_pass.getText().toString();
+        int user_score_external_str = 9;
+        String ctf_status = "external_str_ctf_status";
+        mFlagLayout.setVisibility(View.VISIBLE);
 
-        // getExternalStoragePublicDirectory() represents root of external storage, we are using DOWNLOADS
-        // We can use following directories: MUSIC, PODCASTS, ALARMS, RINGTONES, NOTIFICATIONS, PICTURES, MOVIES
-        File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_RINGTONES);
-//        File folder = Environment.getExternalStorageDirectory();
 
-        // Storing the data in file with name as UserIdData.txt
-        File file = new File(folder, "irs_data.txt");
-        writeTextData(file, data);
+        if (email.isEmpty()) {
+            Toast.makeText(InsecureStorageExternal.this, "Enter your email", Toast.LENGTH_SHORT).show();
+            m_email.setError("Email cannot be blank");
+        } else if (pass.isEmpty()){
+            m_pass.setError("Enter your password");
+        } else {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Pass: " + pass);
+            sb.append("\n");
+            sb.append("Email: " + email);
+            sb.append("\n");
+            sb.append("flag 3: 0xe982c04");
+            String data = sb.toString();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt(ctf_score_external, user_score_external_str);
+            editor.putBoolean(ctf_status, true);
 
-        Toast.makeText(this, "Data saved to" + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
-        int my_score = 50;
+            // getExternalStoragePublicDirectory() represents root of external storage, we are using DOWNLOADS
+            // We can use following directories: MUSIC, PODCASTS, ALARMS, RINGTONES, NOTIFICATIONS, PICTURES, MOVIES
+            File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-        // write to shared preferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(m_score, my_score);
-        editor.commit();
+            // Storing the data in file with name as beetle-user.log
+            File file = new File(folder, "beetle-user.txt");
+            writeTextData(file, data);
+            Toast.makeText(this, "Data saved to" + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            editor.commit();
 
+        }
 
     }
 
@@ -134,4 +139,24 @@ public class InsecureStorageExternal extends AppCompatActivity {
         }
     }
 
+    public void captureFlag(View view) {
+        EditText m_flag = findViewById(R.id.flag);
+        if (m_flag.getText().toString().equals("0xe982c04")) {
+            int user_score_external_str = 9;
+            String ctf_status = "external_str_ctf_status";
+
+            // save user score to shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt(ctf_score_external, user_score_external_str);
+            editor.putBoolean(ctf_status, true);
+            editor.commit();
+
+            Intent ctf_captured = new Intent(InsecureStorageExternal.this, FlagCaptured.class);
+            ctf_captured.putExtra("external_str_score_intent", user_score_external_str);
+            startActivity(ctf_captured);
+        } else {
+            Toast.makeText(InsecureStorageExternal.this, "Wrong answer", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.nio.charset.StandardCharsets;
@@ -21,15 +22,16 @@ import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
 public class InsecureStorageSharedPref extends AppCompatActivity {
-    //public static String shared_pref_file = "user_preference_data";
     public static String flag_scores = "flag_scores";
-
     public static String m_username = "username";
     public static String m_password = "password";
     public static String ctf_score_shared_pref = "ctf_score_shared_pref";
+    public static String shared_pref_flag = "shared_pref_flag";
 
     EditText et_username, et_password;
     SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences_pref;
+    LinearLayout ctf_layout;
 
 
     @Override
@@ -43,10 +45,11 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
-        //sharedPreferences = getSharedPreferences(shared_pref_file, MODE_PRIVATE);
+        sharedPreferences_pref = getSharedPreferences(shared_pref_flag, MODE_PRIVATE);
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
 
-
+        ctf_layout = (LinearLayout) findViewById(R.id.layoutCtf);
+        ctf_layout.setVisibility(View.GONE);
     }
 
 
@@ -57,23 +60,31 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
         String username = et_username.getText().toString();
         String password = et_password.getText().toString();
 
-//        if (username.isEmpty()) {
-//            Toast.makeText(InsecureStorageSharedPref.this, "Input your username", Toast.LENGTH_SHORT).show();
-//        } else {
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString(m_username, username);
-//            editor.putString(m_password, password);
-//            editor.clear();
-//            editor.commit();
-//            Toast.makeText(InsecureStorageSharedPref.this, "Saved", Toast.LENGTH_SHORT).show();
-//
-//        }
+        ctf_layout.setVisibility(View.VISIBLE);
+
+
+        if (username.isEmpty()) {
+            Toast.makeText(InsecureStorageSharedPref.this, "Input your username", Toast.LENGTH_SHORT).show();
+            et_username.setError("Username cannot be blank");
+        } if (password.isEmpty())
+            et_password.setError("Password field is empty");
+        else {
+            String pref_flg = "flag 3";
+            SharedPreferences.Editor editor = sharedPreferences_pref.edit();
+            editor.putString(m_username, username);
+            editor.putString(m_password, password);
+            editor.putString(pref_flg, "0xe982c04");
+            editor.clear();
+            editor.commit();
+            Toast.makeText(InsecureStorageSharedPref.this, "Login successful", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 
     public void captureFlag(View view) {
-        EditText m_flag = findViewById(R.id.editTextFlag);
-        if (m_flag.getText().toString().equals("flg_01")) {
+        EditText m_flag = findViewById(R.id.flag);
+        if (m_flag.getText().toString().equals("0xe982c04")) {
             int user_score_shared_pref = 9;
             String ctf_status = "shared_pref_ctf_status";
 
@@ -84,20 +95,11 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureStorageSharedPref.this, FlagCaptured.class);
+            ctf_captured.putExtra("shared_pref_score_intent", user_score_shared_pref);
             startActivity(ctf_captured);
         } else {
             Toast.makeText(InsecureStorageSharedPref.this, "Wrong answer", Toast.LENGTH_SHORT).show();
         }
 
     }
-//
-//                    if (!edit_query.getText().toString().isEmpty()) {
-//        String encode = Base64.encodeToString(edit_query.getText().toString().getBytes(), Base64.DEFAULT);
-//        text.setText(encode);
-//        byte[] data = Base64.decode(encode, Base64.DEFAULT);
-//        String text = new String(data, StandardCharsets.UTF_8);
-//        text1.setText(text);
-//    } else {
-//        Toast.makeText(MainActivity.this, "Please input text", Toast.LENGTH_SHORT).show();
-//    }
 }

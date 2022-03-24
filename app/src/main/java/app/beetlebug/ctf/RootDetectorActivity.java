@@ -2,6 +2,7 @@ package app.beetlebug.ctf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,9 +11,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,45 +46,19 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class SSLPinningByPassActivity extends AppCompatActivity  {
+public class RootDetectorActivity extends AppCompatActivity  {
 
 
-    TextView getResult;
+    TextView result;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sslpinning_by_pass);
-        OkHttpClient client = new OkHttpClient();
 
-        Request get = new Request.Builder()
-                .url("https://reqres.in/api/users?page=2")
-                .build();
-
-        client.newCall(get).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) {
-                try {
-                    ResponseBody responseBody = response.body();
-                    if (!response.isSuccessful()) {
-                        throw new IOException("Unexpected code " + response);
-                    }
-                    Log.i("data", responseBody.string());
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-
-
+        result = findViewById(R.id.rootStatus);
+        img = findViewById(R.id.rootStatusImg);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -89,6 +66,51 @@ public class SSLPinningByPassActivity extends AppCompatActivity  {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
+    }
 
+    private boolean doesSUexist() {
+        Process process = null;
+        try {
+            process = Runtime.getRuntime().exec(new String[] { "/system/bin/which", "su" });
+            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            if (in.readLine() != null) return true;
+            return false;
+        } catch (Throwable t) {
+            return false;
+        } finally {
+            if (process != null) process.destroy();
+        }
+
+    }
+
+    private boolean doesSuperuserApkExist(String s) {
+
+        File rootFile = new File("/system/app/Superuser.apk");
+        Boolean doesexist = rootFile.exists();
+        if(doesexist == true)
+        {
+            return(true);
+        }
+        else
+        {
+            return(false);
+        }
+    }
+
+    public void showRootStatus(View view) {
+        boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
+                doesSUexist();
+        if(isrooted==true)
+        {
+            result.setText("Your Device is Rooted!");
+            Drawable res = getResources().getDrawable(R.drawable.root);
+            img.setImageDrawable(res);
+        }
+        else
+        {
+            result.setText("Device not Rooted!");
+            Drawable res = getResources().getDrawable(R.drawable.no_root);
+            img.setImageDrawable(res);
+        }
     }
 }

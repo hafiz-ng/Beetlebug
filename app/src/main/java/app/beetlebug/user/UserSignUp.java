@@ -60,11 +60,9 @@ public class UserSignUp extends AppCompatActivity {
     public void buttonSignUp(View view) {
 
         String username = m_username.getText().toString();
-//        String pass = m_password.getText().toString();
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("user", username);
-//        editor.putString("password", encrypt(pass));
         editor.putBoolean("is_logged_in", true);
         editor.apply();
 
@@ -73,6 +71,8 @@ public class UserSignUp extends AppCompatActivity {
         if (isAllFieldsChecked) {
             Intent i = new Intent(UserSignUp.this, MainActivity.class);
             startActivity(i);
+            finish();
+
         }
     }
 

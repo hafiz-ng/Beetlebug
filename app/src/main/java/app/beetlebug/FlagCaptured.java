@@ -19,14 +19,14 @@ public class FlagCaptured extends AppCompatActivity {
 
 
     CustomProgressBar dailyProgressBar;
-    static TextView m_total_ctf_points;
+    TextView m_total_ctf_points, ctf_point;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flag_captured);
         m_total_ctf_points = (TextView) findViewById(R.id.totalCTFPoints);
-
+        ctf_point = (TextView) findViewById(R.id.ctfPoint);
 
         dailyProgressBar = (CustomProgressBar) findViewById(R.id.user_progress_bar);
         if(Build.VERSION.SDK_INT>=21){
@@ -35,6 +35,10 @@ public class FlagCaptured extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.default_light_grey_bg));
         }
+        // TODO: Check Beetle Points
+//        int shared_pref_score = getIntent().getExtras().getInt("shared_pref_score_intent");
+//        String flag_score = Integer.toString(shared_pref_score);
+//        ctf_point.setText(flag_score);
         setupProgressBar();
     }
 
@@ -46,14 +50,15 @@ public class FlagCaptured extends AppCompatActivity {
         int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
         int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
         int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
+        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
         int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
         int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
-        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + firebase_score
+        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
                 + sqli_score;
 
         String str_score = Integer.toString(total_score);
         m_total_ctf_points.setText(str_score + "XP");
-        Toast.makeText(FlagCaptured.this, "CTF Score: " + total_score, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(FlagCaptured.this, "CTF Score: " + total_score, Toast.LENGTH_SHORT).show();
 
         dailyProgressBar.setProgressWithAnimation(total_score, 2000);
     }

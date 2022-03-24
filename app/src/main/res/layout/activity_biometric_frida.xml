@@ -174,8 +174,8 @@
         android:layout_height="70dp"
         android:layout_below="@+id/linear_layout3"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -186,8 +186,8 @@
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Use Fingerprint"
             android:fontFamily="@font/kanit_regular"
+            android:text="Use Fingerprint"
             android:textSize="17dp" />
 
 

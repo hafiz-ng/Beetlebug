@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ctf.SSLPinningByPassActivity">
+    tools:context=".ctf.RootDetectorActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="SSL Pinning By-Pass"
+            android:text="Root Dectection"
             android:textColor="#000"
             android:textSize="27sp" />
 
@@ -76,12 +76,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/kanit_regular"
-                android:text="Send GET request to https://example.com" />
+                android:text="Click button to find Root status" />
 
             <Button
-                android:id="@+id/send"
+                android:id="@+id/checkRootStatus"
                 android:layout_width="320dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
@@ -89,19 +89,28 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rectangle_yellow"
                 android:fontFamily="@font/kanit_regular"
-                android:text="Send Request"
+                android:onClick="showRootStatus"
+                android:text="Check Status"
                 android:textAllCaps="false"
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/result"
+                android:id="@+id/rootStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/kanit_regular" />
+                android:fontFamily="@font/kanit_regular"
+                android:textColor="#bfbfbf"
+                android:textSize="16sp" />
 
+            <ImageView
+                android:id="@+id/rootStatusImg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp" />
 
 
         </LinearLayout>

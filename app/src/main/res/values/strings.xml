@@ -4,7 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup_name_text">Please input your name</string>
-    <string name="vendor_secret_key">vendor@khakiv</string>
+    <string name="V98bFQrpGkDJ">7432580</string>
 
     <!-- On-boarding Screen -->
     <string name="onboarding_one">Learn Android security from real-world bugs</string>

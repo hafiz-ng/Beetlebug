@@ -23,14 +23,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.fragments.AndroidComponentsFragment;
 import app.beetlebug.fragments.BiometricFragment;
 import app.beetlebug.fragments.DatabasesFragment;
 import app.beetlebug.fragments.InsecureStorageFragment;
-import app.beetlebug.fragments.NetworkFragment;
+import app.beetlebug.fragments.DeviceFragment;
 import app.beetlebug.fragments.SecretsFragment;
 import app.beetlebug.fragments.SensitiveDataFragment;
 import app.beetlebug.fragments.WebViewFragment;
@@ -54,7 +53,7 @@ public class FlagsOverview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flags_overview);
-        mBackButton = findViewById(R.id.arrowLeft);
+        mBackButton = findViewById(R.id.back);
         mScrollView = findViewById(R.id.scrollview_flags);
         mToolbar = findViewById(R.id.toolbar);
         insecureStorageProgressBar = findViewById(R.id.insecure_storage_bar);
@@ -174,7 +173,7 @@ public class FlagsOverview extends AppCompatActivity {
     public void networkCom(View view) {
         mScrollView.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
-        Fragment fragment = new NetworkFragment();
+        Fragment fragment = new DeviceFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
 

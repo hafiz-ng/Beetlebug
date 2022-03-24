@@ -13,22 +13,23 @@ import android.widget.ImageView;
 
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
-import app.beetlebug.ctf.InsecureLoggingActivity;
-import app.beetlebug.ctf.SSLPinningByPassActivity;
+import app.beetlebug.ctf.RootDetectorActivity;
+import app.beetlebug.ctf.EmulatorDetectionActviity;
 
 
-public class NetworkFragmentHome extends Fragment {
+public class DeviceFragmentHome extends Fragment {
 
     ImageView m_back_btn;
-    Button m_btn;
+    Button m_btn, m_btn2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_network_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_device, container, false);
 
         m_btn = view.findViewById(R.id.button);
+        m_btn2 = view.findViewById(R.id.button2);
 
         m_back_btn = view.findViewById(R.id.back);
         m_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +43,15 @@ public class NetworkFragmentHome extends Fragment {
         m_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), SSLPinningByPassActivity.class);
+                Intent i = new Intent(getActivity(), RootDetectorActivity.class);
+                startActivity(i);
+            }
+        });
+
+        m_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EmulatorDetectionActviity.class);
                 startActivity(i);
             }
         });

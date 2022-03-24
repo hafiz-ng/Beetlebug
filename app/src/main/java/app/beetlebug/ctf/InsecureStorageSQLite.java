@@ -21,13 +21,14 @@ import app.beetlebug.db.DatabaseHelper;
 public class InsecureStorageSQLite extends AppCompatActivity {
 
 
-    private DatabaseHelper myHelper;
+    private DatabaseHelper db;
     EditText mUsername, mPassword;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, sharedPreferences_sqlite;
     public static String flag_scores = "flag_scores";
     public static String ctf_score_sqlite = "ctf_score_sqlite";
     public static String m_name = "name";
     public static String m_password = "password";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,9 @@ public class InsecureStorageSQLite extends AppCompatActivity {
 
         mUsername = (EditText) findViewById(R.id.editTextUsername);
         mPassword = (EditText) findViewById(R.id.editTextPassword);
+
+        db = new DatabaseHelper(this);
+        db.open();
 
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
 
@@ -46,25 +50,22 @@ public class InsecureStorageSQLite extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
-        myHelper = new DatabaseHelper(this);
-        myHelper.open();
     }
 
 
-    public void saveDetails(View view) {
+    public void saveUser(View view) {
         String name = mUsername.getText().toString();
         String password = mPassword.getText().toString();
 
         if (name.isEmpty()) {
-            Toast.makeText(InsecureStorageSQLite.this, "Name cannot be blank", Toast.LENGTH_LONG).show();
+            mUsername.setError("Enter your Username");
+        } if (password.isEmpty()) {
+            mPassword.setError("Enter your password");
         } else {
             int user_score_sqlite = 9;
-
-            myHelper.add(name, password);
+            db.add(name, password);
             Toast.makeText(InsecureStorageSQLite.this, "Data saved successfully", Toast.LENGTH_LONG).show();
             SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString(m_name, name);
-//            editor.putString(m_password, password);
             editor.putInt(ctf_score_sqlite, user_score_sqlite);
             editor.commit();
         }

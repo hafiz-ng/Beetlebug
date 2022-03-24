@@ -44,7 +44,7 @@ public class InsecureStorageFragment extends Fragment {
         mButton3 = view.findViewById(R.id.button3);
         mButton4 = view.findViewById(R.id.button4);
 
-        mBackButton = view.findViewById(R.id.arrowLeft);
+        mBackButton = view.findViewById(R.id.back);
 
 
         mBackButton.setOnClickListener(new View.OnClickListener() {

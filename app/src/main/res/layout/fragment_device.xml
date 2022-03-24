@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.NetworkFragment">
+    tools:context=".fragments.DeviceFragment">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -12,7 +12,7 @@
         android:padding="15dp">
 
         <ImageView
-            android:id="@+id/arrowLeft"
+            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
@@ -26,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Network Communication"
+            android:text="Device Managment"
             android:textColor="#000"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
     </RelativeLayout>
 
 
@@ -48,7 +48,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="SSL Pinning Bypass"
+            android:text="Root Detection"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -104,7 +104,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Firebase Database Misconfiguration"
+            android:text="Emulator Detection"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

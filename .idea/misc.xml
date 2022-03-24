@@ -3,20 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/baseline_person_24.xml" value="0.1935" />
         <entry key="app/src/main/res/drawable/black_button.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/bottom_sheet.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/bottom_sheet_background.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/button_border.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/card_line.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/card_line2.xml" value="0.161" />
+        <entry key="app/src/main/res/drawable/lock.xml" value="0.1935" />
         <entry key="app/src/main/res/drawable/rectangle_green.xml" value="0.161" />
         <entry key="app/src/main/res/drawable/rectangle_yellow.xml" value="0.161" />
-        <entry key="app/src/main/res/layout/activity_biometric.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_biometric.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_biometric_frida.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_deeplink_account.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_embedded_secert_source_code.xml" value="0.1453125" />
-        <entry key="app/src/main/res/layout/activity_embedded_secret_source_code.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_embedded_secret_source_code.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_embedded_secret_strings.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_emulator_detection_actviity.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/activity_finger_print.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_firebase_database.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_flag_captured.xml" value="0.165" />
@@ -27,14 +30,14 @@
         <entry key="app/src/main/res/layout/activity_insecure_logging.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_external.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_internal_external.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_insecure_storage_sharedpref.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_insecure_storage_sharedpref.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_sql.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_temp.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2671232876712329" />
         <entry key="app/src/main/res/layout/activity_registration_web_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sqlinjection.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_sslpinning.xml" value="0.12864583333333332" />
-        <entry key="app/src/main/res/layout/activity_sslpinning_by_pass.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_sslpinning_by_pass.xml" value="0.3297045101088647" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_vulnerable1.xml" value="0.15520833333333334" />
@@ -55,6 +58,7 @@
         <entry key="app/src/main/res/layout/fragment_database_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_databases.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_deeplinks.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_device.xml" value="0.23425925925925925" />
         <entry key="app/src/main/res/layout/fragment_insecure_storage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_insecure_storage_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_network.xml" value="0.2953125" />
@@ -69,6 +73,7 @@
         <entry key="app/src/main/res/layout/slide_screen.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/menu/pop_up_menu.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1215" />
       </map>
     </option>
   </component>

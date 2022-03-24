@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import app.beetlebug.FlagsOverview;
-import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.EmbeddedSecretSourceCode;
 import app.beetlebug.ctf.EmbeddedSecretStrings;
@@ -34,7 +33,7 @@ public class SecretsFragment extends Fragment {
         m_btn.setText("Done");
         m_btn.setEnabled(false);
 
-        m_back_btn = view.findViewById(R.id.arrowLeft);
+        m_back_btn = view.findViewById(R.id.back);
         m_back_btn2 = view.findViewById(R.id.back2);
 
 

@@ -24,8 +24,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" +10XP"
-            android:id="@+id/ctfPoints"
+            android:text=" +"
+            android:fontFamily="@font/kanit_regular"
+            android:textSize="23sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 0"
+            android:id="@+id/ctfPoint"
+            android:fontFamily="@font/kanit_regular"
+            android:textSize="23sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XP"
             android:fontFamily="@font/kanit_regular"
             android:textSize="23sp"/>
 

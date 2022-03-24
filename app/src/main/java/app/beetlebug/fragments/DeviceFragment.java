@@ -8,14 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import app.beetlebug.FlagsOverview;
 import app.beetlebug.R;
 
 
-public class NetworkFragment extends Fragment {
+public class DeviceFragment extends Fragment {
 
     ImageView m_btn;
 
@@ -23,9 +22,9 @@ public class NetworkFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_network, container, false);
+        View view = inflater.inflate(R.layout.fragment_device, container, false);
 
-        m_btn = view.findViewById(R.id.arrowLeft);
+        m_btn = view.findViewById(R.id.back);
 
         m_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,7 +22,7 @@ public class WebViewFragment extends Fragment {
 
 
     ImageView mBackButton;
-    Button m_btn1, m_btn2, m_btn3;
+    Button m_btn1, m_btn3;
 
 
     @Override
@@ -32,11 +32,10 @@ public class WebViewFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_web_view, container, false);
         m_btn1 = view.findViewById(R.id.button);
-        m_btn2 = view.findViewById(R.id.button2);
         m_btn3 = view.findViewById(R.id.button3);
 
 
-        mBackButton = view.findViewById(R.id.arrowLeft);
+        mBackButton = view.findViewById(R.id.back);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,14 +49,6 @@ public class WebViewFragment extends Fragment {
             public void onClick(View v) {
                 Intent ctf_intent = new Intent(getActivity(), WebViewURLActivity.class);
                 startActivity(ctf_intent);
-            }
-        });
-
-        m_btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ctf_intent2 = new Intent(getActivity(), InsecureDeepLinkActivity.class);
-                startActivity(ctf_intent2);
             }
         });
 

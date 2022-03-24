@@ -293,13 +293,13 @@
                     android:onClick="networkCom" />
 
                 <ImageView
-                    android:layout_width="37dp"
-                    android:layout_height="37dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="62dp"
                     android:layout_marginTop="22dp"
-                    android:src="@drawable/net" />
+                    android:src="@drawable/device" />
 
                 <TextView
                     style="@style/lesson_bar_text"
@@ -309,7 +309,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/kanit_regular"
-                    android:text="Network Comm."
+                    android:text="Device Management"
                     android:textAlignment="center" />
 
             </RelativeLayout>

@@ -14,15 +14,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // define constants that represent the table name columns in our database
 
     public static final String TABLE_NAME = "USER";
-
     public static final String _ID = "_id";
     public static final String NAME = "name";
     public static final String PASSWORD = "password";
+    public static final String FLAG_4 = "0xe332c04";
 
     // TODO: Create constant for flag
 
     // database info
-    static final String DB_NAME = "user_info.db";
+    static final String DB_NAME = "user.db";
 
     // database version
     static final int DB_VERSION = 1;

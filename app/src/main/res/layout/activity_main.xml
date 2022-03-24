@@ -377,21 +377,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="28dp"
-                android:onClick="networkComFragment"
+                android:onClick="infoDisclosureCTF"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_line"
-
                     android:padding="20dp">
 
                     <ImageView
                         android:id="@+id/imageViewDeeplinks"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/net" />
+                        android:src="@drawable/alert" />
 
                     <TextView
                         android:id="@+id/textViewDeeplinksTitle"
@@ -415,7 +414,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Network Communication"
+                        android:text="Sensitve Info Disclosure"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -510,14 +509,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_line"
-                    android:onClick="infoDisclosureCTF"
+                    android:onClick="deviceFragment"
                     android:padding="20dp">
 
                     <ImageView
                         android:id="@+id/imageViewSensitive"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/alert" />
+                        android:src="@drawable/device" />
 
                     <TextView
                         android:id="@+id/textViewSensitive"
@@ -541,7 +540,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Sensitive Info Disclosure"
+                        android:text="Device Management"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 

@@ -8,13 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,17 +25,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import app.beetlebug.home.AndroidComponentsHome;
-import app.beetlebug.fragments.SecretsFragment;
-import app.beetlebug.fragments.WebViewFragment;
 import app.beetlebug.home.BiometricFragmentHome;
 import app.beetlebug.home.DatabaseFragmentHome;
 import app.beetlebug.home.InsecureStorageFragmentHome;
-import app.beetlebug.home.NetworkFragmentHome;
+import app.beetlebug.home.DeviceFragmentHome;
 import app.beetlebug.home.SecretsFragmentHome;
 import app.beetlebug.home.SensitiveDataFragmentHome;
 import app.beetlebug.home.WebViewFragmentHome;
 import app.beetlebug.user.UserProfileActivity;
-import app.beetlebug.utils.CustomTypeFaceSpan;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
@@ -161,11 +153,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    public void networkComFragment(View view) {
+    public void deviceFragment(View view) {
         mScrollview.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
         bottomNavigationView.setVisibility(View.GONE);
-        Fragment fragment = new NetworkFragmentHome();
+        Fragment fragment = new DeviceFragmentHome();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }

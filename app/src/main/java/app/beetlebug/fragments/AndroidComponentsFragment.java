@@ -44,7 +44,7 @@ public class AndroidComponentsFragment extends Fragment {
         mButton4 = view.findViewById(R.id.button4);
 
         mCtfTitle = view.findViewById(R.id.textViewComponentsTitle);
-        mBackButton = view.findViewById(R.id.arrowLeft);
+        mBackButton = view.findViewById(R.id.back);
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

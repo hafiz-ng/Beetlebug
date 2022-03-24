@@ -11,7 +11,7 @@
         android:padding="15dp">
 
         <ImageView
-            android:id="@+id/arrowLeft"
+            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
@@ -116,7 +116,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Identify sensitive data stored on the device memory"
+            android:text="Files saved to the external storage are world-readable and can be modified by the user when they enable USB mass storage
+"
             android:textSize="14sp" />
 
         <Button

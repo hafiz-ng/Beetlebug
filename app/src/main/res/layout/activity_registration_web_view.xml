@@ -6,11 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ctf.RegistrationWebView">
 
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/kanit_regular"
+            android:text="By-pass URL Check"
+            android:textColor="#000"
+            android:textSize="27sp" />
+
+    </RelativeLayout>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbar"
         android:layout_marginBottom="20dp"
         android:id="@+id/linear_layout">
 
@@ -32,7 +53,9 @@
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/linear_layout"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

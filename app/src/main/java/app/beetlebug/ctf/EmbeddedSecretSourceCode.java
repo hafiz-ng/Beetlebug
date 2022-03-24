@@ -34,7 +34,6 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
         setContentView(R.layout.activity_embedded_secret_source_code);
 
         m_promo = findViewById(R.id.editTextPromoCode);
-        m_price = findViewById(R.id.textViewPrice);
         m_button = findViewById(R.id.button);
         m_purchase = findViewById(R.id.buttonPurchase);
 
@@ -52,14 +51,17 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
         m_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                m_price = findViewById(R.id.textViewPrice);
+
                 if (m_promo.getText().toString().equals(beetle_bug_shop_promo_code)) {
                     String price = m_price.getText().toString();
                     int price_int = Integer.parseInt(price);
                     int new_price = price_int/2;
+                    String s = Integer.toString(new_price);
+                    m_price.setText(s);
 
                     Toast.makeText(EmbeddedSecretSourceCode.this, "Your new price is: " + new_price, Toast.LENGTH_LONG).show();
                     int user_score_secret_source = 9;
-
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt(ctf_score_secret_source, user_score_secret_source);
                     editor.commit();
