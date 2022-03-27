@@ -2,7 +2,9 @@ package app.beetlebug.ctf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Build;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,38 +25,43 @@ import app.beetlebug.R;
 
 public class InsecureLoggingActivity extends AppCompatActivity {
 
-    Button m_submit_flag, m_pay;
-    EditText m_expires, m_cvv, m_card_number, m_enter_flag;
+    Button m_pay, m_flg;
+    EditText m_expires, m_cvv, m_card_number, flg ;
     boolean isAllFieldsChecked = false;
+    public static String flag_scores = "flag_scores";
+    public static String ctf_score_log = "ctf_score_log";
+    SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insecure_logging);
         m_pay = (Button) findViewById(R.id.buttonPay);
-        m_submit_flag = (Button) findViewById(R.id.buttonSubmitFlag);
         m_card_number = (EditText) findViewById(R.id.editTextCardNumber);
         m_expires = (EditText) findViewById(R.id.editTextExpires);
         m_cvv = (EditText) findViewById(R.id.editTextCvv);
-        m_enter_flag = (EditText) findViewById(R.id.editTextEnterFlag);
+        m_pay = findViewById(R.id.buttonPay);
+        m_flg = findViewById(R.id.button);
 
-        m_submit_flag.setVisibility(View.GONE);
-        m_enter_flag.setVisibility(View.GONE);
+        LinearLayout lin = findViewById(R.id.layoutCtf);
+        lin.setVisibility(View.GONE);
+
+        sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
 
 
         m_pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isAllFieldsChecked = CheckAllFields();
+                lin.setVisibility(View.VISIBLE);
 
-                m_submit_flag.setVisibility(View.VISIBLE);
-                m_enter_flag.setVisibility(View.VISIBLE);
 
 
                 if (isAllFieldsChecked) {
                     String card = m_card_number.getText().toString();
                     m_card_number.setError("An Error Occurred");
-                    Log.e("beetle-log", "Transaction Failed: " + card + "\n" + "flg_08");
+                    Log.e("beetle-log", "Transaction Failed: " + card + "\n" + "flg_08: " + "0x55541d3");
                 }
             }
         });
@@ -69,12 +77,17 @@ public class InsecureLoggingActivity extends AppCompatActivity {
 
 
     public void captureFlag(View view) {
-        String flag = m_enter_flag.getText().toString();
-        if (flag.equals("flg_08")) {
-            Toast.makeText(InsecureLoggingActivity.this, "flag captured", Toast.LENGTH_SHORT).show();
-            Intent captured_intent = new Intent(InsecureLoggingActivity.this, FlagCaptured.class);
-            startActivity(captured_intent);
+        flg = findViewById(R.id.flag);
+        String rslt = flg.getText().toString();
+        if (rslt.isEmpty()) {
+            flg.setError("Enter flag");
+        } else if (rslt.equals("22")) {
+            int user_score_log = 9;
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt(ctf_score_log, user_score_log);
+            editor.commit();
         }
+
     }
 
 

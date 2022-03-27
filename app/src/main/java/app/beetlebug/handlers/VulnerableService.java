@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -45,12 +47,15 @@ public class VulnerableService extends Service {
         // starting the process
         player.start();
 
-        Toast.makeText(VulnerableService.this, "Flag 10: Found", Toast.LENGTH_LONG).show();
+        Toast.makeText(VulnerableService.this, "Flag 10 Found: 0xe22210", Toast.LENGTH_LONG).show();
 
         // returns the status
         // of the program
         return START_STICKY;
     }
+
+
+
 
     @Override
 

@@ -34,6 +34,11 @@ public class SQLInjectionActivity extends AppCompatActivity {
         flg = findViewById(R.id.flag);
         btn = findViewById(R.id.button);
 
+        flg.getText().toString();
+        btn.getText().toString();
+
+
+
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         try {
@@ -41,8 +46,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
             mDB.execSQL("DROP TABLE IF EXISTS sqliuser;");
             mDB.execSQL("CREATE TABLE IF NOT EXISTS sqliuser(user VARCHAR, password VARCHAR, credit_card VARCHAR);");
             mDB.execSQL("INSERT INTO sqliuser VALUES ('admin', 'passwd123', '1234567812345678');");
-            mDB.execSQL("INSERT INTO sqliuser VALUES ('user', 'flg_10', '1234567812345678');");
-
+            mDB.execSQL("INSERT INTO sqliuser VALUES ('beetle-bug', 'flg_10', '0x9133413');");
         }
         catch(Exception e) {
             Log.d("beetle-sqli", "Error occurred while creating database for SQLI: " + e.getMessage());
@@ -59,10 +63,10 @@ public class SQLInjectionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int user_score = 9;
                 String result = flg.getText().toString();
-                if(result.equals("flg_10")) {
+                if(result.equals("0x9133413")) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("ctf_score_sqli", user_score);
-                    editor.putBoolean("ctf_status", true);
+                    editor.putBoolean("sqli_status", true);
                     editor.apply();
                     Intent ctf_captured = new Intent(SQLInjectionActivity.this, FlagCaptured.class);
                     startActivity(ctf_captured);

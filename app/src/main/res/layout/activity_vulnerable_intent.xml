@@ -39,7 +39,6 @@
             android:id="@+id/hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
             android:text="Hint: "
@@ -51,7 +50,6 @@
             android:id="@+id/hintText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
             android:text="You can bypass an exported Android Activity component using adb or drozer"
@@ -175,15 +173,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_below="@+id/linear_layout3"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="70dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <EditText
-            android:id="@+id/editTextFlag"
-            android:layout_width="209dp"
+            android:id="@+id/flag"
+            android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_marginLeft="25sp"
             android:layout_marginRight="20dp"
+            android:layout_weight="0.5"
             android:fontFamily="@font/kanit_regular"
             android:hint=" Enter Flag"
             android:textSize="17dp" />
@@ -191,13 +194,15 @@
 
         <Button
             android:id="@+id/buttonFlag"
-            android:layout_width="130dp"
+            android:layout_width="0dp"
             android:layout_height="65dp"
+            android:layout_weight="0.5"
+            android:onClick="captureFlag"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
-            android:onClick="captureFlag"
             android:text="Submit"
             android:textAllCaps="false"
             android:textColor="@android:color/black" />
     </LinearLayout>
+
 </RelativeLayout>

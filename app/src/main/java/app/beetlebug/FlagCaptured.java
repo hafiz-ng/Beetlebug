@@ -42,7 +42,7 @@ public class FlagCaptured extends AppCompatActivity {
         setupProgressBar();
     }
 
-    private void setupProgressBar() {
+    public void setupProgressBar() {
 
         // retrieve ctf score from shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
@@ -53,10 +53,14 @@ public class FlagCaptured extends AppCompatActivity {
         int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
         int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
         int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
+        int service_score = sharedPreferences.getInt("ctf_score_service", 0);
+        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score;
+                + sqli_score + intent_redirect_score + service_score + log_score;
 
         String str_score = Integer.toString(total_score);
+
         m_total_ctf_points.setText(str_score + "XP");
 //        Toast.makeText(FlagCaptured.this, "CTF Score: " + total_score, Toast.LENGTH_SHORT).show();
 

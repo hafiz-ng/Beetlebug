@@ -20,44 +20,31 @@ import app.beetlebug.R;
 public class FirebaseDatabaseActivity extends AppCompatActivity {
 
     public Button mBtn;
-    EditText mFlg;
+    EditText m_flg;
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase_database);
         mBtn = findViewById(R.id.button);
+        m_flg = findViewById(R.id.flag);
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-//        mBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(result.isEmpty()) {
-//                    mFlg.setError("Enter flag");
-//                } else if (result.equals("firebase374fc")){
-//                    Toast.makeText(FirebaseDatabaseActivity.this, "Flag found", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-
-
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFlg = findViewById(R.id.flag);
-                String result = mFlg.getText().toString();
-
-                if(result.equals("firebase374fc")) {
+                String result = m_flg.getText().toString();
+                if(result.isEmpty()) {
+                    m_flg.setError("Enter flag");
+                } else if (result.equals("firebase374fc")){
                     int user_score_firebase = 9;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("ctf_score_firebase", user_score_firebase);
-                    editor.putBoolean("ctf_status_firebase", true);
+                    editor.putBoolean("firebase_status", true);
                     editor.commit();
                     Intent ctf_captured = new Intent(FirebaseDatabaseActivity.this, FlagCaptured.class);
                     startActivity(ctf_captured);
-                } else if (result.isEmpty()) {
-                    mFlg.setError("Enter flag");
-
+                    Toast.makeText(FirebaseDatabaseActivity.this, "Flag found", Toast.LENGTH_LONG).show();
                 }
             }
         });

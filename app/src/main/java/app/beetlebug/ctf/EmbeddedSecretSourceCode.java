@@ -64,6 +64,7 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
                     int user_score_secret_source = 9;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt(ctf_score_secret_source, user_score_secret_source);
+                    editor.putBoolean("secret_source_status", true);
                     editor.commit();
 
                     m_purchase.setVisibility(View.VISIBLE);

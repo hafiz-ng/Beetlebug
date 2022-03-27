@@ -83,7 +83,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
         String email = m_email.getText().toString();
         String pass = m_pass.getText().toString();
         int user_score_external_str = 9;
-        String ctf_status = "external_str_ctf_status";
+        String ctf_status = "external_str_status";
         mFlagLayout.setVisibility(View.VISIBLE);
 
 

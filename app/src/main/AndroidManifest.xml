@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
         <activity
+            android:name=".ctf.b33tleActivity"
+            android:exported="true" />
+        <activity
             android:name=".ctf.EmulatorDetectionActviity"
             android:exported="false" />
         <activity
@@ -38,7 +41,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="beetlebug"
                     android:path="/account"

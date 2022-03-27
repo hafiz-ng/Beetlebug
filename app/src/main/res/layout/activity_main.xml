@@ -102,7 +102,7 @@
                         android:layout_toEndOf="@+id/imageViewKey"
                         android:layout_toRightOf="@+id/imageViewKey"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Embedded Secrets"
+                        android:text="Hardcoded Secrets"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -406,7 +406,7 @@
 
                     <TextView
                         android:id="@+id/textViewDeeplinksDescription"
-                        android:layout_width="wrap_content"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textViewDeeplinksTitle"
                         android:layout_marginStart="10dp"
@@ -414,7 +414,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Sensitve Info Disclosure"
+                        android:text="Info Disclosure"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 

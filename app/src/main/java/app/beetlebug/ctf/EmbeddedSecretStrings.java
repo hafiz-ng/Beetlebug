@@ -54,6 +54,7 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
                    int ctf_score_secret_string = 9;
                    SharedPreferences.Editor editor = sharedPreferences.edit();
                    editor.putInt("ctf_score_secret_string", ctf_score_secret_string);
+                   editor.putBoolean("secret_string_status", true);
                    editor.apply();
                    Intent secret_intent = new Intent(EmbeddedSecretStrings.this, FlagCaptured.class);
                    startActivity(secret_intent);

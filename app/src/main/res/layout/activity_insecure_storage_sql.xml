@@ -187,7 +187,6 @@
 
 
         <Button
-            android:id="@+id/buttonCaptureFlag"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.5"

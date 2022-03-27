@@ -38,10 +38,10 @@ public class DatabaseFragmentHome extends Fragment {
         sharedPreferences = getContext().getSharedPreferences("flag_score", 0);
         boolean status = sharedPreferences.getBoolean("ctf_status_firebase", false);
         Toast.makeText(getContext(), "Boolean result: " + status, Toast.LENGTH_LONG).show();
-        if(!status) {
-            m_btn2.setText("Done");
-            m_btn2.setEnabled(false);
-        }
+//        if(!status) {
+//            m_btn2.setText("Done");
+//            m_btn2.setEnabled(false);
+//        }
 
 
         m_back_btn.setOnClickListener(new View.OnClickListener() {
