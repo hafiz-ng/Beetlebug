@@ -110,7 +110,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout3"
         android:layout_width="400dp"
-        android:layout_height="148dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/divider2"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
@@ -129,13 +129,13 @@
 
         <TextView
             android:id="@+id/textDescription3"
-            android:layout_width="250dp"
+            android:layout_width="247dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle3"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Once triggered, the deeplink would direct users to load any attacker-controlled"
+            android:text="Enabling setJavaScriptEnabled() to true can be dangerous and allows attackers to carry out many attacks including XSS"
             android:textSize="14sp" />
 
         <Button

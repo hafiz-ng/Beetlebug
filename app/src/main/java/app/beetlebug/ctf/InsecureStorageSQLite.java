@@ -30,7 +30,6 @@ public class InsecureStorageSQLite extends AppCompatActivity {
     Button btn;
     SharedPreferences sharedPreferences, sharedPreferences_sqlite;
     public static String flag_scores = "flag_scores";
-    public static String ctf_score_sqlite = "ctf_score_sqlite";
     public static String m_name = "name";
     public static String m_password = "password";
 
@@ -96,10 +95,10 @@ public class InsecureStorageSQLite extends AppCompatActivity {
         if (result.equals("0xe332c04")) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("ctf_score_sqlite", user_score);
-            editor.putBoolean("sqlite_status", true);
             editor.apply();
 
             Intent ctf_captured = new Intent(InsecureStorageSQLite.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score_sqlite", user_score);
             startActivity(ctf_captured);
         }
     }

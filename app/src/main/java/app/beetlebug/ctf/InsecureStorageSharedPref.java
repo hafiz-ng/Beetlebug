@@ -95,7 +95,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureStorageSharedPref.this, FlagCaptured.class);
-            ctf_captured.putExtra("shared_pref_score_intent", user_score_shared_pref);
+            ctf_captured.putExtra("ctf_score_shared_pref", user_score_shared_pref);
             startActivity(ctf_captured);
         } else {
             Toast.makeText(InsecureStorageSharedPref.this, "Wrong answer", Toast.LENGTH_SHORT).show();

@@ -13,7 +13,6 @@ import android.widget.ImageView;
 
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
-import app.beetlebug.ctf.InsecureDeepLinkActivity;
 import app.beetlebug.ctf.WebViewURLActivity;
 import app.beetlebug.ctf.WebViewXSSActivity;
 
@@ -21,7 +20,7 @@ import app.beetlebug.ctf.WebViewXSSActivity;
 public class WebViewFragmentHome extends Fragment {
 
     ImageView m_btn_back;
-    Button m_btn, m_btn2, m_btn3;
+    Button m_btn, m_btn3;
 
 
     @Override
@@ -32,7 +31,6 @@ public class WebViewFragmentHome extends Fragment {
 
         m_btn_back = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
-        m_btn2 = view.findViewById(R.id.button2);
         m_btn3 = view.findViewById(R.id.button3);
 
 
@@ -48,14 +46,6 @@ public class WebViewFragmentHome extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), WebViewURLActivity.class);
-                startActivity(i);
-            }
-        });
-
-        m_btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), InsecureDeepLinkActivity.class);
                 startActivity(i);
             }
         });

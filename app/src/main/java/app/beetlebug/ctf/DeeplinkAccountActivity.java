@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +47,9 @@ public class DeeplinkAccountActivity extends AppCompatActivity {
                 Toast.makeText(DeeplinkAccountActivity.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
     }
 
 

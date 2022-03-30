@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.fragments.AndroidComponentsFragment;
@@ -36,16 +37,15 @@ import app.beetlebug.fragments.WebViewFragment;
 import app.beetlebug.utils.CustomProgressBar;
 
 public class FlagsOverview extends AppCompatActivity {
-
-
-
     ImageView mBackButton;
     ScrollView mScrollView;
     RelativeLayout mToolbar;
     Button mfinish;
 
-    CustomProgressBar insecureStorageProgressBar;
-    CustomProgressBar dailyProgressBar2;
+    CustomProgressBar hardcodedSecretsProgressBar;
+    CustomProgressBar webViewsProgressBar;
+    CustomProgressBar androidComponentsProgressBar;
+    CustomProgressBar insecureStoreProgressBar;
 
     SharedPreferences sharedPreferences;
 
@@ -56,10 +56,14 @@ public class FlagsOverview extends AppCompatActivity {
         mBackButton = findViewById(R.id.back);
         mScrollView = findViewById(R.id.scrollview_flags);
         mToolbar = findViewById(R.id.toolbar);
-        insecureStorageProgressBar = findViewById(R.id.insecure_storage_bar);
-        dailyProgressBar2 = findViewById(R.id.progress_bar_webview);
+
+        hardcodedSecretsProgressBar = findViewById(R.id.hardcoded_secrets_bar);
+        webViewsProgressBar = findViewById(R.id.progress_bar_webview);
+        insecureStoreProgressBar = findViewById(R.id.progress_bar_local_storage);
         mfinish = findViewById(R.id.finish_button);
 
+        resultChecker();
+        no_f();
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         if(Build.VERSION.SDK_INT>=21){
@@ -90,8 +94,15 @@ public class FlagsOverview extends AppCompatActivity {
                 finish_dialog.getWindow().setGravity(Gravity.BOTTOM);
             }
         });
-        setupProgress2();
         setupProgressBarInsecureStorage();
+        setupProgressBarHardCodedSecrets();
+    }
+
+
+
+    public Boolean resultChecker() {
+
+        return true;
     }
 
     public void inSecureStorage (View v) {
@@ -142,7 +153,7 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    private void setupProgressBarInsecureStorage() {
+    private void setupProgressBarHardCodedSecrets() {
         int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
         int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
 
@@ -150,17 +161,28 @@ public class FlagsOverview extends AppCompatActivity {
 //        Toast.makeText(FlagsOverview.this, "Total Score: " + total_score, Toast.LENGTH_LONG).show();
         String total_string = Integer.toString(total_score);
         if(total_string.equals("9")) {
-            insecureStorageProgressBar.setProgressWithAnimation(50, 2000);
+            hardcodedSecretsProgressBar.setProgressWithAnimation(50, 2000);
         } else if (total_string.equals("18")){
-            insecureStorageProgressBar.setProgressWithAnimation(100, 2000);
+            hardcodedSecretsProgressBar.setProgressWithAnimation(100, 2000);
         }
     }
 
-    private void setupProgress2() {
-        int dailyXp = 65;
-        dailyProgressBar2.setProgressWithAnimation(dailyXp, 2000);
+    private void setupProgressBarInsecureStorage() {
+        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
+        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
+        int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
 
+        int total_score = external_str_score + shared_pref_score + sqlite_score;
+        String total_string = Integer.toString(total_score);
+
+        if(total_string.equals("9")) {
+            insecureStoreProgressBar.setProgressWithAnimation(33, 2000);
+        } else if (total_string.equals("18")){
+            insecureStoreProgressBar.setProgressWithAnimation(66, 2000);
+        } else if (total_string.equals("27"))
+        insecureStoreProgressBar.setProgressWithAnimation(100, 2000);
     }
+
 
     public void inSecureLoggingFlag(View view) {
         mScrollView.setVisibility(View.GONE);
@@ -202,11 +224,31 @@ public class FlagsOverview extends AppCompatActivity {
                 .startChooser();
     }
 
-    public void embeddeSecrets(View view) {
+    public void embeddedSecrets(View view) {
         mScrollView.setVisibility(View.GONE);
         mToolbar.setVisibility(View.GONE);
         Fragment fragment = new SecretsFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
+    }
+
+    // no of flags captured
+    private void no_f() {
+        TextView textView = findViewById(R.id.flag_score);
+
+        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
+        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
+        int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
+
+        int total_score = external_str_score + shared_pref_score + sqlite_score;
+        String total_string = Integer.toString(total_score);
+
+        if (total_string.equals("9")) {
+            textView.setText("1");
+        } else if (total_string.equals("18")){
+            textView.setText("2");
+        } else if (total_string.equals("27")) {
+            textView.setText("2");
+        }
     }
 }

@@ -109,7 +109,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
             File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
             // Storing the data in file with name as beetle-user.log
-            File file = new File(folder, "beetle-user.txt");
+            File file = new File(folder, "user.txt");
             writeTextData(file, data);
             Toast.makeText(this, "Data saved to" + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
             editor.commit();
@@ -143,16 +143,16 @@ public class InsecureStorageExternal extends AppCompatActivity {
         EditText m_flag = findViewById(R.id.flag);
         if (m_flag.getText().toString().equals("0xe982c04")) {
             int user_score_external_str = 9;
-            String ctf_status = "external_str_ctf_status";
+//            String ctf_status = "external_str_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_external, user_score_external_str);
-            editor.putBoolean(ctf_status, true);
+//            editor.putBoolean(ctf_status, true);
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureStorageExternal.this, FlagCaptured.class);
-            ctf_captured.putExtra("external_str_score_intent", user_score_external_str);
+            ctf_captured.putExtra("ctf_score_external_str", user_score_external_str);
             startActivity(ctf_captured);
         } else {
             Toast.makeText(InsecureStorageExternal.this, "Wrong answer", Toast.LENGTH_SHORT).show();

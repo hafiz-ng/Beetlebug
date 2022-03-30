@@ -2,6 +2,7 @@ package app.beetlebug.ctf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -100,11 +102,12 @@ public class RootDetectorActivity extends AppCompatActivity  {
     public void showRootStatus(View view) {
         boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
                 doesSUexist();
-        if(isrooted==true)
+        if(isrooted)
         {
             result.setText("Your Device is Rooted!");
             Drawable res = getResources().getDrawable(R.drawable.root);
             img.setImageDrawable(res);
+
         }
         else
         {

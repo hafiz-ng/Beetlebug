@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.UUID;
+
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
@@ -64,6 +66,7 @@ public class UserSignUp extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("user", username);
         editor.putBoolean("is_logged_in", true);
+        editor.putString("user_token", UUID.randomUUID().toString());
         editor.apply();
 
         isAllFieldsChecked = CheckAllFields();

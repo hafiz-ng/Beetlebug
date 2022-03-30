@@ -63,7 +63,11 @@
 
     <LinearLayout
         android:id="@+id/linearlayout2"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
         android:layout_height="195dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -74,12 +78,12 @@
 
         <EditText
             android:id="@+id/editTextPassword"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text"
-            android:drawableStart="@drawable/baseline_person_24"
+            android:drawableStart="@drawable/lock"
             android:ems="10"
             android:fontFamily="@font/kanit_regular"
             android:hint=" Password"
@@ -90,14 +94,14 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="22dp"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
-            android:onClick="logInButton"
-            android:text="Save"
+            android:onClick="signIn"
+            android:text="Sign"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"

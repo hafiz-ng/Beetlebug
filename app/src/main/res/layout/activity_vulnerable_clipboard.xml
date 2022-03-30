@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ctf.VulnerableClipboardActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Insecure Logging"
+            android:textColor="#000"
+            android:textSize="27sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
+            android:text="Hint: "
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/hintText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/kanit_regular"
+            android:paddingLeft="16dp"
+            android:text="Find out how sensitive credentials is being stored in plaintext, without encryption"
+            android:textColor="#bfbfbf"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_layout2"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/editTextCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:fontFamily="@font/kanit_regular"
+            android:hint="Card Number"
+            android:inputType="number"
+            android:paddingLeft="16dp"
+            android:paddingRight="12dp"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <EditText
+                android:id="@+id/editTextExpires"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="60"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/kanit_regular"
+                android:hint="Expires MM/YY"
+                android:inputType="date"
+                android:paddingLeft="16dp"
+                android:paddingRight="12dp"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/editTextCvv"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/editTextExpires"
+                android:layout_weight="30"
+                android:background="@drawable/edit_text"
+                android:ems="10"
+                android:fontFamily="@font/kanit_regular"
+                android:hint="CVV"
+                android:inputType="number"
+                android:paddingLeft="16dp"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Copy OTP"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:cornerRadius="14dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="result"
+            android:textSize="16sp"
+            android:id="@+id/textResult"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutCtf"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/flag"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="25sp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/kanit_regular"
+            android:hint=" Enter Flag"
+            android:textSize="17dp" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="captureFlag"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -10,10 +10,10 @@
             android:layout_height="130dp">
 
             <app.beetlebug.utils.CustomProgressBar
-                android:id="@+id/insecure_storage_bar"
+                android:id="@+id/hardcoded_secrets_bar"
                 style="@style/lesson_bar"
                 android:layout_centerInParent="true"
-                android:onClick="embeddeSecrets" />
+                android:onClick="embeddedSecrets" />
 
             <ImageView
                 android:layout_width="35dp"
@@ -23,7 +23,7 @@
 
             <TextView
                 style="@style/lesson_bar_text"
-                android:layout_below="@id/insecure_storage_bar"
+                android:layout_below="@id/hardcoded_secrets_bar"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/kanit_regular"
                 android:text="Embedded Secrets" />
@@ -45,7 +45,7 @@
 
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/progress_bar_webview"
+                    android:id="@+id/progress_bar_local_storage"
                     style="@style/lesson_bar"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -64,7 +64,7 @@
 
                 <TextView
                     style="@style/lesson_bar_text"
-                    android:layout_below="@id/progress_bar_webview"
+                    android:layout_below="@id/progress_bar_local_storage"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="1dp"
                     android:layout_marginEnd="20dp"
@@ -82,7 +82,7 @@
 
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/greeting_bar"
+                    android:id="@+id/progress_bar_webview"
                     style="@style/lesson_bar"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -101,7 +101,7 @@
 
                 <TextView
                     style="@style/lesson_bar_text"
-                    android:layout_below="@id/greeting_bar"
+                    android:layout_below="@id/progress_bar_webview"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="1dp"

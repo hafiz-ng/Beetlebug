@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -76,5 +77,10 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
     }
 
     public void captureFlag(View view) {
+    }
+
+    public void signIn(View view) {
+        EditText sign = findViewById(R.id.editTextPassword);
+        sign.setError("Wrong password");
     }
 }

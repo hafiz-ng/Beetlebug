@@ -93,7 +93,7 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
         String rslt = m_flag.getText().toString();
-        if (rslt.equals("0x334f22")) {
+        if (rslt.equals("0xe22210")) {
             int user_score_service = 9;
             String ctf_status = "service_ctf_status";
 

@@ -72,6 +72,8 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent ctf_captured = new Intent(EmbeddedSecretSourceCode.this, FlagCaptured.class);
+                            ctf_captured.putExtra("ctf_score_secret_source", user_score_secret_source);
+
                             startActivity(ctf_captured);
                         }
                     });

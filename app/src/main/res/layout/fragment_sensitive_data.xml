@@ -100,10 +100,10 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="400dp"
         android:layout_height="148dp"
-        android:padding="10dp"
+        android:layout_below="@+id/divider"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
-        android:layout_below="@+id/divider">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/textTitle2"
@@ -112,7 +112,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Keyboard Cache"
+            android:text="Clipboard Data"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

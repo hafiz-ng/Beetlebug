@@ -57,6 +57,7 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
                    editor.putBoolean("secret_string_status", true);
                    editor.apply();
                    Intent secret_intent = new Intent(EmbeddedSecretStrings.this, FlagCaptured.class);
+                   secret_intent.putExtra("ctf_score_secret_string", ctf_score_secret_string);
                    startActivity(secret_intent);
                } else if (s1.isEmpty()) {
                     Toast.makeText(EmbeddedSecretStrings.this, "Try again.", Toast.LENGTH_SHORT).show();
@@ -66,25 +67,4 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
         });
     }
 
-
-    public void grantUserAccess(View view) {
-        //int secret = R.string.vendor_secret_key;
-//        String result = m_vendor_key.getText().toString();
-//        int ctf_score_secret_string = 9;
-//        if (result.equals("vendor@khakiv")) {
-//
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putInt("ctf_score_secret_string", ctf_score_secret_string);
-//            editor.apply();
-//
-//            Toast.makeText(EmbeddedSecretStrings.this, "Vendor match found", Toast.LENGTH_LONG).show();
-//            Intent i = new Intent(EmbeddedSecretStrings.this, FlagCaptured.class);
-//            startActivity(i);
-//        }
-//
-
-    }
-
-    public void captureFlag(View view) {
-    }
 }

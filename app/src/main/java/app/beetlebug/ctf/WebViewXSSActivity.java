@@ -31,9 +31,7 @@ public class WebViewXSSActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
-
         loadWebView();
-
     }
 
 

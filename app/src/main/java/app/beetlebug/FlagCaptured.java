@@ -26,7 +26,6 @@ public class FlagCaptured extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flag_captured);
         m_total_ctf_points = (TextView) findViewById(R.id.totalCTFPoints);
-        ctf_point = (TextView) findViewById(R.id.ctfPoint);
 
         dailyProgressBar = (CustomProgressBar) findViewById(R.id.user_progress_bar);
         if(Build.VERSION.SDK_INT>=21){
@@ -35,15 +34,14 @@ public class FlagCaptured extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.default_light_grey_bg));
         }
+
+
         // TODO: Check Beetle Points
-//        int shared_pref_score = getIntent().getExtras().getInt("shared_pref_score_intent");
-//        String flag_score = Integer.toString(shared_pref_score);
-//        ctf_point.setText(flag_score);
+        beetlePoints();
         setupProgressBar();
     }
 
     public void setupProgressBar() {
-
         // retrieve ctf score from shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
         int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
@@ -71,5 +69,39 @@ public class FlagCaptured extends AppCompatActivity {
         Intent i = new Intent(FlagCaptured.this, MainActivity.class);
         startActivity(i);
     }
+
+    private void beetlePoints() {
+        Intent i = getIntent();
+        int result = i.getIntExtra("ctf_score_secret_string", 0);
+        int result2 = i.getIntExtra("ctf_score_secret_source", 0);
+        int result3 = i.getIntExtra("ctf_score_shared_pref", 0);
+        int result4 = i.getIntExtra("ctf_score_external_str", 0);
+        int result5 = i.getIntExtra("ctf_score_sqlite", 0);
+        int result6 = i.getIntExtra("ctf_score_webview", 0);
+
+
+
+        String str = Integer.toString(result);
+        String str2 = Integer.toString(result2);
+        String str3 = Integer.toString(result3);
+        String str4 = Integer.toString(result4);
+        String str5 = Integer.toString(result5);
+        String str6 = Integer.toString(result6);
+
+
+
+        ctf_point = (TextView) findViewById(R.id.ctfPoint);
+        ctf_point.setText(str);
+        ctf_point.setText(str2);
+        ctf_point.setText(str3);
+        ctf_point.setText(str4);
+        ctf_point.setText(str5);
+        ctf_point.setText(str6);
+
+
+    }
+
+
+
 
 }

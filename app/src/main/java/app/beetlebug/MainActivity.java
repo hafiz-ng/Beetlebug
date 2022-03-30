@@ -1,6 +1,7 @@
 package app.beetlebug;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -8,8 +9,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,6 +36,7 @@ import app.beetlebug.home.SecretsFragmentHome;
 import app.beetlebug.home.SensitiveDataFragmentHome;
 import app.beetlebug.home.WebViewFragmentHome;
 import app.beetlebug.user.UserProfileActivity;
+import app.beetlebug.user.UserSignUp;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     CardView mCardView1;
     BottomNavigationView bottomNavigationView;
     RelativeLayout mToolbar;
+    public static SharedPreferences sharedPreferences_flg;
+    public static SharedPreferences sharedPreferences_user;
+
 
     Context context;
 
@@ -168,15 +175,25 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         // Toast message on menu item clicked
         switch (item.getItemId()) {
             case R.id.clear:
-                Toast.makeText(this, "Flags cleared!", Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences_flg = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor_flg = sharedPreferences_flg.edit();
+                editor_flg.clear();
+                editor_flg.commit();
+                Toast.makeText(this, "All flags cleared!", Toast.LENGTH_LONG).show();
+
                 return true;
 
             case R.id.logout:
-                Toast.makeText(this, "Logout ...", Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+                Intent logout = new Intent(MainActivity.this, UserSignUp.class);
+                startActivity(logout);
                 return true;
 
             case R.id.about:
-                Toast.makeText(this, "About ...", Toast.LENGTH_LONG).show();
+                showDialog();
                 return true;
 
             default:
@@ -185,24 +202,23 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
+    private void showDialog() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.alert_about, null);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+
+        alertDialog.show();
+    }
+
     public void showPopup(View view) {
         PopupMenu popup = new PopupMenu(this, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.pop_up_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(MainActivity.this);
         popup.show();
-
-        Menu menu = popup.getMenu();
-        for (int i = 0; i < menu.size(); i++) {
-            MenuItem mi = menu.getItem(i);
-            applyFontToMenuItem(mi);
-        }
     }
 
-    private void applyFontToMenuItem(MenuItem mi) {
-//        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/kanit_regular.ttf");
-//        SpannableString mNewTitle = new SpannableString(mi.getTitle());
-//        mNewTitle.setSpan(new CustomTypeFaceSpan("", font, Color.WHITE), 0, mNewTitle.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-//        mi.setTitle(mNewTitle);
-    }
 }

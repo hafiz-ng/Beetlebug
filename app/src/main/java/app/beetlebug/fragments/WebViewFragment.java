@@ -13,7 +13,6 @@ import android.widget.ImageView;
 
 import app.beetlebug.FlagsOverview;
 import app.beetlebug.R;
-import app.beetlebug.ctf.InsecureDeepLinkActivity;
 import app.beetlebug.ctf.WebViewURLActivity;
 import app.beetlebug.ctf.WebViewXSSActivity;
 

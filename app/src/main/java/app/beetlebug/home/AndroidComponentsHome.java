@@ -15,13 +15,12 @@ import android.widget.TextView;
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.VulnerableActivityIntent;
-import app.beetlebug.ctf.VulnerableBroadcastReceiver;
 import app.beetlebug.ctf.VulnerableServiceActivity;
 
 
 public class AndroidComponentsHome extends Fragment {
 
-    Button mButton, mButton2, mButton3;
+    Button mButton, mButton3;
     TextView mCtfTitle;
 
     ImageView mBackButton;
@@ -35,7 +34,6 @@ public class AndroidComponentsHome extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_android_components, container, false);
         mButton = view.findViewById(R.id.button);
-        mButton2 = view.findViewById(R.id.button2);
         mButton3 = view.findViewById(R.id.button3);
         mCtfTitle = view.findViewById(R.id.textViewComponentsTitle);
         mBackButton = view.findViewById(R.id.back);
@@ -56,14 +54,6 @@ public class AndroidComponentsHome extends Fragment {
             }
         });
 
-
-        mButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ctf_intent2 = new Intent(getActivity(), VulnerableBroadcastReceiver.class);
-                startActivity(ctf_intent2);
-            }
-        });
 
         mButton3.setOnClickListener(new View.OnClickListener() {
             @Override

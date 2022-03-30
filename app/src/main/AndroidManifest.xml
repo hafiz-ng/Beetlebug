@@ -15,6 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
         <activity
+            android:name=".ctf.VulnerableWebView"
+            android:exported="true" />
+        <activity
+            android:name=".ctf.DeepLinkStudy"
+            android:exported="false">
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="github.com"
+                    android:pathPrefix="/hafiz-ng"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ctf.VulnerableClipboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ctf.b33tleActivity"
             android:exported="true" />
         <activity
@@ -35,32 +54,19 @@
             android:exported="true" />
         <activity
             android:name=".ctf.WebViewXSSActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ctf.DeeplinkAccountActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="beetlebug"
-                    android:path="/account"
-                    android:scheme="app" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ctf.RegistrationWebView"
+            android:name=".ctf.DeeplinkAccountActivity"
             android:exported="true" />
         <activity android:name=".ctf.FirebaseDatabaseActivity" />
         <activity android:name=".ctf.SQLInjectionActivity" />
         <activity android:name=".user.UserProfileActivity" />
         <activity
             android:name=".ctf.WebViewURLActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ctf.InsecureDeepLinkActivity"
             android:exported="true" />
         <activity android:name=".ctf.EmbeddedSecretSourceCode" />
         <activity android:name=".ctf.EmbeddedSecretStrings" />
@@ -89,15 +95,14 @@
             android:name=".ctf.BiometricActivityDeeplink"
             android:exported="true" />
         <activity android:name=".ctf.VulnerableServiceActivity" />
-        <activity
-            android:name=".ctf.VulnerableBroadcastReceiver"
-            android:exported="true" />
         <activity android:name=".ctf.InsecureStorageSQLite" />
         <activity android:name=".ctf.InsecureStorageSharedPref" />
         <activity
             android:name=".ctf.VulnerableActivityIntent"
             android:exported="true" />
-        <activity android:name=".FlagsOverview" />
+        <activity
+            android:name=".FlagsOverview"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
