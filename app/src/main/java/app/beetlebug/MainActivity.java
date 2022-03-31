@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import app.beetlebug.ctf.RootDetectorActivity;
 import app.beetlebug.home.AndroidComponentsHome;
 import app.beetlebug.home.BiometricFragmentHome;
 import app.beetlebug.home.DatabaseFragmentHome;
@@ -161,12 +162,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     public void deviceFragment(View view) {
-        mScrollview.setVisibility(View.GONE);
-        mToolbar.setVisibility(View.GONE);
-        bottomNavigationView.setVisibility(View.GONE);
-        Fragment fragment = new DeviceFragmentHome();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment).commit();
+        Intent i = new Intent(MainActivity.this, RootDetectorActivity.class);
+        startActivity(i);
     }
 
 

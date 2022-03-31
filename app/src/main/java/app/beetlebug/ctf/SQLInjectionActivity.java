@@ -61,7 +61,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int user_score = 9;
+                int user_score = 5;
                 String result = flg.getText().toString();
                 if(result.equals("0x9133413")) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();

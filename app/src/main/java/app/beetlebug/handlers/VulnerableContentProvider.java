@@ -37,6 +37,7 @@ public class VulnerableContentProvider extends ContentProvider {
 
     static final String id = "id";
     public static final String name = "name";
+
     static final int uriCode = 1;
     static final UriMatcher uriMatcher;
     private static HashMap<String, String> values;

@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
@@ -20,6 +22,8 @@ public class UserProfileActivity extends AppCompatActivity {
 
     CustomProgressBar userProgress;
     ImageView m_btn_back;
+    TextView flags_captured;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,7 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         userProgress = (CustomProgressBar) findViewById(R.id.user_progress_bar);
-
-
+        sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         m_btn_back = findViewById(R.id.back);
 
@@ -47,6 +50,7 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
         setupProgressBar();
+        setUpFlagsCaptured();
     }
 
     public void setupProgressBar() {
@@ -66,9 +70,49 @@ public class UserProfileActivity extends AppCompatActivity {
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
                 + sqli_score + intent_redirect_score + service_score + log_score;
 
+        userProgress.setProgressWithAnimation(total_score, 2000);
+    }
+
+    public void setUpFlagsCaptured() {
+        // retrieve ctf score from shared preferences
+        SharedPreferences sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
+        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
+        int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
+        int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
+        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
+        int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
+        int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
+        int service_score = sharedPreferences.getInt("ctf_score_service", 0);
+        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
+        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+
+        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
+                + clip_score;
         String str_score = Integer.toString(total_score);
 
-        userProgress.setProgressWithAnimation(total_score, 2000);
+        flags_captured = findViewById(R.id.flag_score);
+
+        if (str_score.equals("5")) {
+            Toast.makeText(UserProfileActivity.this, "result: " + str_score, Toast.LENGTH_LONG).show();
+        }
+
+        switch(str_score) {
+            case "5" :
+                flags_captured.setText("1");
+                break;
+            case "10" :
+                flags_captured.setText("2");
+                break;
+                default :
+                    flags_captured.setText("0");// Optional
+        }
+
     }
 
 

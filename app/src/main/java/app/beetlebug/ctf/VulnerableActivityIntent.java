@@ -58,16 +58,16 @@ public class VulnerableActivityIntent extends AppCompatActivity {
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
         if (m_flag.getText().toString().equals("0x334f22")) {
-            int user_score_intent_redirect = 9;
+            int user_score_intent_redirect = 5;
             String ctf_status = "intent_redirect_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_intent_redirect, user_score_intent_redirect);
-            editor.putBoolean(ctf_status, true);
             editor.commit();
 
             Intent ctf_captured = new Intent(VulnerableActivityIntent.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score_intent_redirect", user_score_intent_redirect);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Wrong answer");

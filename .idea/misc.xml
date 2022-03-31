@@ -25,7 +25,7 @@
         <entry key="app/src/main/res/layout/activity_firebase_database.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_flag_captured.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_flags.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_insecure_content_provider.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_insecure_deep_link.xml" value="0.29444444444444445" />
         <entry key="app/src/main/res/layout/activity_insecure_logging.xml" value="0.3098958333333333" />
@@ -34,12 +34,12 @@
         <entry key="app/src/main/res/layout/activity_insecure_storage_sharedpref.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_sql.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_insecure_storage_temp.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2671232876712329" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_registration_web_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sqlinjection.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_sslpinning.xml" value="0.12864583333333332" />
-        <entry key="app/src/main/res/layout/activity_sslpinning_by_pass.xml" value="0.3297045101088647" />
-        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_sslpinning_by_pass.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_user_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_vulnerable1.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_vulnerable_broadcast_receiver.xml" value="0.25" />

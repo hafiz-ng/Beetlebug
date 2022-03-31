@@ -128,7 +128,7 @@
 
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/food_bar"
+                    android:id="@+id/progress_bar_components"
                     style="@style/lesson_bar"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -149,8 +149,8 @@
                     style="@style/lesson_bar_text"
                     android:layout_width="149dp"
                     android:layout_height="60dp"
-                    android:layout_below="@+id/food_bar"
-                    android:layout_alignStart="@+id/food_bar"
+                    android:layout_below="@+id/progress_bar_components"
+                    android:layout_alignStart="@+id/progress_bar_components"
                     android:layout_marginStart="-36dp"
                     android:layout_marginTop="0dp"
                     android:fontFamily="@font/kanit_regular"
@@ -168,7 +168,7 @@
 
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/animal_bar"
+                    android:id="@+id/progress_bar_bio"
                     style="@style/lesson_bar"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -189,7 +189,7 @@
                     style="@style/lesson_bar_text"
                     android:layout_width="172dp"
                     android:layout_height="56dp"
-                    android:layout_below="@+id/animal_bar"
+                    android:layout_below="@+id/progress_bar_bio"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="-11dp"
                     android:layout_marginTop="-2dp"
@@ -208,10 +208,9 @@
             android:layout_marginTop="8dp">
 
             <app.beetlebug.utils.CustomProgressBar
-                android:id="@+id/clothing_bar"
+                android:id="@+id/progress_bar_sensitive_info"
                 style="@style/lesson_bar"
                 android:layout_centerInParent="true"
-
                 android:onClick="inSecureLoggingFlag" />
 
             <ImageView
@@ -223,7 +222,7 @@
 
             <TextView
                 style="@style/lesson_bar_text"
-                android:layout_below="@id/clothing_bar"
+                android:layout_below="@id/progress_bar_sensitive_info"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/kanit_regular"
                 android:text="Sensitive Info Disclosure" />
@@ -246,7 +245,7 @@
 
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/food_bar2"
+                    android:id="@+id/progress_bar_database"
                     style="@style/lesson_bar"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -266,8 +265,8 @@
 
                 <TextView
                     style="@style/lesson_bar_text"
-                    android:layout_below="@+id/food_bar2"
-                    android:layout_alignStart="@+id/food_bar2"
+                    android:layout_below="@+id/progress_bar_database"
+                    android:layout_alignStart="@+id/progress_bar_database"
                     android:layout_marginStart="-8dp"
                     android:layout_marginTop="1dp"
                     android:fontFamily="@font/kanit_regular"
@@ -284,7 +283,7 @@
                 android:layout_weight="1">
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/animal_bar2"
+                    android:id="@+id/progress_bar_root"
                     style="@style/lesson_bar"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -305,11 +304,11 @@
                     style="@style/lesson_bar_text"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/animal_bar2"
+                    android:layout_below="@+id/progress_bar_root"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/kanit_regular"
-                    android:text="Device Management"
+                    android:text="Root Detection"
                     android:textAlignment="center" />
 
             </RelativeLayout>

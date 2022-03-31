@@ -116,7 +116,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Common misconfigurations on Firebase databases allow unauthorized parties to easily find and access users' personal data."
+            android:text="Firebase Database Misconfigurations allow unauthorized parties to easily access users' personal data."
             android:textSize="14sp" />
 
         <Button

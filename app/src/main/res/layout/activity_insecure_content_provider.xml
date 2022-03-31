@@ -129,6 +129,7 @@
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.5"
+            android:onClick="flg"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
             android:text="Submit"
@@ -136,18 +137,6 @@
             android:textColor="@android:color/black" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/res"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="225dp"
-        android:fontFamily="@font/kanit_regular"
-        android:text="TextView"
-        android:textSize="12sp" />
 
 
 </RelativeLayout>

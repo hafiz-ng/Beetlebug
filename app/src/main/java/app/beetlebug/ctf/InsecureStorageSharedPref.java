@@ -73,7 +73,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences_pref.edit();
             editor.putString(m_username, username);
             editor.putString(m_password, password);
-            editor.putString(pref_flg, "0xe982c04");
+            editor.putString(pref_flg, "0x1442c04");
             editor.clear();
             editor.commit();
             Toast.makeText(InsecureStorageSharedPref.this, "Login successful", Toast.LENGTH_SHORT).show();
@@ -84,14 +84,13 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
 
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
-        if (m_flag.getText().toString().equals("0xe982c04")) {
-            int user_score_shared_pref = 9;
+        if (m_flag.getText().toString().equals("0x1442c04")) {
+            int user_score_shared_pref = 5;
             String ctf_status = "shared_pref_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_shared_pref, user_score_shared_pref);
-            editor.putBoolean(ctf_status, true);
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureStorageSharedPref.this, FlagCaptured.class);

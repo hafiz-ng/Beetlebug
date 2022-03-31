@@ -58,7 +58,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="By-pass URL Check"
+            android:text="Load Arbitrary URL"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -135,7 +135,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Enabling setJavaScriptEnabled() to true can be dangerous and allows attackers to carry out many attacks including XSS"
+            android:text="Improper WebView settings allow malicious scripts to access local files such as cookies and private app data"
             android:textSize="14sp" />
 
         <Button

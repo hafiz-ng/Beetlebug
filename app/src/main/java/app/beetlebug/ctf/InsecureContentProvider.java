@@ -3,6 +3,9 @@ package app.beetlebug.ctf;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -14,10 +17,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 import app.beetlebug.handlers.VulnerableContentProvider;
 
 public class InsecureContentProvider extends AppCompatActivity {
+
+    SharedPreferences sharedPreferences;
 
     Uri CONTENT_URI = Uri.parse("content://app.beetlebug.provider/users");
     @Override
@@ -32,11 +38,12 @@ public class InsecureContentProvider extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
+        sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+
+
     }
 
     public void loadData(View view) {
-        // inserting complete table details in this text field
-        TextView resultView= (TextView) findViewById(R.id.res);
 
         // creating a cursor object of the
         // content URI
@@ -50,10 +57,6 @@ public class InsecureContentProvider extends AppCompatActivity {
                 strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+ cursor.getString(cursor.getColumnIndex("name")));
                 cursor.moveToNext();
             }
-            resultView.setText(strBuild);
-        }
-        else {
-            resultView.setText("No Records Found");
         }
     }
 
@@ -63,12 +66,30 @@ public class InsecureContentProvider extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
         // fetching text from user
-        values.put(VulnerableContentProvider.name, ((EditText) findViewById(R.id.username)).getText().toString());
+        values.put(VulnerableContentProvider.name, ((EditText) findViewById(R.id.username)).getText().toString() + " - flg 0ex33421");
 
         // inserting into database through content URI
         getContentResolver().insert(VulnerableContentProvider.CONTENT_URI, values);
 
         // displaying a toast message
         Toast.makeText(getBaseContext(), "New Record Inserted", Toast.LENGTH_LONG).show();
+    }
+
+    public void flg(View view) {
+        EditText flg = findViewById(R.id.flag);
+        String rslt = flg.getText().toString();
+        if (rslt.isEmpty()) {
+            flg.setError("Enter flag");
+        } else if (rslt.equals("0ex33421")) {
+            int user_score_content = 5;
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("ctf_score_content_provider", user_score_content);
+
+            editor.commit();
+            Intent ctf_captured = new Intent(InsecureContentProvider.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score_content_provider", user_score_content);
+            startActivity(ctf_captured);
+        }
     }
 }

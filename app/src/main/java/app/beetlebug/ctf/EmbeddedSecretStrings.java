@@ -34,7 +34,6 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
         setContentView(R.layout.activity_embedded_secret_strings);
         m_btn = findViewById(R.id.buttonUnlock);
 
-
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
 
         if(Build.VERSION.SDK_INT>=21){
@@ -51,7 +50,7 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
 
                 String s1 = pin.getText().toString();
                if((s1.equals(getString(R.string.V98bFQrpGkDJ))) ) {
-                   int ctf_score_secret_string = 9;
+                   int ctf_score_secret_string = 5;
                    SharedPreferences.Editor editor = sharedPreferences.edit();
                    editor.putInt("ctf_score_secret_string", ctf_score_secret_string);
                    editor.putBoolean("secret_string_status", true);

@@ -66,6 +66,7 @@ public class UserSignUp extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("user", username);
         editor.putBoolean("is_logged_in", true);
+        editor.putString("flag", "0x32f6641");
         editor.putString("user_token", UUID.randomUUID().toString());
         editor.apply();
 

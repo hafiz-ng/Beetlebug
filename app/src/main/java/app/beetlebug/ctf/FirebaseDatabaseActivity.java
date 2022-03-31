@@ -37,12 +37,12 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
                 if(result.isEmpty()) {
                     m_flg.setError("Enter flag");
                 } else if (result.equals("firebase374fc")){
-                    int user_score_firebase = 9;
+                    int user_score_firebase = 5;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("ctf_score_firebase", user_score_firebase);
-                    editor.putBoolean("firebase_status", true);
                     editor.commit();
                     Intent ctf_captured = new Intent(FirebaseDatabaseActivity.this, FlagCaptured.class);
+                    ctf_captured.putExtra("ctf_score_firebase", user_score_firebase);
                     startActivity(ctf_captured);
                     Toast.makeText(FirebaseDatabaseActivity.this, "Flag found", Toast.LENGTH_LONG).show();
                 }

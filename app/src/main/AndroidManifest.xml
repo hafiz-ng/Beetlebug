@@ -37,9 +37,6 @@
             android:name=".ctf.b33tleActivity"
             android:exported="true" />
         <activity
-            android:name=".ctf.EmulatorDetectionActviity"
-            android:exported="false" />
-        <activity
             android:name=".ctf.InsecureContentProvider"
             android:exported="false" />
 

@@ -61,10 +61,9 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
                     m_price.setText(s);
 
                     Toast.makeText(EmbeddedSecretSourceCode.this, "Your new price is: " + new_price, Toast.LENGTH_LONG).show();
-                    int user_score_secret_source = 9;
+                    int user_score_secret_source = 5;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt(ctf_score_secret_source, user_score_secret_source);
-                    editor.putBoolean("secret_source_status", true);
                     editor.commit();
 
                     m_purchase.setVisibility(View.VISIBLE);

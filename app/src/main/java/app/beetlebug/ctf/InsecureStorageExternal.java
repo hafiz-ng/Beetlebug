@@ -142,7 +142,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
         if (m_flag.getText().toString().equals("0xe982c04")) {
-            int user_score_external_str = 9;
+            int user_score_external_str = 5;
 //            String ctf_status = "external_str_ctf_status";
 
             // save user score to shared preferences

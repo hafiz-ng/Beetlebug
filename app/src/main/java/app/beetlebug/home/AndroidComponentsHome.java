@@ -14,13 +14,14 @@ import android.widget.TextView;
 
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
+import app.beetlebug.ctf.InsecureContentProvider;
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.ctf.VulnerableServiceActivity;
 
 
 public class AndroidComponentsHome extends Fragment {
 
-    Button mButton, mButton3;
+    Button m_btn, m_btn3, m_btn4;
     TextView mCtfTitle;
 
     ImageView mBackButton;
@@ -33,8 +34,10 @@ public class AndroidComponentsHome extends Fragment {
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_android_components, container, false);
-        mButton = view.findViewById(R.id.button);
-        mButton3 = view.findViewById(R.id.button3);
+        m_btn = view.findViewById(R.id.button);
+        m_btn3 = view.findViewById(R.id.button3);
+        m_btn4 = view.findViewById(R.id.button4);
+
         mCtfTitle = view.findViewById(R.id.textViewComponentsTitle);
         mBackButton = view.findViewById(R.id.back);
 
@@ -46,7 +49,7 @@ public class AndroidComponentsHome extends Fragment {
             }
         });
 
-        mButton.setOnClickListener(new View.OnClickListener() {
+        m_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ctf_intent = new Intent(getActivity(), VulnerableActivityIntent.class);
@@ -55,11 +58,19 @@ public class AndroidComponentsHome extends Fragment {
         });
 
 
-        mButton3.setOnClickListener(new View.OnClickListener() {
+        m_btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ctf_intent3 = new Intent(getActivity(), VulnerableServiceActivity.class);
                 startActivity(ctf_intent3);
+            }
+        });
+
+        m_btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ctf_intent4 = new Intent(getActivity(), InsecureContentProvider.class);
+                startActivity(ctf_intent4);
             }
         });
         return view;

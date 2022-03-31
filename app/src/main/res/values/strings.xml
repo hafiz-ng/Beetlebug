@@ -10,6 +10,7 @@
     <string name="onboarding_one">Learn Android security from real-world bugs</string>
     <string name="onboarding_two">Capture all flags to complete the challenges</string>
     <string name="signup_description">A very insecure and vulnerable Android Application for pentesters and bug hunters</string>
+    <string name="firebase_database_url">https://beetlebug-374fc-default-rtdb.firebaseio.com</string>
 
     <!-- Insecure Storage -->
     <string name="insecure_1_name">Find out where the sensitive credentials are being stored</string>
@@ -18,6 +19,7 @@
 
     <string name="vul_activity1">Please input your Master Secret password and place of birth to grant access</string>
     <!-- TODO: Remove or change this placeholder text -->
+
 
 
 </resources>

@@ -82,11 +82,12 @@ public class InsecureLoggingActivity extends AppCompatActivity {
         if (rslt.isEmpty()) {
             flg.setError("Enter flag");
         } else if (rslt.equals("0x55541d3")) {
-            int user_score_log = 9;
+            int user_score_log = 5;
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_log, user_score_log);
             editor.commit();
             Intent ctf_captured = new Intent(InsecureLoggingActivity.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score_log", user_score_log);
             startActivity(ctf_captured);
         }
 

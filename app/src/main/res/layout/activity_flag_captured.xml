@@ -29,12 +29,12 @@
             android:textSize="23sp"/>
 
         <TextView
+            android:id="@+id/ctfPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" 0"
-            android:id="@+id/ctfPoint"
             android:fontFamily="@font/kanit_regular"
-            android:textSize="23sp"/>
+            android:text=" 0"
+            android:textSize="23sp" />
 
         <TextView
             android:layout_width="wrap_content"

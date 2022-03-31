@@ -2,7 +2,9 @@ package app.beetlebug.ctf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +43,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
+import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,14 +57,18 @@ public class RootDetectorActivity extends AppCompatActivity  {
 
     TextView result;
     ImageView img;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sslpinning_by_pass);
+        Button m_btn2 = (Button) findViewById(R.id.button2);
+
+        sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         result = findViewById(R.id.rootStatus);
         img = findViewById(R.id.rootStatusImg);
+        EditText rslt = findViewById(R.id.flag);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -68,6 +76,22 @@ public class RootDetectorActivity extends AppCompatActivity  {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
+
+        m_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int ctf_score_root = 5;
+                String str_result = rslt.getText().toString();
+                if (str_result.equals("0x5411n54")) {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("ctf_score_root", ctf_score_root);
+                    editor.commit();
+                    Intent i = new Intent(RootDetectorActivity.this, FlagCaptured.class);
+                    i.putExtra("ctf_score_root", ctf_score_root);
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     private boolean doesSUexist() {
@@ -100,6 +124,9 @@ public class RootDetectorActivity extends AppCompatActivity  {
     }
 
     public void showRootStatus(View view) {
+
+        EditText m_flg = (EditText) findViewById(R.id.flag);
+
         boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
                 doesSUexist();
         if(isrooted)
@@ -107,13 +134,20 @@ public class RootDetectorActivity extends AppCompatActivity  {
             result.setText("Your Device is Rooted!");
             Drawable res = getResources().getDrawable(R.drawable.root);
             img.setImageDrawable(res);
-
+            m_flg.setText("0x5411n54");
         }
         else
         {
             result.setText("Device not Rooted!");
             Drawable res = getResources().getDrawable(R.drawable.no_root);
             img.setImageDrawable(res);
+            m_flg.setText("0x5411n54");
+
         }
     }
+
+
+
+
+
 }

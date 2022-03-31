@@ -54,13 +54,18 @@ public class FlagCaptured extends AppCompatActivity {
         int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
         int service_score = sharedPreferences.getInt("ctf_score_service", 0);
         int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
+        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score + intent_redirect_score + service_score + log_score;
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
+                + clip_score;
 
         String str_score = Integer.toString(total_score);
 
         m_total_ctf_points.setText(str_score + "XP");
-//        Toast.makeText(FlagCaptured.this, "CTF Score: " + total_score, Toast.LENGTH_SHORT).show();
 
         dailyProgressBar.setProgressWithAnimation(total_score, 2000);
     }
@@ -78,6 +83,16 @@ public class FlagCaptured extends AppCompatActivity {
         int result4 = i.getIntExtra("ctf_score_external_str", 0);
         int result5 = i.getIntExtra("ctf_score_sqlite", 0);
         int result6 = i.getIntExtra("ctf_score_webview", 0);
+        int result7 = i.getIntExtra("ctf_score_xss", 0);
+        int result8 = i.getIntExtra("ctf_score_intent_redirect", 0);
+        int result9 = i.getIntExtra("ctf_score", 0);
+        int result10 = i.getIntExtra("ctf_score_content_provider", 0);
+        int result11 = i.getIntExtra("ctf_score_log", 0);
+        int result12 = i.getIntExtra("ctf_score_clip", 0);
+        int result13 = i.getIntExtra("ctf_score_root", 0);
+        int result14 = i.getIntExtra("ctf_score_firebase", 0);
+
+
 
 
 
@@ -87,8 +102,14 @@ public class FlagCaptured extends AppCompatActivity {
         String str4 = Integer.toString(result4);
         String str5 = Integer.toString(result5);
         String str6 = Integer.toString(result6);
-
-
+        String str7 = Integer.toString(result7);
+        String str8 = Integer.toString(result8);
+        String str9 = Integer.toString(result9);
+        String str10 = Integer.toString(result10);
+        String str11 = Integer.toString(result11);
+        String str12 = Integer.toString(result12);
+        String str13 = Integer.toString(result13);
+        String str14 = Integer.toString(result14);
 
         ctf_point = (TextView) findViewById(R.id.ctfPoint);
         ctf_point.setText(str);
@@ -97,11 +118,14 @@ public class FlagCaptured extends AppCompatActivity {
         ctf_point.setText(str4);
         ctf_point.setText(str5);
         ctf_point.setText(str6);
-
+        ctf_point.setText(str7);
+        ctf_point.setText(str8);
+        ctf_point.setText(str9);
+        ctf_point.setText(str10);
+        ctf_point.setText(str11);
+        ctf_point.setText(str12);
+        ctf_point.setText(str13);
+        ctf_point.setText(str14);
 
     }
-
-
-
-
 }

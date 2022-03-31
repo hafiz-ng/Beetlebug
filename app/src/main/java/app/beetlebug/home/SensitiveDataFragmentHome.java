@@ -14,17 +14,19 @@ import android.widget.ImageView;
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.InsecureLoggingActivity;
+import app.beetlebug.ctf.VulnerableClipboardActivity;
 
 public class SensitiveDataFragmentHome extends Fragment {
 
     ImageView m_back_btn;
-    Button m_btn;
+    Button m_btn, m_btn2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sensitive_data, container, false);
         m_btn = view.findViewById(R.id.button);
+        m_btn2 = view.findViewById(R.id.button2);
 
         m_back_btn = view.findViewById(R.id.back);
         m_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +41,14 @@ public class SensitiveDataFragmentHome extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), InsecureLoggingActivity.class);
+                startActivity(i);
+            }
+        });
+
+        m_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), VulnerableClipboardActivity.class);
                 startActivity(i);
             }
         });

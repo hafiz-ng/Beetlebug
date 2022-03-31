@@ -214,7 +214,7 @@
                         android:layout_toEndOf="@+id/imageViewWebView"
                         android:layout_toRightOf="@+id/imageViewWebView"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 7 - 10"
+                        android:text="Flag 7 - 8"
                         android:textSize="14sp" />
 
                     <TextView
@@ -276,7 +276,7 @@
                         android:layout_toEndOf="@+id/imageViewDatabases"
                         android:layout_toRightOf="@+id/imageViewDatabases"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 11 - 13"
+                        android:text="Flag 9 - 10"
                         android:textSize="14sp" />
 
                     <TextView
@@ -339,7 +339,7 @@
                         android:layout_toEndOf="@+id/imageViewComponents"
                         android:layout_toRightOf="@+id/imageViewComponents"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 14 - 17"
+                        android:text="Flag 11 - 13"
                         android:textSize="14sp" />
 
                     <TextView
@@ -401,7 +401,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 6"
+                        android:text="Flag 14 - 16"
                         android:textSize="14sp" />
 
                     <TextView
@@ -464,7 +464,7 @@
                         android:layout_toEndOf="@+id/imageViewBiometric"
                         android:layout_toRightOf="@+id/imageViewBiometric"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 7"
+                        android:text="Flag 17"
                         android:textSize="14sp" />
 
                     <TextView
@@ -527,7 +527,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 7"
+                        android:text="Flag 18"
                         android:textSize="14sp" />
 
                     <TextView
@@ -540,7 +540,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Device Management"
+                        android:text="Root Detection"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 

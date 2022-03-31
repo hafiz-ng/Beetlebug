@@ -19,7 +19,7 @@ import app.beetlebug.ctf.BiometricActivityFrida;
 
 public class BiometricFragmentHome extends Fragment {
 
-    Button m_btn, m_btn2;
+    Button m_btn;
     ImageView m_btn_back;
 
     @Override
@@ -30,7 +30,6 @@ public class BiometricFragmentHome extends Fragment {
 
         m_btn_back = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
-        m_btn2 = view.findViewById(R.id.button2);
 
         m_btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +47,13 @@ public class BiometricFragmentHome extends Fragment {
             }
         });
 
-        m_btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ctf_intent2 = new Intent(getActivity(), BiometricActivityFrida.class);
-                startActivity(ctf_intent2);
-            }
-        });
+//        m_btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent ctf_intent2 = new Intent(getActivity(), BiometricActivityFrida.class);
+//                startActivity(ctf_intent2);
+//            }
+//        });
 
         return view;
     }

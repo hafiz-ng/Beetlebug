@@ -100,10 +100,10 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_service, user_score_service);
-            editor.putBoolean(ctf_status, true);
             editor.commit();
 
             Intent ctf_captured = new Intent(VulnerableServiceActivity.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score", user_score_service);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Wrong answer");

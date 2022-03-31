@@ -89,7 +89,7 @@ public class InsecureStorageSQLite extends AppCompatActivity {
     }
 
     public void captureFlag(View view) {
-        int user_score = 9;
+        int user_score = 5;
         EditText flg = findViewById(R.id.flag);
         String result = flg.getText().toString();
         if (result.equals("0xe332c04")) {

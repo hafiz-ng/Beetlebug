@@ -44,7 +44,7 @@ public class WebViewURLActivity extends AppCompatActivity {
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
         if (m_flag.getText().toString().equals("0x33f3341")) {
-            int user_score_webview = 9;
+            int user_score_webview = 5;
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
