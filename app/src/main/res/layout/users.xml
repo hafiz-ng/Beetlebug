@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="40dp"
+        android:padding="3dp"
+        android:text="1"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/id"
+        android:maxLines="1"
+        android:fontFamily="@font/kanit_regular"
+        android:padding="3dp"
+        android:text="Username"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/id"
+        android:ellipsize="end"
+        android:fontFamily="@font/kanit_light"
+        android:maxLines="2"
+        android:padding="3dp"
+        android:text="Password" />
+
+</RelativeLayout>
