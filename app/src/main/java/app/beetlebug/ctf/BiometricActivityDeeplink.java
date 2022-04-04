@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import java.util.concurrent.Executor;
 
+import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
 public class BiometricActivityDeeplink extends AppCompatActivity {
@@ -24,12 +28,16 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
     private ImageView mImageView;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biometric);
 
         mImageView = findViewById(R.id.fingerPrintImageView);
+
+        sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
 
         if(Build.VERSION.SDK_INT>=21){
@@ -76,11 +84,24 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
         });
     }
 
-    public void captureFlag(View view) {
-    }
-
     public void signIn(View view) {
         EditText sign = findViewById(R.id.editTextPassword);
         sign.setError("Wrong password");
+    }
+
+    public void flg(View view) {
+        EditText m_flg = (EditText) findViewById(R.id.flag);
+        String result = m_flg.getText().toString();
+        if((result.equals("0x43J1230"))) {
+            int ctf_score_auth = 5;
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("ctf_score_auth", ctf_score_auth);
+            editor.apply();
+            Intent secret_intent = new Intent(BiometricActivityDeeplink.this, FlagCaptured.class);
+            secret_intent.putExtra("ctf_score_auth", ctf_score_auth);
+            startActivity(secret_intent);
+        } else if (result.isEmpty()) {
+            m_flg.setError("Enter flag");
+        }
     }
 }

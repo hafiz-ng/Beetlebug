@@ -30,18 +30,4 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="377dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
-        android:layout_toRightOf="@+id/id"
-        android:ellipsize="end"
-        android:fontFamily="@font/kanit_light"
-        android:maxLines="2"
-        android:padding="3dp"
-        android:text="Password" />
-
 </RelativeLayout>

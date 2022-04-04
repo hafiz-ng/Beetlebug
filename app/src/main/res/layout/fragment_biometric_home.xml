@@ -60,7 +60,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Identify where sensitive information is stored within an application"
+            android:text="Fingerprint authentication can be circumvented via weak deeplinks"
             android:textSize="14sp" />
 
         <Button

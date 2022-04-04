@@ -94,7 +94,7 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
         EditText m_flag = findViewById(R.id.flag);
         String rslt = m_flag.getText().toString();
         if (rslt.equals("0xe22210")) {
-            int user_score_service = 9;
+            int user_score_service = 5;
             String ctf_status = "service_ctf_status";
 
             // save user score to shared preferences
@@ -103,7 +103,7 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
             editor.commit();
 
             Intent ctf_captured = new Intent(VulnerableServiceActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score", user_score_service);
+            ctf_captured.putExtra("ctf_score_service", user_score_service);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Wrong answer");

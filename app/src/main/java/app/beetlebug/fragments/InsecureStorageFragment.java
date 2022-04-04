@@ -1,6 +1,8 @@
 package app.beetlebug.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,9 +23,12 @@ import app.beetlebug.R;
 
 public class InsecureStorageFragment extends Fragment {
 
-    TextView mCtfTitle, mCtfTitle2;
+    TextView mCtfTitle;
     Button mButton, mButton3, mButton4;
     ImageView mBackButton;
+
+
+    SharedPreferences sharedPreferences;
 
 
     public InsecureStorageFragment() {
@@ -38,7 +43,6 @@ public class InsecureStorageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_insecure_storage, container, false);
         mCtfTitle = view.findViewById(R.id.ctfTitle);
-        mCtfTitle2 = view.findViewById(R.id.ctfTitle2);
 
         mButton = view.findViewById(R.id.button);
         mButton3 = view.findViewById(R.id.button3);
@@ -46,14 +50,28 @@ public class InsecureStorageFragment extends Fragment {
 
         mBackButton = view.findViewById(R.id.back);
 
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
+        String pref_string = Integer.toString(shared_pref_score);
+        if (pref_string.equals("5")) {
+            mButton.setEnabled(false);
+            mButton.setText("Done");
+
+        }
+
+        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
+        String exter_string = Integer.toString(external_str_score);
+        if (exter_string.equals("5")) {
+            mButton4.setEnabled(false);
+            mButton4.setText("Done");
+        }
+
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ctf_intent = new Intent(getActivity(), FlagsOverview.class);
                 startActivity(ctf_intent);
-
-//                getActivity().onBackPressed();
             }
         });
         mButton.setOnClickListener(new View.OnClickListener() {

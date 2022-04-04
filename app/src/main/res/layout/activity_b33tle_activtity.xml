@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/container"
     android:layout_height="match_parent"
-    tools:context=".ctf.b33tleActivity">
+    tools:context=".ctf.b33tleAdministrator">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -13,53 +14,117 @@
         android:padding="15dp">
 
         <TextView
-            android:id="@+id/current_language"
+            android:id="@+id/admin_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Flag 10 Found"
+            android:text="Admin Dashboard"
             android:textColor="#000"
             android:textSize="27sp" />
 
     </RelativeLayout>
 
-
-    <ImageView
-        android:id="@+id/flag"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="80dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/flag5" />
-
-    <TextView
-        android:id="@+id/textViewFlag"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/flag"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/kanit_regular"
-        android:text="0x334f22"
-        android:textSize="22sp" />
+        android:layout_below="@+id/toolbar"
+        android:padding="25dp">
 
-    <Button
-        android:id="@+id/copy"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/textViewFlag"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:background="@drawable/rectangle_yellow"
-        android:fontFamily="@font/kanit_regular"
-        android:onClick="copy"
-        android:src="@drawable/copy"
-        android:text="Copy to clipboard"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/addUser"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="addUser"
+            android:src="@drawable/add_user" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addUser"
+            android:layout_marginLeft="36dp"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Add User"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/remove_user"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/remove_user" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/remove_user"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="26dp"
+
+            android:fontFamily="@font/kanit_regular"
+            android:text="Remove User"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/textViewEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No records found" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ctfLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/flag5" />
+
+        <TextView
+            android:id="@+id/textViewFlag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flag"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/kanit_light"
+            android:text="0x334f22"
+            android:textSize="22sp" />
+    </LinearLayout>
 
 
 </RelativeLayout>

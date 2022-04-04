@@ -1,4 +1,4 @@
-package ng.hafiz.databaseexample;
+package app.beetlebug.utils;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,11 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.CursorLoader;
 
+import app.beetlebug.db.AdminHelper;
+
 public class MyLoader extends CursorLoader {
 
-    DatabaseHelper myDatabaseHelper;
+    AdminHelper myDatabaseHelper;
 
-    public MyLoader(@NonNull Context context, DatabaseHelper db) {
+    public MyLoader(@NonNull Context context, AdminHelper db) {
         super(context);
         myDatabaseHelper = db;
     }

@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,8 @@ public class SensitiveDataFragmentHome extends Fragment {
 
     ImageView m_back_btn;
     Button m_btn, m_btn2;
+
+    SharedPreferences sharedPreferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class SensitiveDataFragmentHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sensitive_data, container, false);
         m_btn = view.findViewById(R.id.button);
         m_btn2 = view.findViewById(R.id.button2);
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         m_back_btn = view.findViewById(R.id.back);
         m_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +57,22 @@ public class SensitiveDataFragmentHome extends Fragment {
                 startActivity(i);
             }
         });
+
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+
+        String log_string = Integer.toString(log_score);
+        if (log_string.equals("5")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
+        String clip_string = Integer.toString(clip_score);
+        if (clip_string.equals("5")) {
+            m_btn2.setEnabled(false);
+            m_btn2.setText("Done");
+        }
+
         return view;
     }
 }

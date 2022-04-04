@@ -61,15 +61,17 @@ public class SQLInjectionActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int user_score = 5;
+                int ctf_score_sqli= 5;
                 String result = flg.getText().toString();
                 if(result.equals("0x9133413")) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("ctf_score_sqli", user_score);
-                    editor.putBoolean("sqli_status", true);
+                    editor.putInt("ctf_score_sqli", ctf_score_sqli);
                     editor.apply();
                     Intent ctf_captured = new Intent(SQLInjectionActivity.this, FlagCaptured.class);
+                    ctf_captured.putExtra("ctf_score_sqli", ctf_score_sqli);
                     startActivity(ctf_captured);
+                } else {
+                    flg.setError("Enter flag");
                 }
             }
         });

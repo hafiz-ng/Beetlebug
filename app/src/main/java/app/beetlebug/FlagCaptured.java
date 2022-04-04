@@ -58,10 +58,15 @@ public class FlagCaptured extends AppCompatActivity {
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
         int root_score = sharedPreferences.getInt("ctf_score_root", 0);
         int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
+        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+
+
+
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
                 + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
-                + clip_score;
+                + clip_score + auth_score + webview_score;
 
         String str_score = Integer.toString(total_score);
 
@@ -91,6 +96,8 @@ public class FlagCaptured extends AppCompatActivity {
         int result12 = i.getIntExtra("ctf_score_clip", 0);
         int result13 = i.getIntExtra("ctf_score_root", 0);
         int result14 = i.getIntExtra("ctf_score_firebase", 0);
+        int result15 = i.getIntExtra("ctf_score_auth", 0);
+        int result16 = i.getIntExtra("ctf_score_sqli", 0);
 
 
 
@@ -110,6 +117,9 @@ public class FlagCaptured extends AppCompatActivity {
         String str12 = Integer.toString(result12);
         String str13 = Integer.toString(result13);
         String str14 = Integer.toString(result14);
+        String str15 = Integer.toString(result15);
+        String str16 = Integer.toString(result16);
+
 
         ctf_point = (TextView) findViewById(R.id.ctfPoint);
         ctf_point.setText(str);
@@ -126,6 +136,8 @@ public class FlagCaptured extends AppCompatActivity {
         ctf_point.setText(str12);
         ctf_point.setText(str13);
         ctf_point.setText(str14);
+        ctf_point.setText(str15);
+        ctf_point.setText(str16);
 
     }
 }

@@ -44,11 +44,22 @@
         android:text="Flg_022329@"
         android:textSize="22sp" />
 
+    <TextView
+        android:id="@+id/textViewUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewFlag"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/kanit_regular"
+        android:text="URL"
+        android:textSize="22sp" />
+
     <Button
         android:id="@+id/copy"
         android:layout_width="250dp"
         android:layout_height="55dp"
-        android:layout_below="@+id/textViewFlag"
+        android:layout_below="@+id/textViewUrl"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:background="@drawable/rectangle_yellow"

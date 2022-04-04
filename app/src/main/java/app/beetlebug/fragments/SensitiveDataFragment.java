@@ -1,6 +1,8 @@
 package app.beetlebug.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,8 @@ import app.beetlebug.ctf.VulnerableClipboardActivity;
 
 public class SensitiveDataFragment extends Fragment {
 
+    SharedPreferences sharedPreferences;
+
     ImageView mBackButton;
     Button mBtn, mBtn2;
 
@@ -32,6 +36,7 @@ public class SensitiveDataFragment extends Fragment {
         mBackButton = view.findViewById(R.id.back);
         mBtn = view.findViewById(R.id.button);
         mBtn2 = view.findViewById(R.id.button2);
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +61,24 @@ public class SensitiveDataFragment extends Fragment {
                 startActivity(ctf_intent);
             }
         });
+
+
+
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+
+        String log_string = Integer.toString(log_score);
+        if (log_string.equals("5")) {
+            mBtn.setEnabled(false);
+            mBtn.setText("Done");
+        }
+
+        String clip_string = Integer.toString(clip_score);
+        if (clip_string.equals("5")) {
+            mBtn2.setEnabled(false);
+            mBtn2.setText("Done");
+        }
+
         return view;
     }
 }

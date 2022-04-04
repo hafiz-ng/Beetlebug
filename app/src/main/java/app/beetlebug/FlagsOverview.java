@@ -50,10 +50,10 @@ public class FlagsOverview extends AppCompatActivity {
     CustomProgressBar webViewsProgressBar;
     CustomProgressBar androidComponentsProgressBar;
     CustomProgressBar insecureStoreProgressBar;
-    CustomProgressBar biometricAuthProgressBar;
     CustomProgressBar sensitiveInfoProgressBar;
     CustomProgressBar databasesProgressBar;
     CustomProgressBar rootDetectionProgressBar;
+    CustomProgressBar bioProgressBar;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -68,11 +68,11 @@ public class FlagsOverview extends AppCompatActivity {
         webViewsProgressBar = findViewById(R.id.progress_bar_webview);
         insecureStoreProgressBar = findViewById(R.id.progress_bar_local_storage);
         androidComponentsProgressBar = findViewById(R.id.progress_bar_components);
-        biometricAuthProgressBar = findViewById(R.id.progress_bar_bio);
         sensitiveInfoProgressBar = findViewById(R.id.progress_bar_sensitive_info);
         rootDetectionProgressBar = findViewById(R.id.progress_bar_root);
         databasesProgressBar = findViewById(R.id.progress_bar_database);
         webViewsProgressBar = findViewById(R.id.progress_bar_webview);
+        bioProgressBar = findViewById(R.id.progress_bar_bio);
 
         mfinish = findViewById(R.id.finish_button);
 
@@ -99,13 +99,20 @@ public class FlagsOverview extends AppCompatActivity {
         setupProgressBarInsecureStorage();
         setupProgressBarHardCodedSecrets();
         setUpProgressBarAndroidComponents();
-        setUpProgressBarBio();
         setUpProgressBarInfoDiscl();
         setUpProgressBarDatabases();
         setUpProgressBarWebViews();
         setUpProgressBarRoot();
+        setUpProgressBarAuth();
     }
 
+    private void setUpProgressBarAuth() {
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
+        String total_string = Integer.toString(auth_score);
+        if (total_string.equals("5")) {
+            bioProgressBar.setProgressWithAnimation(100, 2000);
+        }
+    }
     private void setUpProgressBarAndroidComponents() {
         int service_score = sharedPreferences.getInt("ctf_score_service", 0);
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
@@ -122,12 +129,18 @@ public class FlagsOverview extends AppCompatActivity {
             androidComponentsProgressBar.setProgressWithAnimation(100, 2000);
     }
 
-    private void setUpProgressBarBio() {
-
-    }
 
     private void setUpProgressBarWebViews() {
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+        int total_score = xss_score + webview_score;
+        String total_string = Integer.toString(total_score);
 
+        if(total_string.equals("5")) {
+            webViewsProgressBar.setProgressWithAnimation(50, 2000);
+        } else if (total_string.equals("10")) {
+            webViewsProgressBar.setProgressWithAnimation(100, 2000);
+        }
     }
 
 
@@ -288,10 +301,14 @@ public class FlagsOverview extends AppCompatActivity {
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
         int root_score = sharedPreferences.getInt("ctf_score_root", 0);
         int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
+        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+
+
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
                 + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
-                + clip_score;
+                + clip_score + auth_score + webview_score;
 
         if (total_score < 50) {
             finish_dialog.setContentView(R.layout.try_again_sheet);
@@ -299,13 +316,19 @@ public class FlagsOverview extends AppCompatActivity {
             finish_dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             finish_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             finish_dialog.getWindow().setGravity(Gravity.BOTTOM);
-        } else if (total_score > 50) {
+        } else if (total_score <= 45) {
+            finish_dialog.setContentView(R.layout.bottom_sheet_continue);
+            finish_dialog.show();
+            finish_dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            finish_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            finish_dialog.getWindow().setGravity(Gravity.BOTTOM);
+        } else if (total_score >= 60) {
             finish_dialog.setContentView(R.layout.bottom_sheet);
             finish_dialog.show();
             finish_dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             finish_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             finish_dialog.getWindow().setGravity(Gravity.BOTTOM);
-            }
+        }
     }
 
 
@@ -350,17 +373,15 @@ public class FlagsOverview extends AppCompatActivity {
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
         int root_score = sharedPreferences.getInt("ctf_score_root", 0);
         int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
                 + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
-                + clip_score;
+                + clip_score + auth_score;
+
         String str_score = Integer.toString(total_score);
 
         flags_captured = findViewById(R.id.flag_score);
-
-        if (str_score.equals("5")) {
-            Toast.makeText(FlagsOverview.this, "result: " + str_score, Toast.LENGTH_LONG).show();
-        }
 
         switch(str_score) {
             case "5" :

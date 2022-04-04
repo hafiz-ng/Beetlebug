@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import app.beetlebug.MainActivity;
 import app.beetlebug.R;
 import app.beetlebug.ctf.BiometricActivityDeeplink;
-import app.beetlebug.ctf.BiometricActivityFrida;
 
 
 public class BiometricFragmentHome extends Fragment {

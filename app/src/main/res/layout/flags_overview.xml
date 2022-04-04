@@ -26,7 +26,7 @@
                 android:layout_below="@id/hardcoded_secrets_bar"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/kanit_regular"
-                android:text="Embedded Secrets" />
+                android:text="Hardcoded Secrets" />
 
         </RelativeLayout>
 

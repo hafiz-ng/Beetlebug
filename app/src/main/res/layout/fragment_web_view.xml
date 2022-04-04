@@ -21,15 +21,6 @@
             android:onClick="goBack"
             android:src="@drawable/left3" />
 
-        <ImageView
-            android:id="@+id/arrowLeft2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:onClick="goBack"
-            android:src="@drawable/left3" />
-
         <TextView
             android:id="@+id/embedded_secrets_toolbar"
             android:layout_width="wrap_content"
@@ -47,9 +38,9 @@
         android:layout_width="400dp"
         android:layout_height="148dp"
         android:layout_marginTop="87dp"
-        android:padding="10dp"
         android:layout_marginBottom="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/textTitle"

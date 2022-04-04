@@ -1,6 +1,8 @@
 package app.beetlebug.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,8 +22,9 @@ import app.beetlebug.ctf.WebViewXSSActivity;
 public class WebViewFragment extends Fragment {
 
 
-    ImageView mBackButton;
+    ImageView btn;
     Button m_btn1, m_btn3;
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -33,9 +36,10 @@ public class WebViewFragment extends Fragment {
         m_btn1 = view.findViewById(R.id.button);
         m_btn3 = view.findViewById(R.id.button3);
 
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
-        mBackButton = view.findViewById(R.id.back);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
+        btn = view.findViewById(R.id.back);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ctf_intent = new Intent(getActivity(), FlagsOverview.class);
@@ -60,6 +64,20 @@ public class WebViewFragment extends Fragment {
         });
 
 
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+
+        String xss_string = Integer.toString(xss_score);
+        if (xss_string.equals("5")) {
+            m_btn3.setEnabled(false);
+            m_btn3.setText("Done");
+        }
+
+        String web_string = Integer.toString(webview_score);
+        if (web_string.equals("5")) {
+            m_btn1.setEnabled(false);
+            m_btn1.setText("Done");
+        }
 
         return view;
 

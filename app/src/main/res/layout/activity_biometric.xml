@@ -133,4 +133,41 @@
         android:src="@drawable/fingerprint" />
 
 
+    <LinearLayout
+        android:id="@+id/flagLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/flag"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="25sp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/kanit_regular"
+            android:hint=" Enter Flag"
+            android:textSize="17dp" />
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="flg"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+
+
 </RelativeLayout>

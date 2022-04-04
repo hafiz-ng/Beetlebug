@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AddUserFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="68dp"
+        android:padding="15dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/left3" />
+
+        <TextView
+            android:id="@+id/embedded_secrets_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Add User"
+            android:textColor="#000"
+            android:textSize="27sp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/add_user" />
+
+
+    <LinearLayout
+        android:layout_below="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp">
+
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:fontFamily="@font/kanit_regular"
+            android:hint="Username"
+            android:inputType="text"
+            android:paddingLeft="16dp"
+            android:paddingRight="12dp"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:fontFamily="@font/kanit_regular"
+            android:hint="Set User PIN"
+            android:inputType="number"
+            android:paddingLeft="16dp"
+            android:paddingRight="12dp"
+            android:textSize="17dp" />
+
+        <Button
+            android:id="@+id/addUser"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_yellow"
+            android:fontFamily="@font/kanit_regular"
+            android:onClick="newUser"
+            android:text="Add New User"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>
