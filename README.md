@@ -17,3 +17,7 @@ Beetlebug is an open source insecure Android application with CTF challenges bui
 - PIN Py-pass
 
 [![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](#)
+
+
+## User Feedback
+I would love to hear from you about your experience with Beetlebug. Please send me an [email](https://contact@hafiz.ng) with your feedback and possible ways to improve our user experience.
