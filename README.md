@@ -18,7 +18,7 @@ Beetlebug is an open source insecure Android application with CTF challenges bui
 
 
 ## How to Use
-You can compile the source code in Android Studio or use the button below to download the APK file.
+You can compile the source code in Android Studio or use the button below to download the APK file. <br>
 [![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](#)
 
 
