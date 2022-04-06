@@ -152,7 +152,7 @@
                         android:layout_toEndOf="@+id/imageViewStorage"
                         android:layout_toRightOf="@+id/imageViewStorage"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 3 - 6"
+                        android:text="Flag 3 - 5"
                         android:textSize="14sp" />
 
                     <TextView
@@ -214,7 +214,7 @@
                         android:layout_toEndOf="@+id/imageViewWebView"
                         android:layout_toRightOf="@+id/imageViewWebView"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 7 - 8"
+                        android:text="Flag 6 - 7"
                         android:textSize="14sp" />
 
                     <TextView
@@ -276,7 +276,7 @@
                         android:layout_toEndOf="@+id/imageViewDatabases"
                         android:layout_toRightOf="@+id/imageViewDatabases"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 9 - 10"
+                        android:text="Flag 8 - 9"
                         android:textSize="14sp" />
 
                     <TextView
@@ -338,7 +338,7 @@
                         android:layout_toEndOf="@+id/imageViewComponents"
                         android:layout_toRightOf="@+id/imageViewComponents"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 11 - 13"
+                        android:text="Flag 10 - 12"
                         android:textSize="14sp" />
 
                     <TextView
@@ -400,7 +400,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 14 - 16"
+                        android:text="Flag 13 - 14"
                         android:textSize="14sp" />
 
                     <TextView
@@ -463,7 +463,7 @@
                         android:layout_toEndOf="@+id/imageViewBiometric"
                         android:layout_toRightOf="@+id/imageViewBiometric"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 17"
+                        android:text="Flag 15"
                         android:textSize="14sp" />
 
                     <TextView
@@ -508,14 +508,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_line"
-                    android:onClick="deviceFragment"
+                    android:onClick="patchFragment"
                     android:padding="20dp">
 
                     <ImageView
                         android:id="@+id/imageViewSensitive"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/device" />
+                        android:src="@drawable/binary" />
 
                     <TextView
                         android:id="@+id/textViewSensitive"
@@ -526,7 +526,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 18"
+                        android:text="Flag 16"
                         android:textSize="14sp" />
 
                     <TextView
@@ -539,7 +539,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Root Detection"
+                        android:text="Binary Patching"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 

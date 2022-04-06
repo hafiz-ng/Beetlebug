@@ -67,9 +67,15 @@ public class UserProfileActivity extends AppCompatActivity {
         int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
         int service_score = sharedPreferences.getInt("ctf_score_service", 0);
         int log_score = sharedPreferences.getInt("ctf_score_log", 0);
-        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score + intent_redirect_score + service_score + log_score;
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
+        int patch_score = sharedPreferences.getInt("ctf_score_patch", 0);
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
 
+        int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + patch_score
+                + clip_score + auth_score;
         userProgress.setProgressWithAnimation(total_score, 2000);
     }
 
@@ -88,19 +94,17 @@ public class UserProfileActivity extends AppCompatActivity {
         int log_score = sharedPreferences.getInt("ctf_score_log", 0);
         int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
-        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
+        int patch_score = sharedPreferences.getInt("ctf_score_patch", 0);
         int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
-                + clip_score;
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + patch_score
+                + clip_score + auth_score;
+
         String str_score = Integer.toString(total_score);
 
         flags_captured = findViewById(R.id.flag_score);
-
-        if (str_score.equals("5")) {
-            Toast.makeText(UserProfileActivity.this, "result: " + str_score, Toast.LENGTH_LONG).show();
-        }
 
         switch(str_score) {
             case "5" :
@@ -109,8 +113,51 @@ public class UserProfileActivity extends AppCompatActivity {
             case "10" :
                 flags_captured.setText("2");
                 break;
-                default :
-                    flags_captured.setText("0");// Optional
+            case "15" :
+                flags_captured.setText("3");
+                break;
+            case "20" :
+                flags_captured.setText("4");
+                break;
+            case "25" :
+                flags_captured.setText("5");
+                break;
+            case "30" :
+                flags_captured.setText("6");
+                break;
+            case "35" :
+                flags_captured.setText("7");
+                break;
+            case "40" :
+                flags_captured.setText("8");
+                break;
+            case "45" :
+                flags_captured.setText("9");
+                break;
+            case "50" :
+                flags_captured.setText("10");
+                break;
+            case "55" :
+                flags_captured.setText("11");
+                break;
+            case "60" :
+                flags_captured.setText("12");
+                break;
+            case "65" :
+                flags_captured.setText("13");
+                break;
+            case "70" :
+                flags_captured.setText("14");
+                break;
+            case "85" :
+                flags_captured.setText("15");
+                break;
+            case "100" :
+                flags_captured.setText("16");
+                break;
+
+            default :
+                flags_captured.setText("0");// Optional
         }
 
     }

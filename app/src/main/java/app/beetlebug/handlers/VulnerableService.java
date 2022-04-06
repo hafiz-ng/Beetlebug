@@ -47,7 +47,7 @@ public class VulnerableService extends Service {
         // starting the process
         player.start();
 
-        Toast.makeText(VulnerableService.this, "Flag 10 Found: 0xe22210", Toast.LENGTH_LONG).show();
+        Toast.makeText(VulnerableService.this, "Flag Found: 0x222103A", Toast.LENGTH_LONG).show();
 
         // returns the status
         // of the program

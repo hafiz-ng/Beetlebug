@@ -122,7 +122,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_light"
-            android:text="0x334f22"
+            android:text="0x334f221"
             android:textSize="22sp" />
     </LinearLayout>
 

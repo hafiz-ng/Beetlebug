@@ -66,6 +66,13 @@ public class InsecureStorageFragment extends Fragment {
             mButton4.setText("Done");
         }
 
+        int sqlite_str_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
+        String sqlite_string = Integer.toString(sqlite_str_score);
+        if (sqlite_string.equals("5")) {
+            mButton3.setEnabled(false);
+            mButton3.setText("Done");
+        }
+
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,9 +14,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import app.beetlebug.R;
-import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.ctf.b33tleAdministrator;
-import app.beetlebug.db.AdminHelper;
+import app.beetlebug.db.DatabaseHelper;
 
 public class AddUserFragment extends Fragment {
 
@@ -25,7 +24,7 @@ public class AddUserFragment extends Fragment {
     ImageView back_btn;
     EditText username, pass;
 
-    private AdminHelper db;
+    private DatabaseHelper db;
 
     public AddUserFragment() {
         // Required empty public constructor
@@ -43,7 +42,7 @@ public class AddUserFragment extends Fragment {
         back_btn = view.findViewById(R.id.back);
         username = view.findViewById(R.id.editTextUsername);
         pass = view.findViewById(R.id.editTextPassword);
-        db = new AdminHelper(getActivity());
+        db = new DatabaseHelper(getActivity());
         db.open();
 
         add_user.setOnClickListener(new View.OnClickListener() {

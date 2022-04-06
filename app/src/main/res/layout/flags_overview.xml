@@ -283,13 +283,13 @@
                 android:layout_weight="1">
 
                 <app.beetlebug.utils.CustomProgressBar
-                    android:id="@+id/progress_bar_root"
+                    android:id="@+id/progress_bar_binary"
                     style="@style/lesson_bar"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="42dp"
                     android:layout_marginTop="0dp"
-                    android:onClick="networkCom" />
+                    android:onClick="patchBinary" />
 
                 <ImageView
                     android:layout_width="40dp"
@@ -297,18 +297,18 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="62dp"
-                    android:layout_marginTop="22dp"
-                    android:src="@drawable/device" />
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/binary" />
 
                 <TextView
                     style="@style/lesson_bar_text"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/progress_bar_root"
+                    android:layout_below="@+id/progress_bar_binary"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/kanit_regular"
-                    android:text="Root Detection"
+                    android:text="Binary Patch"
                     android:textAlignment="center" />
 
             </RelativeLayout>

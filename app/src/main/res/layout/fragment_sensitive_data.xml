@@ -68,7 +68,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Find out what is being logged by the application in the vulnerable code"
+            android:text="Locate sensitive log info left by developers of the application"
             android:textSize="14sp" />
 
         <Button
@@ -124,7 +124,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Once triggered, the deeplink would direct users to load any attacker-controlled"
+            android:text="Sensitive data is stored in the clipboard"
             android:textSize="14sp" />
 
         <Button

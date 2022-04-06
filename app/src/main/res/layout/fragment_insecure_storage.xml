@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/textDescription"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ctfTitle"
             android:layout_marginLeft="15dp"
@@ -110,13 +110,13 @@
 
         <TextView
             android:id="@+id/textDescription4"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle4"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Files saved to the external storage are world-readable and can be modified by the user when they enable USB mass storage
+            android:text="Files saved to the external storage are world-readable and can be modified by the anyone
 "
             android:textSize="14sp" />
 
@@ -173,7 +173,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Identify sensitive data stored on the device memory"
+            android:text="Identify unencrypted sensitive data stored on the SQLite database"
             android:textSize="14sp" />
 
         <Button

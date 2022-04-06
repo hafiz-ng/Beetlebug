@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Build;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.nio.charset.StandardCharsets;
+
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
@@ -30,7 +33,7 @@ public class InsecureLoggingActivity extends AppCompatActivity {
     boolean isAllFieldsChecked = false;
     public static String flag_scores = "flag_scores";
     public static String ctf_score_log = "ctf_score_log";
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
 
 
     @Override
@@ -48,7 +51,7 @@ public class InsecureLoggingActivity extends AppCompatActivity {
         lin.setVisibility(View.GONE);
 
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
-
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         m_pay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +64,7 @@ public class InsecureLoggingActivity extends AppCompatActivity {
                 if (isAllFieldsChecked) {
                     String card = m_card_number.getText().toString();
                     m_card_number.setError("An Error Occurred");
-                    Log.e("beetle-log", "Transaction Failed: " + card + "\n" + "flg_08: " + "0x55541d3");
+                    Log.e("beetle-log", "Transaction Failed: " + card + "\n" + "flg: " + getString(R.string._0x532123));
                 }
             }
         });
@@ -75,22 +78,25 @@ public class InsecureLoggingActivity extends AppCompatActivity {
 
     }
 
-
     public void captureFlag(View view) {
         flg = findViewById(R.id.flag);
-        String rslt = flg.getText().toString();
-        if (rslt.isEmpty()) {
-            flg.setError("Enter flag");
-        } else if (rslt.equals("0x55541d3")) {
+        String result = flg.getText().toString();
+        String pref_result = preferences.getString("9_log", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if (result.equals(text)) {
             int user_score_log = 5;
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_log, user_score_log);
             editor.commit();
+
             Intent ctf_captured = new Intent(InsecureLoggingActivity.this, FlagCaptured.class);
             ctf_captured.putExtra("ctf_score_log", user_score_log);
             startActivity(ctf_captured);
+        } else if (result.isEmpty()) {
+            flg.setError("Try again");
         }
-
     }
 
 

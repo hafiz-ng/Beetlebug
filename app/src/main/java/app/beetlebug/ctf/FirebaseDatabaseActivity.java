@@ -7,12 +7,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.nio.charset.StandardCharsets;
 
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
@@ -21,7 +24,8 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
 
     public Button mBtn;
     EditText m_flg;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,21 +34,28 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
         m_flg = findViewById(R.id.flag);
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String result = m_flg.getText().toString();
-                if(result.isEmpty()) {
-                    m_flg.setError("Enter flag");
-                } else if (result.equals("firebase374fc")){
+                EditText flg = findViewById(R.id.flag);
+                String result = flg.getText().toString();
+                String pref_result = preferences.getString("11_firebase", "");
+                byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+                String text = new String(data, StandardCharsets.UTF_8);
+
+                if (result.equals(text)) {
                     int user_score_firebase = 5;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("ctf_score_firebase", user_score_firebase);
-                    editor.commit();
+                    editor.apply();
+
                     Intent ctf_captured = new Intent(FirebaseDatabaseActivity.this, FlagCaptured.class);
                     ctf_captured.putExtra("ctf_score_firebase", user_score_firebase);
                     startActivity(ctf_captured);
-                    Toast.makeText(FirebaseDatabaseActivity.this, "Flag found", Toast.LENGTH_LONG).show();
+                } else {
+                    m_flg.setError("Wrong answer");
                 }
             }
         });

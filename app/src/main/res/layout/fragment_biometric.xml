@@ -60,7 +60,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Weak Deeplink implementation can result to by-pass of Biometric Authentication"
+            android:text="Fingerprint authentication can be circumvented via weak deeplinks"
             android:textSize="14sp" />
 
         <Button

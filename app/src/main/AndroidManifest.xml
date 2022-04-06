@@ -14,12 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
-
+        <activity
+            android:name=".ctf.BinaryPatchActivity"
+            android:exported="false" />
         <activity
             android:name=".ctf.b33tleAdministrator"
             android:exported="true" />
-
-
         <activity
             android:name=".ctf.VulnerableWebView"
             android:exported="true" />
@@ -62,18 +62,17 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ctf.DeeplinkAccountActivity">
+        <activity android:name=".ctf.DeeplinkAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="beetlebug.com"
-                    android:scheme="https"
-                    android:pathPrefix="/account"/>
+                    android:pathPrefix="/account"
+                    android:scheme="https" />
             </intent-filter>
-
         </activity>
         <activity android:name=".ctf.FirebaseDatabaseActivity" />
         <activity android:name=".ctf.SQLInjectionActivity" />

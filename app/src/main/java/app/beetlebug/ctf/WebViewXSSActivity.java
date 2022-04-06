@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,12 +22,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
+
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
 public class WebViewXSSActivity extends AppCompatActivity {
     public WebView myWebView;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
     TextView url2;
     LinearLayout lin;
     EditText m_flag;
@@ -48,16 +51,18 @@ public class WebViewXSSActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
+
         url2 = findViewById(R.id.editTextUrl);
         url2.setText("https://xss.rocks/scriptlet.html");
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         Button btn = (Button) findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 lin.setVisibility(View.VISIBLE);
-                m_flag.setText("0x66r921");
+                m_flag.setText(getString(R.string.xss_string));
                 Log.i("beetlebug", "Clicked XSS button");
                 myWebView.loadUrl("https://xss.rocks/scriptlet.html");
             }
@@ -82,8 +87,13 @@ public class WebViewXSSActivity extends AppCompatActivity {
 
 
         public void captureFlag(View view) {
+            EditText m_flag = findViewById(R.id.flag);
 
-        if (m_flag.getText().toString().equals("0x66r921")) {
+            String pref_result = preferences.getString("13_xss", "");
+            byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+            String text = new String(data, StandardCharsets.UTF_8);
+
+            if (m_flag.getText().toString().equals(text)) {
             int user_score_xss = 5;
 
             // save user score to shared preferences

@@ -15,6 +15,7 @@ public class ContentHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "beetleDB";
     private static final String TABLE_DATA = "data";
+
     // Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";

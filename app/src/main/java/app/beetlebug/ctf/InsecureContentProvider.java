@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,13 +18,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
+
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 import app.beetlebug.handlers.VulnerableContentProvider;
 
 public class InsecureContentProvider extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
 
     Uri CONTENT_URI = Uri.parse("content://app.beetlebug.provider/users");
     @Override
@@ -39,7 +42,7 @@ public class InsecureContentProvider extends AppCompatActivity {
         }
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
     }
 
@@ -66,7 +69,7 @@ public class InsecureContentProvider extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
         // fetching text from user
-        values.put(VulnerableContentProvider.name, ((EditText) findViewById(R.id.username)).getText().toString() + " - flg 0ex33421");
+        values.put(VulnerableContentProvider.name, ((EditText) findViewById(R.id.username)).getText().toString() + " - flg 0x733421M");
 
         // inserting into database through content URI
         getContentResolver().insert(VulnerableContentProvider.CONTENT_URI, values);
@@ -77,19 +80,23 @@ public class InsecureContentProvider extends AppCompatActivity {
 
     public void flg(View view) {
         EditText flg = findViewById(R.id.flag);
-        String rslt = flg.getText().toString();
-        if (rslt.isEmpty()) {
-            flg.setError("Enter flag");
-        } else if (rslt.equals("0ex33421")) {
-            int user_score_content = 5;
+        String result = flg.getText().toString();
+        String pref_result = preferences.getString("7_content", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
 
+        if (result.equals(text)) {
+            int user_score_content = 5;
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("ctf_score_content_provider", user_score_content);
-
             editor.commit();
             Intent ctf_captured = new Intent(InsecureContentProvider.this, FlagCaptured.class);
             ctf_captured.putExtra("ctf_score_content_provider", user_score_content);
             startActivity(ctf_captured);
+
+        }
+        else if (result.isEmpty()) {
+            flg.setError("Try again");
         }
     }
 }

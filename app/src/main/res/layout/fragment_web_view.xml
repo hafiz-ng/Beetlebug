@@ -61,7 +61,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Once triggered, the deeplink would direct users to load any attacker-controlled"
+            android:text="Loading a remote URL can be a dangerous practice in WebView"
             android:textSize="14sp" />
 
         <Button
@@ -126,7 +126,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Improper WebView settings allow malicious scripts to access local files such as cookies and private app data"
+            android:text="Enabling JavaScript in WebView and can result to JS-related issues such as XSS"
             android:textSize="14sp" />
 
         <Button

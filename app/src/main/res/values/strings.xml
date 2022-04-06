@@ -20,5 +20,11 @@
     <string name="vul_activity1">Please input your Master Secret password and place of birth to grant access</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <string name="hyperlink">Developer: \n<a href="https://hafiz.ng">hafiz.ng</a></string>
+    <string name="sqlite_string">0x1172c04</string>
+    <string name="xss_string">0x66r9214</string>
+    <string name="_1x33e91A">0x1132c4!</string>
+    <string name="_0x532123">0x55541d3</string>
+    <string name="_0x43j123"><![CDATA[0x43J123&]]></string>
 
 </resources>

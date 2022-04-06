@@ -13,12 +13,12 @@
         android:padding="15dp">
 
         <TextView
-            android:id="@+id/current_language"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Flag 10 Found"
+            android:text="Flag Found"
             android:textColor="#000"
             android:textSize="27sp" />
 
@@ -41,7 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/kanit_regular"
-        android:text="Flg_022329@"
+        android:text="@string/_0x43j123"
         android:textSize="22sp" />
 
     <TextView

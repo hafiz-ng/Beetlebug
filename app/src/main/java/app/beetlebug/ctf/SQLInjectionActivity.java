@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,6 +17,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.nio.charset.StandardCharsets;
 
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
@@ -26,7 +30,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
 
     EditText flg;
     Button btn;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
 
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         try {
             mDB = openOrCreateDatabase("sqli", MODE_PRIVATE, null);
@@ -58,23 +63,6 @@ public class SQLInjectionActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int ctf_score_sqli= 5;
-                String result = flg.getText().toString();
-                if(result.equals("0x9133413")) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("ctf_score_sqli", ctf_score_sqli);
-                    editor.apply();
-                    Intent ctf_captured = new Intent(SQLInjectionActivity.this, FlagCaptured.class);
-                    ctf_captured.putExtra("ctf_score_sqli", ctf_score_sqli);
-                    startActivity(ctf_captured);
-                } else {
-                    flg.setError("Enter flag");
-                }
-            }
-        });
     }
 
     public void search(View view) {
@@ -97,6 +85,28 @@ public class SQLInjectionActivity extends AppCompatActivity {
 //            Toast.makeText(this, strb.toString(), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.d("Beetle-sqli", "Error occurred while searching in database: " + e.getMessage());
+        }
+
+    }
+
+    public void captureFlag(View view) {
+        EditText m_flag = findViewById(R.id.flag);
+        String pref_result = preferences.getString("10_sqli", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if (m_flag.getText().toString().equals(text)) {
+            int ctf_score_sqli = 5;
+            // save user score to shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("ctf_score_sqli", ctf_score_sqli);
+            editor.commit();
+
+            Intent ctf_captured = new Intent(SQLInjectionActivity.this, FlagCaptured.class);
+            ctf_captured.putExtra("ctf_score_sqli", ctf_score_sqli);
+            startActivity(ctf_captured);
+        } else {
+            Toast.makeText(SQLInjectionActivity.this, "Wrong answer", Toast.LENGTH_SHORT).show();
         }
 
     }

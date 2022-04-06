@@ -2,19 +2,17 @@ package app.beetlebug.utils;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.loader.content.CursorLoader;
 
-import app.beetlebug.db.AdminHelper;
+import app.beetlebug.db.DatabaseHelper;
 
 public class MyLoader extends CursorLoader {
 
-    AdminHelper myDatabaseHelper;
+    DatabaseHelper myDatabaseHelper;
 
-    public MyLoader(@NonNull Context context, AdminHelper db) {
+    public MyLoader(@NonNull Context context, DatabaseHelper db) {
         super(context);
         myDatabaseHelper = db;
     }

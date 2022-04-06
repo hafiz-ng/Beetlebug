@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
 
 import app.beetlebug.FlagCaptured;
@@ -28,7 +30,7 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
     private ImageView mImageView;
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences, preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
         mImageView = findViewById(R.id.fingerPrintImageView);
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         if(Build.VERSION.SDK_INT>=21){
             Window window=this.getWindow();
@@ -92,7 +94,11 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
     public void flg(View view) {
         EditText m_flg = (EditText) findViewById(R.id.flag);
         String result = m_flg.getText().toString();
-        if((result.equals("0x43J1230"))) {
+        String pref_result = preferences.getString("15_fingerprint", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if((result.equals(text))) {
             int ctf_score_auth = 5;
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("ctf_score_auth", ctf_score_auth);

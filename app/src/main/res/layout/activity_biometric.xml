@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Biometric By-Pass I"
+            android:text="Fingerprint Bypass"
             android:textColor="#000"
             android:textSize="27sp" />
 
@@ -49,12 +49,12 @@
 
         <TextView
             android:id="@+id/hintText"
-            android:layout_width="309dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Securely login to Beetlebug by placing your finger over the touch sensor"
+            android:text="Exploit weak deeplink to bypass login"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
@@ -64,16 +64,16 @@
     <LinearLayout
         android:id="@+id/linearlayout2"
         android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
         android:layout_height="195dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="222dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/rectangle_green"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
 
         <EditText
@@ -129,7 +129,7 @@
         android:layout_height="60dp"
         android:layout_below="@+id/linear_layout2"
         android:layout_centerInParent="true"
-        android:layout_marginTop="289dp"
+        android:layout_marginTop="269dp"
         android:src="@drawable/fingerprint" />
 
 

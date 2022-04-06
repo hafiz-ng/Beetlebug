@@ -37,7 +37,7 @@
         android:layout_height="65dp"
         android:layout_marginBottom="40dp"
         android:fontFamily="@font/kanit_regular"
-        android:onClick="continueCTF"
+        android:onClick="continueFlag"
         android:background="@drawable/rectangle_green"
         android:text="Continue"
         android:layout_gravity="center"

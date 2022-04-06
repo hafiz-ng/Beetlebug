@@ -8,27 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import app.beetlebug.R;
-import app.beetlebug.db.AdminHelper;
+import app.beetlebug.db.DatabaseHelper;
 import app.beetlebug.fragments.AddUserFragment;
-import app.beetlebug.home.SensitiveDataFragmentHome;
 import app.beetlebug.utils.MyLoader;
 
 public class b33tleAdministrator extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -37,7 +30,7 @@ public class b33tleAdministrator extends AppCompatActivity implements LoaderMana
     LinearLayout linearLayout;
     LinearLayout flg;
 
-    private AdminHelper myHelper;
+    private DatabaseHelper myHelper;
 
     private ListView listView;
 
@@ -50,8 +43,8 @@ public class b33tleAdministrator extends AppCompatActivity implements LoaderMana
     private static final int LOADER_ID = 1976;
 
     // from String[] array maps the database columns
-    final String[] from = new String[] { AdminHelper._ID,
-            AdminHelper.NAME, AdminHelper.PASS};
+    final String[] from = new String[] { DatabaseHelper._ID,
+            DatabaseHelper.NAME, DatabaseHelper.PASS};
 
     // to int[] array maps textviews of the resources
     final int[] to = new int[] {R.id.id, R.id.name};
@@ -73,7 +66,7 @@ public class b33tleAdministrator extends AppCompatActivity implements LoaderMana
         }
 
         // initialize
-        myHelper = new AdminHelper(this);
+        myHelper = new DatabaseHelper(this);
         myHelper.open();
 
         listView = (ListView) findViewById(R.id.list_view);

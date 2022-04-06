@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import app.beetlebug.ctf.BinaryPatchActivity;
 import app.beetlebug.ctf.RootDetectorActivity;
 import app.beetlebug.home.AndroidComponentsHome;
 import app.beetlebug.home.BiometricFragmentHome;
@@ -45,12 +47,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     CardView mCardView1;
     BottomNavigationView bottomNavigationView;
     RelativeLayout mToolbar;
-    public static SharedPreferences sharedPreferences_flg;
-    public static SharedPreferences sharedPreferences_user;
-
-
+    public static SharedPreferences preferences;
     Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +93,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
+
+        encryptPreferences();
     }
+
+
 
 
     public void secretCtf(View view) {
@@ -161,8 +163,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    public void deviceFragment(View view) {
-        Intent i = new Intent(MainActivity.this, RootDetectorActivity.class);
+    public void patchFragment(View view) {
+        Intent i = new Intent(MainActivity.this, BinaryPatchActivity.class);
         startActivity(i);
     }
 
@@ -210,12 +212,39 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         alertDialog.show();
     }
 
+    public void openDeveloperPage(View view) {
+        String url = "http://www.hafiz.ng";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
     public void showPopup(View view) {
         PopupMenu popup = new PopupMenu(this, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.pop_up_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(MainActivity.this);
         popup.show();
+    }
+
+    private void encryptPreferences() {
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("3_pref", "MHgxNDQyYzA0");
+        editor.putString("4_ext_store", "MHgzOTgyYyU0");
+        editor.putString("5_sqlite", "MHgxMTcyYzA0");
+        editor.putString("6_activity", "MHgzMzRmMjIx");
+        editor.putString("7_content", "MHg3MzM0MjFN");
+        editor.putString("8_service", "MHgyMjIxMDNB");
+        editor.putString("9_log", "MHg1NTU0MWQz");
+        editor.putString("10_sqli", "MHg5MTMzNFox");
+        editor.putString("11_firebase", "MHgzMzY1QTEw");
+        editor.putString("12_url", "MHgzM2YzMzQx");
+        editor.putString("13_xss", "MHg2NnI5MjE0");
+        editor.putString("14_clip", "MHgxMTMyYzQh");
+        editor.putString("15_fingerprint", "MHg0M0oxMjMm");
+        editor.putString("16_patch", "MHgzM2U5JGU=");
+        editor.apply();
     }
 
 }

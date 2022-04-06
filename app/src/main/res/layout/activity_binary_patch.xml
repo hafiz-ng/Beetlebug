@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ctf.SQLInjectionActivity">
+    tools:context=".ctf.BinaryPatchActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -19,9 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="SQL Injection"
+            android:text="Binary Patching"
             android:textColor="#000"
-            android:textSize="27sp" />
+            android:textSize="22sp" />
 
     </RelativeLayout>
 
@@ -48,59 +48,57 @@
 
         <TextView
             android:id="@+id/hintText"
-            android:layout_width="309dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Securely login to Beetlebug by placing your finger over the touch sensor"
+            android:text="You need to be a super administrator to access the password manager"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
     </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/username"
+    <Button
+        android:id="@+id/buttonGrantAccess"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_below="@+id/linear_layout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/edit_text"
-        android:ems="10"
-        android:fontFamily="@font/kanit_regular"
-        android:hint=" Enter Username"
-        android:inputType="text"
-        android:paddingLeft="10dp"
-        android:textSize="17dp" />
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="320dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rectangle_yellow"
         android:fontFamily="@font/kanit_regular"
-        android:onClick="search"
-        android:text="Save"
+        android:onClick="grantAccess"
+        android:enabled="false"
+        android:text="Grant Access"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:cornerRadius="14dp" />
 
-    <TextView
-        android:id="@+id/textViewSqliResult"
+    <LinearLayout
+        android:id="@+id/flagLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/save"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/kanit_light"
-        android:textSize="16sp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="30dp" />
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:srcCompat="@drawable/flag5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kanit_regular"
+            android:text="0x33e91e"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
 
 
     <LinearLayout
@@ -109,7 +107,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="70dp"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -130,13 +128,13 @@
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.5"
-            android:onClick="captureFlag"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
             android:text="Submit"
             android:textAllCaps="false"
             android:textColor="@android:color/black" />
     </LinearLayout>
+
 
 
 

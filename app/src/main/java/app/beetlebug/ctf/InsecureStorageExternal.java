@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
@@ -31,8 +33,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
     LinearLayout mFlagLayout;
 
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences sharedPreferences_ext;
+    SharedPreferences sharedPreferences, preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
         mFlagLayout.setVisibility(View.GONE);
 
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         boolean isAvailable= false;
         boolean isWritable= false;
@@ -81,14 +83,12 @@ public class InsecureStorageExternal extends AppCompatActivity {
         m_email = findViewById(R.id.editTextEmail);
 
         String email = m_email.getText().toString();
-        String pass = m_pass.getText().toString();
-        int user_score_external_str = 9;
-        String ctf_status = "external_str_status";
+        String pass = m_pass.getText().toString();;
         mFlagLayout.setVisibility(View.VISIBLE);
 
 
         if (email.isEmpty()) {
-            Toast.makeText(InsecureStorageExternal.this, "Enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InsecureStorageExternal.this, "Enter username", Toast.LENGTH_SHORT).show();
             m_email.setError("Email cannot be blank");
         } else if (pass.isEmpty()){
             m_pass.setError("Enter your password");
@@ -98,11 +98,9 @@ public class InsecureStorageExternal extends AppCompatActivity {
             sb.append("\n");
             sb.append("Email: " + email);
             sb.append("\n");
-            sb.append("flag 3: 0xe982c04");
+            sb.append("flag 3: 0x3982c04");
+
             String data = sb.toString();
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ctf_score_external, user_score_external_str);
-            editor.putBoolean(ctf_status, true);
 
             // getExternalStoragePublicDirectory() represents root of external storage, we are using DOWNLOADS
             // We can use following directories: MUSIC, PODCASTS, ALARMS, RINGTONES, NOTIFICATIONS, PICTURES, MOVIES
@@ -112,8 +110,6 @@ public class InsecureStorageExternal extends AppCompatActivity {
             File file = new File(folder, "user.txt");
             writeTextData(file, data);
             Toast.makeText(this, "Data saved to" + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
-            editor.commit();
-
         }
 
     }
@@ -141,21 +137,23 @@ public class InsecureStorageExternal extends AppCompatActivity {
 
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
-        if (m_flag.getText().toString().equals("0xe982c04")) {
+        String pref_result = preferences.getString("4_ext_store", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if (m_flag.getText().toString().equals(text)) {
             int user_score_external_str = 5;
-//            String ctf_status = "external_str_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_external, user_score_external_str);
-//            editor.putBoolean(ctf_status, true);
-            editor.commit();
+            editor.apply();
 
             Intent ctf_captured = new Intent(InsecureStorageExternal.this, FlagCaptured.class);
             ctf_captured.putExtra("ctf_score_external_str", user_score_external_str);
             startActivity(ctf_captured);
         } else {
-            Toast.makeText(InsecureStorageExternal.this, "Wrong answer", Toast.LENGTH_SHORT).show();
+            m_flag.setError("Wrong answer");
         }
 
     }

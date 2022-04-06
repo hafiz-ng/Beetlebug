@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -35,7 +37,7 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
 
 
     private Button start, stop;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
     public static String ctf_score_service = "ctf_score_service";
 
     @Override
@@ -43,11 +45,12 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vulnerable_service);
 
-        // assigning ID of startButton
-        // to the object start
+//         assigning ID of startButton
+//         to the object start
         start = (Button) findViewById( R.id.buttonStart );
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         // assigning ID of stopButton
         // to the object stop
@@ -92,10 +95,13 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
 
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
-        String rslt = m_flag.getText().toString();
-        if (rslt.equals("0xe22210")) {
+        String result = m_flag.getText().toString();
+        String pref_result = preferences.getString("8_service", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if (result.equals(text)) {
             int user_score_service = 5;
-            String ctf_status = "service_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();

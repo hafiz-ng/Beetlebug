@@ -52,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Find out how sensitive credentials is being stored in plaintext, without encryption"
+            android:text="Use Android Logcat to identify sensitive log information"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 

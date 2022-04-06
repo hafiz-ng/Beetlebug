@@ -29,7 +29,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
     public static String shared_pref_flag = "shared_pref_flag";
 
     EditText et_username, et_password;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
     SharedPreferences sharedPreferences_pref;
     LinearLayout ctf_layout;
 
@@ -47,6 +47,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
         }
         sharedPreferences_pref = getSharedPreferences(shared_pref_flag, MODE_PRIVATE);
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         ctf_layout = (LinearLayout) findViewById(R.id.layoutCtf);
         ctf_layout.setVisibility(View.GONE);
@@ -62,7 +63,6 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
 
         ctf_layout.setVisibility(View.VISIBLE);
 
-
         if (username.isEmpty()) {
             Toast.makeText(InsecureStorageSharedPref.this, "Input your username", Toast.LENGTH_SHORT).show();
             et_username.setError("Username cannot be blank");
@@ -75,7 +75,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             editor.putString(m_password, password);
             editor.putString(pref_flg, "0x1442c04");
             editor.clear();
-            editor.commit();
+            editor.apply();
             Toast.makeText(InsecureStorageSharedPref.this, "Login successful", Toast.LENGTH_SHORT).show();
 
         }
@@ -84,10 +84,12 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
 
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
-        if (m_flag.getText().toString().equals("0x1442c04")) {
-            int user_score_shared_pref = 5;
-            String ctf_status = "shared_pref_ctf_status";
+        String pref_result = preferences.getString("3_pref", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
 
+        if (m_flag.getText().toString().equals(text)) {
+            int user_score_shared_pref = 5;
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_shared_pref, user_score_shared_pref);
@@ -97,8 +99,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             ctf_captured.putExtra("ctf_score_shared_pref", user_score_shared_pref);
             startActivity(ctf_captured);
         } else {
-            Toast.makeText(InsecureStorageSharedPref.this, "Wrong answer", Toast.LENGTH_SHORT).show();
+            m_flag.setError("Try again");
         }
-
     }
 }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
+
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
@@ -23,7 +26,7 @@ public class VulnerableActivityIntent extends AppCompatActivity {
 
     EditText edt_flag;
     Button btn_flag, btn_ctf;
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
     public static String ctf_score_intent_redirect = "ctf_score_intent_redirect";
 
     public static String flag_scores = "flag_scores";
@@ -37,6 +40,7 @@ public class VulnerableActivityIntent extends AppCompatActivity {
         btn_flag = findViewById(R.id.buttonFlag);
 
         sharedPreferences = getSharedPreferences(flag_scores, Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         btn_ctf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,14 +54,17 @@ public class VulnerableActivityIntent extends AppCompatActivity {
 
     public void captureFlag(View view) {
         EditText m_flag = findViewById(R.id.flag);
-        if (m_flag.getText().toString().equals("0x334f22")) {
+        String pref_result = preferences.getString("6_activity", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+        if (m_flag.getText().toString().equals(text)) {
             int user_score_intent_redirect = 5;
-            String ctf_status = "intent_redirect_ctf_status";
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(ctf_score_intent_redirect, user_score_intent_redirect);
-            editor.commit();
+            editor.apply();
 
             Intent ctf_captured = new Intent(VulnerableActivityIntent.this, FlagCaptured.class);
             ctf_captured.putExtra("ctf_score_intent_redirect", user_score_intent_redirect);

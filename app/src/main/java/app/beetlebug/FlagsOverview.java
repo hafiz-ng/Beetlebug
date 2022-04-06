@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.beetlebug.ctf.BinaryPatchActivity;
+import app.beetlebug.ctf.RootDetectorActivity;
 import app.beetlebug.ctf.VulnerableActivityIntent;
 import app.beetlebug.fragments.AndroidComponentsFragment;
 import app.beetlebug.fragments.BiometricFragment;
@@ -52,7 +55,7 @@ public class FlagsOverview extends AppCompatActivity {
     CustomProgressBar insecureStoreProgressBar;
     CustomProgressBar sensitiveInfoProgressBar;
     CustomProgressBar databasesProgressBar;
-    CustomProgressBar rootDetectionProgressBar;
+    CustomProgressBar patchDetectionProgressBar;
     CustomProgressBar bioProgressBar;
     SharedPreferences sharedPreferences;
 
@@ -69,14 +72,13 @@ public class FlagsOverview extends AppCompatActivity {
         insecureStoreProgressBar = findViewById(R.id.progress_bar_local_storage);
         androidComponentsProgressBar = findViewById(R.id.progress_bar_components);
         sensitiveInfoProgressBar = findViewById(R.id.progress_bar_sensitive_info);
-        rootDetectionProgressBar = findViewById(R.id.progress_bar_root);
+        patchDetectionProgressBar = findViewById(R.id.progress_bar_binary);
         databasesProgressBar = findViewById(R.id.progress_bar_database);
         webViewsProgressBar = findViewById(R.id.progress_bar_webview);
         bioProgressBar = findViewById(R.id.progress_bar_bio);
 
         mfinish = findViewById(R.id.finish_button);
 
-        resultChecker();
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         if(Build.VERSION.SDK_INT>=21){
@@ -102,7 +104,7 @@ public class FlagsOverview extends AppCompatActivity {
         setUpProgressBarInfoDiscl();
         setUpProgressBarDatabases();
         setUpProgressBarWebViews();
-        setUpProgressBarRoot();
+        setUpProgressBarPatch();
         setUpProgressBarAuth();
     }
 
@@ -170,17 +172,14 @@ public class FlagsOverview extends AppCompatActivity {
         }
     }
 
-    private void setUpProgressBarRoot() {
-        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
+    private void setUpProgressBarPatch() {
+        int root_score = sharedPreferences.getInt("ctf_score_patch", 0);
         String score = Integer.toString(root_score);
         if(score.equals("5"))
-        rootDetectionProgressBar.setProgressWithAnimation(100, 2000);
+        patchDetectionProgressBar.setProgressWithAnimation(100, 2000);
     }
 
 
-    public Boolean resultChecker() {
-        return true;
-    }
 
     public void inSecureStorage (View v) {
         mScrollView.setVisibility(View.GONE);
@@ -273,13 +272,9 @@ public class FlagsOverview extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
 
-    public void networkCom(View view) {
-        mScrollView.setVisibility(View.GONE);
-        mToolbar.setVisibility(View.GONE);
-        Fragment fragment = new DeviceFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment).commit();
-
+    public void patchBinary (View view) {
+        Intent i = new Intent(FlagsOverview.this, BinaryPatchActivity.class);
+        startActivity(i);
     }
     public void submitFlags(View view) {
         final Dialog finish_dialog = new Dialog(FlagsOverview.this);
@@ -287,27 +282,27 @@ public class FlagsOverview extends AppCompatActivity {
 
         // retrieve ctf score from shared preferences
         SharedPreferences sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-        int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
-        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
         int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
         int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
+        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
+        int sqlite_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
         int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
-        int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
-        int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
+        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
         int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
         int service_score = sharedPreferences.getInt("ctf_score_service", 0);
-        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
-        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
-        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
-        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
         int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
-        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
+        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+        int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
+        int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        int patch_score = sharedPreferences.getInt("ctf_score_patch", 0);
 
 
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + patch_score
                 + clip_score + auth_score + webview_score;
 
         if (total_score < 50) {
@@ -338,13 +333,13 @@ public class FlagsOverview extends AppCompatActivity {
         // define MIME type
         String mimeType = "text/plain";
 
-        String author_twitter_url = "@hafiz__ng";
+        String author_handle = "@hafiz__ng";
 
         // create a share widget, with options on how to share the text
         ShareCompat.IntentBuilder
                 .from(this)
                 .setType(mimeType)
-                .setText("Get Started today " + url + " CTF Author " + author_twitter_url)
+                .setText("Get Started today " + url + " Developer - " + author_handle)
                 .startChooser();
     }
 
@@ -371,12 +366,12 @@ public class FlagsOverview extends AppCompatActivity {
         int log_score = sharedPreferences.getInt("ctf_score_log", 0);
         int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
         int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
-        int root_score = sharedPreferences.getInt("ctf_score_root", 0);
+        int patch_score = sharedPreferences.getInt("ctf_score_patch", 0);
         int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
         int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
 
         int total_score = sqlite_score + shared_pref_score + secret_source_score + secret_string_score + external_str_score + firebase_score
-                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + root_score
+                + sqli_score + intent_redirect_score + service_score + log_score + xss_score + content_score + patch_score
                 + clip_score + auth_score;
 
         String str_score = Integer.toString(total_score);
@@ -390,9 +385,59 @@ public class FlagsOverview extends AppCompatActivity {
             case "10" :
                 flags_captured.setText("2");
                 break;
+            case "15" :
+                flags_captured.setText("3");
+                break;
+            case "20" :
+                flags_captured.setText("4");
+                break;
+            case "25" :
+                flags_captured.setText("5");
+                break;
+            case "30" :
+                flags_captured.setText("6");
+                break;
+            case "35" :
+                flags_captured.setText("7");
+                break;
+            case "40" :
+                flags_captured.setText("8");
+                break;
+            case "45" :
+                flags_captured.setText("9");
+                break;
+            case "50" :
+                flags_captured.setText("10");
+                break;
+            case "55" :
+                flags_captured.setText("11");
+                break;
+            case "60" :
+                flags_captured.setText("12");
+                break;
+            case "65" :
+                flags_captured.setText("13");
+                break;
+            case "70" :
+                flags_captured.setText("14");
+                break;
+            case "85" :
+                flags_captured.setText("15");
+                break;
+            case "100" :
+                flags_captured.setText("16");
+                break;
+
             default :
                 flags_captured.setText("0");// Optional
         }
 
+    }
+
+    public void continueFlag(View view) {
+//        final Dialog finish_dialog = new Dialog(FlagsOverview.this);
+//        finish_dialog.hide();
+        Intent continue_ctf = new Intent(FlagsOverview.this, FlagsOverview.class);
+        startActivity(continue_ctf);
     }
 }

@@ -37,9 +37,9 @@
         android:layout_width="400dp"
         android:layout_height="148dp"
         android:layout_marginTop="87dp"
-        android:padding="10dp"
         android:layout_marginBottom="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/textTitle"
@@ -54,13 +54,13 @@
 
         <TextView
             android:id="@+id/textDescription"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Once triggered, the deeplink would direct users to load any attacker-controlled"
+            android:text="Exploiting interfaces that read input from the user."
             android:textSize="14sp" />
 
         <Button
@@ -110,13 +110,13 @@
 
         <TextView
             android:id="@+id/textDescription2"
-            android:layout_width="250dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitle2"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Common misconfigurations on Firebase databases allow unauthorized parties to easily find and access users' personal data."
+            android:text="Misconfiguration in Firebase databases allow unauthorized parties to access users' personal data."
             android:textSize="14sp" />
 
         <Button

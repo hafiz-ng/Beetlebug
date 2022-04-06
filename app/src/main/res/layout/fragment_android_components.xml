@@ -79,7 +79,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Exported activities can cause intent re-direction and result to bypassing activities."
+                        android:text="Exported activities with no proper permissions can result intent re-direction"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -230,7 +230,7 @@
 
                 <TextView
                     android:id="@+id/textDescription4"
-                    android:layout_width="240dp"
+                    android:layout_width="230dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textTitle4"
                     android:layout_marginLeft="15dp"

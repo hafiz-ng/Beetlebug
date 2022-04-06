@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.nio.charset.StandardCharsets;
 
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
@@ -25,7 +28,7 @@ public class VulnerableClipboardActivity extends AppCompatActivity {
     public Button m_pay;
     public EditText u_card, u_exp, u_cvv;
 
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class VulnerableClipboardActivity extends AppCompatActivity {
         u_cvv = (EditText) findViewById(R.id.editTextCvv);
 
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
         m_pay = findViewById(R.id.pay);
 
@@ -47,18 +51,21 @@ public class VulnerableClipboardActivity extends AppCompatActivity {
                 String exp = u_exp.getText().toString();
                 String cvv = u_cvv.getText().toString();
 
-                StringBuilder sb = new StringBuilder();
-                sb.append("card: " + card + "\n  ");
-                sb.append("expires: " + exp + "\n  ");
-                sb.append("cvv: " + cvv + "\n  ");
-                sb.append("flag: " + "0x11352c4");
+                if(card.isEmpty() && exp.isEmpty() && cvv.isEmpty()) {
+                    u_card.setError("Enter card all details");
+                } else {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("card: " + card + "\n  ");
+                    sb.append("expires: " + exp + "\n  ");
+                    sb.append("cvv: " + cvv + "\n  ");
+                    sb.append("flag: " + getString(R.string._1x33e91A));
+                    ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("TextView", sb);
+                    clipboardManager.setPrimaryClip(clipData);
 
+                    Toast.makeText(VulnerableClipboardActivity.this, "Copied to clipboard" + sb, Toast.LENGTH_SHORT).show();
+                }
 
-                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("TextView", sb);
-                clipboardManager.setPrimaryClip(clipData);
-
-                Toast.makeText(VulnerableClipboardActivity.this, "Copied to clipboard" + sb, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -66,18 +73,23 @@ public class VulnerableClipboardActivity extends AppCompatActivity {
 
     public void flg(View view) {
         EditText flg = findViewById(R.id.flag);
-        String rslt = flg.getText().toString();
-        if (rslt.isEmpty()) {
-            flg.setError("Enter flag");
-        } else if (rslt.equals("0x1132c4")) {
+        String result = flg.getText().toString();
+        String pref_result = preferences.getString("14_clip", "");
+        byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
+        String text = new String(data, StandardCharsets.UTF_8);
+
+
+        if (result.equals(text)) {
             int user_score_clip = 5;
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("ctf_score_clip", user_score_clip);
-            editor.commit();
+            editor.apply();
             Intent ctf_captured = new Intent(VulnerableClipboardActivity.this, FlagCaptured.class);
             ctf_captured.putExtra("ctf_score_clip", user_score_clip);
             startActivity(ctf_captured);
+        } else if (result.isEmpty()) {
+            flg.setError("Try again");
         }
     }
 

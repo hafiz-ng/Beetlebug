@@ -79,13 +79,13 @@
 
     </RelativeLayout>
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_centerHorizontal="true"
-        android:background="?android:attr/listDivider" />
+<!--    <View-->
+<!--        android:id="@+id/divider"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@+id/relativeLayout"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="?android:attr/listDivider" />-->
 
 
 <!--    <RelativeLayout-->
