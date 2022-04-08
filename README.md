@@ -27,6 +27,6 @@ You can compile the source code in Android Studio or use the button below to dow
 
 
 ## User Feedback
-I would love to hear from you about your experience with Beetlebug. Please send me an [email](https://contact@hafiz.ng) with your feedback and possible ways to improve the app.
+I would love to hear from you about your experience with Beetlebug. Please send me an contact@hafiz.ng with your feedback and possible ways to improve the app.
 
 
