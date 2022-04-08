@@ -22,7 +22,7 @@ Beetlebug is a beginner-friendly Capture the Flag Android application that aims 
 ## How to Use
 You can compile the source code in Android Studio or use the button below to download the APK file.
 
-[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/04/download.png)](#)
+[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/04/download-e1649447487625.png)](#)
 
 
 
