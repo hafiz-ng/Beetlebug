@@ -7,20 +7,23 @@ Beetlebug is a beginner-friendly Capture the Flag Android application that aims 
 
 ## Vulnerabilities and CTF Challenges include:
 
+- Hardcoded Secrets
 - Insecure Data Storage
 - Sensitive Information Disclosure
 - Vulnerable Android IPC Components (Broadcast Receivers, Services & Content Providers)
-- Exploiting Webviews
+- Vulnerable Webviews
 - Fingerprint Authentication By-pass
 - Insecure Deeplinks
 - Firebase Database Misconfiguration
 - SQLite Injection
-- PIN Py-pass
+- Input Validation (XSS)
 
 
 ## How to Use
-You can compile the source code in Android Studio or use the button below to download the APK file. <br>
+You can compile the source code in Android Studio or use the button below to download the APK file.
+
 [![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/beetlebug-button-e1647254402542.png)](#)
+
 
 
 ## User Feedback
