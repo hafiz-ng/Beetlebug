@@ -1,7 +1,8 @@
 ![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/github_header.png)
 
 # Beetlebug
-Beetlebug is an open source insecure Android application with CTF challenges built for Android Penetration Testers, Bug hunters and Mobile Security enthusiasts. 
+
+Beetlebug is a beginner-friendly Capture the Flag Android application that aims to inspire interest in Mobile Application Security. It is geared towards developers, mobile penetration testers and bug hunters. Features include tracking user’s progress, flag completion state, and so much more! 
 
 
 ## Vulnerabilities and CTF Challenges include:
