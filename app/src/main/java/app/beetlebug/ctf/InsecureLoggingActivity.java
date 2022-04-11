@@ -86,13 +86,14 @@ public class InsecureLoggingActivity extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (result.equals(text)) {
-            int user_score_log = 5;
+            float user_score_log = 6.25F;
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ctf_score_log, user_score_log);
+            editor.putFloat(ctf_score_log, user_score_log);
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureLoggingActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_log", user_score_log);
+            String intent_pref_str = Float.toString(user_score_log);
+            ctf_captured.putExtra("intent_str", intent_pref_str);
             startActivity(ctf_captured);
         } else if (result.isEmpty()) {
             flg.setError("Try again");

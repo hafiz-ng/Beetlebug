@@ -101,15 +101,16 @@ public class VulnerableServiceActivity extends AppCompatActivity implements View
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (result.equals(text)) {
-            int user_score_service = 5;
+            float user_score_service = 6.25F;
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ctf_score_service, user_score_service);
-            editor.commit();
+            editor.putFloat(ctf_score_service, user_score_service);
+            editor.apply();
 
             Intent ctf_captured = new Intent(VulnerableServiceActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_service", user_score_service);
+            String intent_xss_str = Float.toString(user_score_service);
+            ctf_captured.putExtra("intent_str", intent_xss_str);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Wrong answer");

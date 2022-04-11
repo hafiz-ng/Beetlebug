@@ -64,17 +64,17 @@ public class WebViewFragment extends Fragment {
         });
 
 
-        int xss_score = sharedPreferences.getInt("ctf_score_xss", 0);
-        int webview_score = sharedPreferences.getInt("ctf_score_webview", 0);
+        float xss_score = sharedPreferences.getFloat("ctf_score_xss", 0);
+        float webview_score = sharedPreferences.getFloat("ctf_score_webview", 0);
 
-        String xss_string = Integer.toString(xss_score);
-        if (xss_string.equals("5")) {
+        String xss_string = Float.toString(xss_score);
+        if (xss_string.equals("6.25")) {
             m_btn3.setEnabled(false);
             m_btn3.setText("Done");
         }
 
-        String web_string = Integer.toString(webview_score);
-        if (web_string.equals("5")) {
+        String web_string = Float.toString(webview_score);
+        if (web_string.equals("6.25")) {
             m_btn1.setEnabled(false);
             m_btn1.setText("Done");
         }

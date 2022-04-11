@@ -86,12 +86,14 @@ public class InsecureContentProvider extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (result.equals(text)) {
-            int user_score_content = 5;
+            float user_score_content = 6.25F;
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_content_provider", user_score_content);
+            editor.putFloat("ctf_score_content_provider", user_score_content);
             editor.commit();
+
             Intent ctf_captured = new Intent(InsecureContentProvider.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_content_provider", user_score_content);
+            String intent_content_str = Float.toString(user_score_content);
+            ctf_captured.putExtra("intent_str", intent_content_str);
             startActivity(ctf_captured);
 
         }

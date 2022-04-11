@@ -44,24 +44,24 @@ public class AndroidComponentsFragment extends Fragment {
         mButton4 = view.findViewById(R.id.button4);
 
         sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-        int intent_redirect_score = sharedPreferences.getInt("ctf_score_intent_redirect", 0);
+        float intent_redirect_score = sharedPreferences.getFloat("ctf_score_intent_redirect", 0);
 
-        String pref_string = Integer.toString(intent_redirect_score);
-        if (pref_string.equals("5")) {
+        String pref_string = Float.toString(intent_redirect_score);
+        if (pref_string.equals("6.25")) {
             mButton.setEnabled(false);
             mButton.setText("Done");
         }
 
-        int service_score = sharedPreferences.getInt("ctf_score_service", 0);
-        String service_string = Integer.toString(service_score);
-        if (service_string.equals("5")) {
+        float service_score = sharedPreferences.getFloat("ctf_score_service", 0);
+        String service_string = Float.toString(service_score);
+        if (service_string.equals("6.25")) {
             mButton3.setEnabled(false);
             mButton3.setText("Done");
         }
 
-        int content_score = sharedPreferences.getInt("ctf_score_content_provider", 0);
-        String content_string = Integer.toString(content_score);
-        if (content_string.equals("5")) {
+        float content_score = sharedPreferences.getFloat("ctf_score_content_provider", 0);
+        String content_string = Float.toString(content_score);
+        if (content_string.equals("6.25")) {
             mButton4.setEnabled(false);
             mButton4.setText("Done");
         }

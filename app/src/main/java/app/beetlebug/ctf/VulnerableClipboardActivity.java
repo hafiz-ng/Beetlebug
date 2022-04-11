@@ -80,13 +80,16 @@ public class VulnerableClipboardActivity extends AppCompatActivity {
 
 
         if (result.equals(text)) {
-            int user_score_clip = 5;
+            float user_score_clip = 6.25F;
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_clip", user_score_clip);
+            editor.putFloat("ctf_score_clip", user_score_clip);
             editor.apply();
+
             Intent ctf_captured = new Intent(VulnerableClipboardActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_clip", user_score_clip);
+            String intent_clip_str = Float.toString(user_score_clip);
+            ctf_captured.putExtra("intent_str", intent_clip_str);
+
             startActivity(ctf_captured);
         } else if (result.isEmpty()) {
             flg.setError("Try again");

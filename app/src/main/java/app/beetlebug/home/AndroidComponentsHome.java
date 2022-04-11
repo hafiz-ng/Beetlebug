@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,7 +28,7 @@ public class AndroidComponentsHome extends Fragment {
 
     ImageView mBackButton;
 
-
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +39,30 @@ public class AndroidComponentsHome extends Fragment {
         m_btn = view.findViewById(R.id.button);
         m_btn3 = view.findViewById(R.id.button3);
         m_btn4 = view.findViewById(R.id.button4);
+
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        float intent_redirect_score = sharedPreferences.getFloat("ctf_score_intent_redirect", 0);
+
+
+        String pref_string = Float.toString(intent_redirect_score);
+        if (pref_string.equals("6.25")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
+        float service_score = sharedPreferences.getFloat("ctf_score_service", 0);
+        String service_string = Float.toString(service_score);
+        if (service_string.equals("6.25")) {
+            m_btn3.setEnabled(false);
+            m_btn3.setText("Done");
+        }
+
+        float content_score = sharedPreferences.getFloat("ctf_score_content_provider", 0);
+        String content_string = Float.toString(content_score);
+        if (content_string.equals("6.25")) {
+            m_btn4.setEnabled(false);
+            m_btn4.setText("Done");
+        }
 
         mCtfTitle = view.findViewById(R.id.textViewComponentsTitle);
         mBackButton = view.findViewById(R.id.back);

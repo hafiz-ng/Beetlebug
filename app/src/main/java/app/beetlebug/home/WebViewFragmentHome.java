@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +22,9 @@ import app.beetlebug.ctf.WebViewXSSActivity;
 public class WebViewFragmentHome extends Fragment {
 
     ImageView m_btn_back;
-    Button m_btn, m_btn3;
+    Button m_btn, m_btn2;
+
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -31,8 +35,10 @@ public class WebViewFragmentHome extends Fragment {
 
         m_btn_back = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
-        m_btn3 = view.findViewById(R.id.button3);
+        m_btn2 = view.findViewById(R.id.button3);
 
+
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         m_btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +56,28 @@ public class WebViewFragmentHome extends Fragment {
             }
         });
 
-        m_btn3.setOnClickListener(new View.OnClickListener() {
+        m_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), WebViewXSSActivity.class);
                 startActivity(i);
             }
         });
+
+        float xss_score = sharedPreferences.getFloat("ctf_score_xss", 0);
+        float webview_score = sharedPreferences.getFloat("ctf_score_webview", 0);
+
+        String xss_string = Float.toString(xss_score);
+        if (xss_string.equals("6.25")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
+        String web_string = Float.toString(webview_score);
+        if (web_string.equals("6.25")) {
+            m_btn2.setEnabled(false);
+            m_btn2.setText("Done");
+        }
         return view;
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="app.beetlebug">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,24 +25,9 @@
             android:name=".ctf.VulnerableWebView"
             android:exported="true" />
         <activity
-            android:name=".ctf.DeepLinkStudy"
-            android:exported="false">
-            <intent-filter>
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="github.com"
-                    android:pathPrefix="/hafiz-ng"
-                    android:scheme="https" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".ctf.VulnerableClipboardActivity"
             android:exported="false" />
-        <activity
-            android:name=".ctf.b33tleAdministrator"
-            android:exported="true" />
+
         <activity
             android:name=".ctf.InsecureContentProvider"
             android:exported="false" />
@@ -53,11 +39,9 @@
             android:exported="true" />
 
         <activity
-            android:name=".ctf.RootDetectorActivity"
-            android:exported="true" />
-        <activity
             android:name=".ctf.WebViewXSSActivity"
-            android:exported="true">
+            android:exported="false"
+            tools:ignore="AppLinkUrlError">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -76,7 +60,7 @@
         </activity>
         <activity android:name=".ctf.FirebaseDatabaseActivity" />
         <activity android:name=".ctf.SQLInjectionActivity" />
-        <activity android:name=".user.UserProfileActivity" />
+        <activity android:name=".user.PlayerStats" />
         <activity
             android:name=".ctf.WebViewURLActivity"
             android:exported="true" />
@@ -85,11 +69,9 @@
         <activity android:name=".ctf.InsecureLoggingActivity" />
         <activity android:name=".user.UserSignUp" />
         <activity
-            android:name=".Walkthrough"
-            android:exported="true">
+            android:name=".Walkthrough">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -99,7 +81,7 @@
         <activity
             android:name=".FlagCaptured"
             android:exported="false"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ctf.BiometricActivityDeeplink"
             android:exported="true" />
@@ -108,35 +90,20 @@
         <activity android:name=".ctf.InsecureStorageSharedPref" />
         <activity
             android:name=".ctf.VulnerableActivityIntent"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".FlagsOverview"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
+            android:exported="false" />
         <service
             android:name=".handlers.VulnerableService"
             android:enabled="true"
             android:exported="true"
             android:protectionLevel="dangerous" />
 
-        <provider
-            android:name=".handlers.VulnerableContentProvider"
-            android:authorities="app.beetlebug.provider"
-            android:enabled="true"
-            android:exported="true" />
 
-        <receiver
-            android:name=".handlers.VulnerableReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:protectionLevel="dangerous">
-            <intent-filter>
-                <action android:name="vulnerable.vulnerablereceiver.LOG" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

@@ -59,7 +59,7 @@ public class InsecureStorageSQLite extends AppCompatActivity {
     }
 
     public void captureFlag(View view) {
-        int user_score = 5;
+        float user_score = 6.25F;
         EditText flg = findViewById(R.id.flag);
         String result = flg.getText().toString();
 
@@ -69,12 +69,14 @@ public class InsecureStorageSQLite extends AppCompatActivity {
 
         if (result.equals(text)) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_sqlite", user_score);
+            editor.putFloat("ctf_score_sqlite", user_score);
             editor.apply();
 
             Intent ctf_captured = new Intent(InsecureStorageSQLite.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_sqlite", user_score);
+            String intent_sqlite_str = Float.toString(user_score);
+            ctf_captured.putExtra("intent_str", intent_sqlite_str);
             startActivity(ctf_captured);
+
         } else {
             flg.setError("Try again");
         }
@@ -93,7 +95,7 @@ public class InsecureStorageSQLite extends AppCompatActivity {
             myHelper.add(ps, flg);
             Toast.makeText(InsecureStorageSQLite.this, "Password saved", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(InsecureStorageSQLite.this, "Try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InsecureStorageSQLite.this, "Use complex alphanumeric password for Master Key", Toast.LENGTH_SHORT).show();
         }
     }
 

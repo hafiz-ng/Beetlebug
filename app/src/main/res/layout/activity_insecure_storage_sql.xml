@@ -60,13 +60,14 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear_layout2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
+        android:textAlignment="center"
         android:fontFamily="@font/kanit_regular"
-        android:text="Save your Master PIN. Safe and Secure" />
+        android:text="Save your Master PIN. Use complex Alphanumeric Characters" />
 
 
     <LinearLayout

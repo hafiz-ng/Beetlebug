@@ -8,30 +8,17 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@drawable/beetle" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/kanit_regular"
-        android:text="Beetlebug Android CTF"
-        android:textColor="#000"
-        android:textSize="22sp" />
+        app:srcCompat="@drawable/logo_about" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView2"
+        android:layout_below="@id/imageView3"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="31dp"
         android:fontFamily="@font/kanit_regular"

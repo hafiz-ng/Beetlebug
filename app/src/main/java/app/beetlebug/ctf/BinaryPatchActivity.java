@@ -51,7 +51,7 @@ public class BinaryPatchActivity extends AppCompatActivity {
         m_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int ctf_score_patch = 5;
+                float ctf_score_patch = 6.25F;
                 EditText flag = findViewById(R.id.flag);
                 String result = flag.getText().toString();
                 String pref_result = preferences.getString("16_patch", "");
@@ -60,11 +60,14 @@ public class BinaryPatchActivity extends AppCompatActivity {
 
                 if (result.equals(text)) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("ctf_score_patch", ctf_score_patch);
+                    editor.putFloat("ctf_score_patch", ctf_score_patch);
                     editor.apply();
                     Intent i = new Intent(BinaryPatchActivity.this, FlagCaptured.class);
-                    i.putExtra("ctf_score_patch", ctf_score_patch);
+                    String intent_patch_str = Float.toString(ctf_score_patch);
+                    i.putExtra("intent_str", intent_patch_str);
                     startActivity(i);
+                } else {
+                    flag.setError("Try again");
                 }
             }
         });

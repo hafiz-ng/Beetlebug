@@ -47,15 +47,16 @@ public class EmbeddedSecretStrings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pin = findViewById(R.id.editTextSecretPin);
-
                 String s1 = pin.getText().toString();
                if((s1.equals(getString(R.string.V98bFQrpGkDJ))) ) {
-                   int ctf_score_secret_string = 5;
+                   float ctf_score_secret_string = 6.25F;
                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                   editor.putInt("ctf_score_secret_string", ctf_score_secret_string);
+                   editor.putFloat("ctf_score_secret_string", ctf_score_secret_string);
                    editor.apply();
+                   Toast.makeText(EmbeddedSecretStrings.this, "Folder Unlocked!", Toast.LENGTH_LONG).show();
                    Intent secret_intent = new Intent(EmbeddedSecretStrings.this, FlagCaptured.class);
-                   secret_intent.putExtra("ctf_score_secret_string", ctf_score_secret_string);
+                   String intent_secret_str = Float.toString(ctf_score_secret_string);
+                   secret_intent.putExtra("intent_str", intent_secret_str);
                    startActivity(secret_intent);
                } else if (s1.isEmpty()) {
                     Toast.makeText(EmbeddedSecretStrings.this, "Try again.", Toast.LENGTH_SHORT).show();

@@ -12,9 +12,8 @@
         android:layout_height="68dp"
         android:padding="15dp">
 
-
         <TextView
-            android:id="@+id/current_language"
+            android:id="@+id/activityTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -31,14 +30,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
             android:text="Hint: "
@@ -48,12 +47,11 @@
 
         <TextView
             android:id="@+id/hintText"
-            android:layout_width="309dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Securely login to Beetlebug by placing your finger over the touch sensor"
+            android:text="There are 2 users in the database, using a single search query, output all 2 users. "
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
@@ -85,7 +83,7 @@
         android:background="@drawable/rectangle_yellow"
         android:fontFamily="@font/kanit_regular"
         android:onClick="search"
-        android:text="Save"
+        android:text="Search"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"

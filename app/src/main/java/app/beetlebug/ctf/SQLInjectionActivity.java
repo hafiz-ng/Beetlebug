@@ -51,7 +51,7 @@ public class SQLInjectionActivity extends AppCompatActivity {
             mDB.execSQL("DROP TABLE IF EXISTS sqliuser;");
             mDB.execSQL("CREATE TABLE IF NOT EXISTS sqliuser(user VARCHAR, password VARCHAR, credit_card VARCHAR);");
             mDB.execSQL("INSERT INTO sqliuser VALUES ('admin', 'passwd123', '1234567812345678');");
-            mDB.execSQL("INSERT INTO sqliuser VALUES ('beetle-bug', 'flg_10', '0x9133413');");
+            mDB.execSQL("INSERT INTO sqliuser VALUES ('beetle-bug', 'flg', '0x91334Z1');");
         }
         catch(Exception e) {
             Log.d("beetle-sqli", "Error occurred while creating database for SQLI: " + e.getMessage());
@@ -96,14 +96,15 @@ public class SQLInjectionActivity extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (m_flag.getText().toString().equals(text)) {
-            int ctf_score_sqli = 5;
+            float ctf_score_sqli = 6.25F;
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_sqli", ctf_score_sqli);
-            editor.commit();
+            editor.putFloat("ctf_score_sqli", ctf_score_sqli);
+            editor.apply();
 
             Intent ctf_captured = new Intent(SQLInjectionActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_sqli", ctf_score_sqli);
+            String intent_sqli_str = Float.toString(ctf_score_sqli);
+            ctf_captured.putExtra("intent_str", intent_sqli_str);
             startActivity(ctf_captured);
         } else {
             Toast.makeText(SQLInjectionActivity.this, "Wrong answer", Toast.LENGTH_SHORT).show();

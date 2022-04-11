@@ -46,13 +46,14 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
                 String text = new String(data, StandardCharsets.UTF_8);
 
                 if (result.equals(text)) {
-                    int user_score_firebase = 5;
+                    float user_score_firebase = 6.25F;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("ctf_score_firebase", user_score_firebase);
+                    editor.putFloat("ctf_score_firebase", user_score_firebase);
                     editor.apply();
 
                     Intent ctf_captured = new Intent(FirebaseDatabaseActivity.this, FlagCaptured.class);
-                    ctf_captured.putExtra("ctf_score_firebase", user_score_firebase);
+                    String intent_firebase_str = Float.toString(user_score_firebase);
+                    ctf_captured.putExtra("intent_str", intent_firebase_str);
                     startActivity(ctf_captured);
                 } else {
                     m_flg.setError("Wrong answer");

@@ -51,24 +51,23 @@ public class InsecureStorageFragment extends Fragment {
         mBackButton = view.findViewById(R.id.back);
 
         sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
-        int shared_pref_score = sharedPreferences.getInt("ctf_score_shared_pref", 0);
-        String pref_string = Integer.toString(shared_pref_score);
-        if (pref_string.equals("5")) {
+        float shared_pref_score = sharedPreferences.getFloat("ctf_score_shared_pref", 0);
+        String pref_string = Float.toString(shared_pref_score);
+        if (pref_string.equals("6.25")) {
             mButton.setEnabled(false);
             mButton.setText("Done");
-
         }
 
-        int external_str_score = sharedPreferences.getInt("ctf_score_external", 0);
-        String exter_string = Integer.toString(external_str_score);
-        if (exter_string.equals("5")) {
+        float external_str_score = sharedPreferences.getFloat("ctf_score_external", 0);
+        String exter_string = Float.toString(external_str_score);
+        if (exter_string.equals("6.25")) {
             mButton4.setEnabled(false);
             mButton4.setText("Done");
         }
 
-        int sqlite_str_score = sharedPreferences.getInt("ctf_score_sqlite", 0);
-        String sqlite_string = Integer.toString(sqlite_str_score);
-        if (sqlite_string.equals("5")) {
+        float sqlite_str_score = sharedPreferences.getFloat("ctf_score_sqlite", 0);
+        String sqlite_string = Float.toString(sqlite_str_score);
+        if (sqlite_string.equals("6.25")) {
             mButton3.setEnabled(false);
             mButton3.setText("Done");
         }

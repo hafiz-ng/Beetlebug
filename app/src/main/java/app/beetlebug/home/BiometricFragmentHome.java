@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,12 +22,15 @@ public class BiometricFragmentHome extends Fragment {
 
     Button m_btn;
     ImageView m_btn_back;
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_biometric_home, container, false);
+
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
         m_btn_back = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
@@ -45,6 +50,15 @@ public class BiometricFragmentHome extends Fragment {
                 startActivity(ctf_intent);
             }
         });
+
+        float auth_score = sharedPreferences.getFloat("ctf_score_auth", 0);
+
+        String auth_string = Float.toString(auth_score);
+        if (auth_string.equals("6.25")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
 
 //        m_btn2.setOnClickListener(new View.OnClickListener() {
 //            @Override

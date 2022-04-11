@@ -35,7 +35,7 @@ public class DatabaseFragmentHome extends Fragment {
         m_btn2 = view.findViewById(R.id.button2);
 
 
-        sharedPreferences = getContext().getSharedPreferences("flag_score", 0);
+        sharedPreferences = getContext().getSharedPreferences("flag_scores", 0);
 
         m_back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +60,21 @@ public class DatabaseFragmentHome extends Fragment {
                 startActivity(i);
             }
         });
+
+        float firebase_score = sharedPreferences.getFloat("ctf_score_firebase", 0);
+        float sqli_score = sharedPreferences.getFloat("ctf_score_sqli", 0);
+
+        String sqli_string = Float.toString(sqli_score);
+        if (sqli_string.equals("6.25")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
+        String web_string = Float.toString(firebase_score);
+        if (web_string.equals("6.25")) {
+            m_btn2.setEnabled(false);
+            m_btn2.setText("Done");
+        }
         return view;
     }
 }

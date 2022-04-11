@@ -99,12 +99,14 @@ public class BiometricActivityDeeplink extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if((result.equals(text))) {
-            int ctf_score_auth = 5;
+            float ctf_score_auth = 6.25F;
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_auth", ctf_score_auth);
+            editor.putFloat("ctf_score_auth", ctf_score_auth);
             editor.apply();
             Intent secret_intent = new Intent(BiometricActivityDeeplink.this, FlagCaptured.class);
-            secret_intent.putExtra("ctf_score_auth", ctf_score_auth);
+            String intent_auth_str = Float.toString(ctf_score_auth);
+            secret_intent.putExtra("intent_str", intent_auth_str);
+
             startActivity(secret_intent);
         } else if (result.isEmpty()) {
             m_flg.setError("Enter flag");

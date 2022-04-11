@@ -54,18 +54,19 @@ public class EmbeddedSecretSourceCode extends AppCompatActivity {
                     m_price.setText(s);
 
                     Toast.makeText(EmbeddedSecretSourceCode.this, "Your new price is: " + new_price, Toast.LENGTH_LONG).show();
-                    int user_score_secret_source = 5;
+                    float user_score_secret_source = 6.25F;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt(ctf_score_secret_source, user_score_secret_source);
-                    editor.commit();
+                    editor.putFloat(ctf_score_secret_source, user_score_secret_source);
+                    editor.apply();
 
                     m_purchase.setVisibility(View.VISIBLE);
                     m_purchase.setOnClickListener(new View.OnClickListener() {
+
                         @Override
                         public void onClick(View v) {
                             Intent ctf_captured = new Intent(EmbeddedSecretSourceCode.this, FlagCaptured.class);
-                            ctf_captured.putExtra("ctf_score_secret_source", user_score_secret_source);
-
+                            String intent_secret_str = Float.toString(user_score_secret_source);
+                            ctf_captured.putExtra("intent_str", intent_secret_str);
                             startActivity(ctf_captured);
                         }
                     });

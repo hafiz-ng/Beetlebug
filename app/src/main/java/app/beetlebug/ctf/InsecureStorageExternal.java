@@ -98,7 +98,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
             sb.append("\n");
             sb.append("Email: " + email);
             sb.append("\n");
-            sb.append("flag 3: 0x3982c04");
+            sb.append("flag : 0x3982c%4");
 
             String data = sb.toString();
 
@@ -142,15 +142,16 @@ public class InsecureStorageExternal extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (m_flag.getText().toString().equals(text)) {
-            int user_score_external_str = 5;
+            float user_score_external_str = 6.25F;
 
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ctf_score_external, user_score_external_str);
+            editor.putFloat(ctf_score_external, user_score_external_str);
             editor.apply();
 
             Intent ctf_captured = new Intent(InsecureStorageExternal.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_external_str", user_score_external_str);
+            String intent_pref_str = Float.toString(user_score_external_str);
+            ctf_captured.putExtra("intent_str", intent_pref_str);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Wrong answer");

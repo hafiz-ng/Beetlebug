@@ -45,37 +45,19 @@ public class WebViewURLActivity extends AppCompatActivity {
         byte[] data = Base64.decode(pref_result, Base64.DEFAULT);
         String text = new String(data, StandardCharsets.UTF_8);
         if (m_flag.getText().toString().equals(text)) {
-            int user_score_webview = 5;
+            float user_score_webview = 6.25F;
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("ctf_score_webview", user_score_webview);
+            editor.putFloat("ctf_score_webview", user_score_webview);
             editor.apply();
 
             Intent ctf_captured = new Intent(WebViewURLActivity.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_webview", user_score_webview);
+            String intent_str_url = Float.toString(user_score_webview);
+            ctf_captured.putExtra("intent_str", intent_str_url);
             startActivity(ctf_captured);
 
         } else {
             m_flag.setError("Wrong answer");
         }
     }
-    // TODO: MOVE
-
-//    private void loadWebView() {
-//        WebView webView = (WebView) findViewById(R.id.webView);
-//        webView.setWebChromeClient(new WebChromeClient() {
-//            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-//                Log.d("Beetlebug-app", consoleMessage.message() + " -- From line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
-//                return true;
-//            }
-//        });
-//        webView.setWebViewClient(new WebViewClient());
-//        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        if (getIntent().getExtras().getBoolean("is_reg", false)) {
-//            webView.loadUrl("file:///android_asset/pwn.html");
-//        } else {
-//            webView.loadUrl(getIntent().getStringExtra("reg_url"));
-//        }
-//    }
 }

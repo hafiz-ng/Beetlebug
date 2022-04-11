@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Insecure Logging"
+            android:text="Clipboard Data"
             android:textColor="#000"
             android:textSize="27sp" />
     </RelativeLayout>

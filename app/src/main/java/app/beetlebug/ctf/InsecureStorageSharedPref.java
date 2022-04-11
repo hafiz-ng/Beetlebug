@@ -89,14 +89,15 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
         String text = new String(data, StandardCharsets.UTF_8);
 
         if (m_flag.getText().toString().equals(text)) {
-            int user_score_shared_pref = 5;
+            float user_score_shared_pref = 6.25F;
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(ctf_score_shared_pref, user_score_shared_pref);
+            editor.putFloat(ctf_score_shared_pref, user_score_shared_pref);
             editor.commit();
 
             Intent ctf_captured = new Intent(InsecureStorageSharedPref.this, FlagCaptured.class);
-            ctf_captured.putExtra("ctf_score_shared_pref", user_score_shared_pref);
+            String intent_pref_str = Float.toString(user_score_shared_pref);
+            ctf_captured.putExtra("intent_str", intent_pref_str);
             startActivity(ctf_captured);
         } else {
             m_flag.setError("Try again");

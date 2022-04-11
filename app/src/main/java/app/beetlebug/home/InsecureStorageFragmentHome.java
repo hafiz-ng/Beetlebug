@@ -1,6 +1,8 @@
 package app.beetlebug.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,6 +23,7 @@ public class InsecureStorageFragmentHome extends Fragment {
 
     ImageView m_btn_back;
     Button m_btn, m_btn2, m_btn3;
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +31,7 @@ public class InsecureStorageFragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_insecure_storage_home, container, false);
 
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
         m_btn_back = view.findViewById(R.id.back);
         m_btn = view.findViewById(R.id.button);
         m_btn2 = view.findViewById(R.id.button2);
@@ -64,6 +68,28 @@ public class InsecureStorageFragmentHome extends Fragment {
                 startActivity(i);
             }
         });
+
+        sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
+        float shared_pref_score = sharedPreferences.getFloat("ctf_score_shared_pref", 0);
+        String pref_string = Float.toString(shared_pref_score);
+        if (pref_string.equals("6.25")) {
+            m_btn.setEnabled(false);
+            m_btn.setText("Done");
+        }
+
+        float external_str_score = sharedPreferences.getFloat("ctf_score_external", 0);
+        String exter_string = Float.toString(external_str_score);
+        if (exter_string.equals("6.25")) {
+            m_btn2.setEnabled(false);
+            m_btn2.setText("Done");
+        }
+
+        float sqlite_str_score = sharedPreferences.getFloat("ctf_score_sqlite", 0);
+        String sqlite_string = Float.toString(sqlite_str_score);
+        if (sqlite_string.equals("6.25")) {
+            m_btn3.setEnabled(false);
+            m_btn3.setText("Done");
+        }
         return view;
     }
 }

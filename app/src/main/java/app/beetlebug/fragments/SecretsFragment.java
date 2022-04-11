@@ -36,24 +36,21 @@ public class SecretsFragment extends Fragment {
         m_btn = view.findViewById(R.id.button);
         m_btn2 = view.findViewById(R.id.button2);
 
-        m_btn.setText("Done");
-        m_btn.setEnabled(false);
-
         m_back_btn = view.findViewById(R.id.back);
         m_back_btn2 = view.findViewById(R.id.back2);
 
         sharedPreferences = getActivity().getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
 
-        int secret_source_score = sharedPreferences.getInt("ctf_score_secret_source", 0);
-        int secret_string_score = sharedPreferences.getInt("ctf_score_secret_string", 0);
-        String score_string = Integer.toString(secret_string_score);
-        String score_source = Integer.toString(secret_source_score);
-        if (score_string.equals("5")) {
+        float secret_source_score = sharedPreferences.getFloat("ctf_score_secret_source", 0);
+        float secret_string_score = sharedPreferences.getFloat("ctf_score_secret_string", 0);
+        String score_string = Float.toString(secret_string_score);
+        String score_source = Float.toString(secret_source_score);
+        if (score_string.equals("6.25")) {
             m_btn.setEnabled(false);
             m_btn.setText("Done");
         }
 
-        if (score_source.equals("5")) {
+        if (score_source.equals("6.25")) {
             m_btn2.setEnabled(false);
             m_btn2.setText("Done");
         }

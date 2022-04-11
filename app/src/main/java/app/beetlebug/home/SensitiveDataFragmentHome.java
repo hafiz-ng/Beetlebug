@@ -58,17 +58,17 @@ public class SensitiveDataFragmentHome extends Fragment {
             }
         });
 
-        int clip_score = sharedPreferences.getInt("ctf_score_clip", 0);
-        int log_score = sharedPreferences.getInt("ctf_score_log", 0);
+        float clip_score = sharedPreferences.getFloat("ctf_score_clip", 0);
+        float log_score = sharedPreferences.getFloat("ctf_score_log", 0);
 
-        String log_string = Integer.toString(log_score);
-        if (log_string.equals("5")) {
+        String log_string = Float.toString(log_score);
+        if (log_string.equals("6.25")) {
             m_btn.setEnabled(false);
             m_btn.setText("Done");
         }
 
-        String clip_string = Integer.toString(clip_score);
-        if (clip_string.equals("5")) {
+        String clip_string = Float.toString(clip_score);
+        if (clip_string.equals("6.25")) {
             m_btn2.setEnabled(false);
             m_btn2.setText("Done");
         }

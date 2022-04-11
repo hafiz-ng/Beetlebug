@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    tools:context=".user.UserProfileActivity"
+    tools:context=".user.PlayerStats"
     android:padding="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 

@@ -42,10 +42,10 @@ public class BiometricFragment extends Fragment {
             }
         });
 
-        int auth_score = sharedPreferences.getInt("ctf_score_auth", 0);
+        float auth_score = sharedPreferences.getFloat("ctf_score_auth", 0);
 
-        String auth_string = Integer.toString(auth_score);
-        if (auth_string.equals("5")) {
+        String auth_string = Float.toString(auth_score);
+        if (auth_string.equals("6.25")) {
             btn.setEnabled(false);
             btn.setText("Done");
         }

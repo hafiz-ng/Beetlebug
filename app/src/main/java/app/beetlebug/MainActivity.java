@@ -14,7 +14,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,16 +28,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import app.beetlebug.ctf.BinaryPatchActivity;
-import app.beetlebug.ctf.RootDetectorActivity;
 import app.beetlebug.home.AndroidComponentsHome;
 import app.beetlebug.home.BiometricFragmentHome;
 import app.beetlebug.home.DatabaseFragmentHome;
 import app.beetlebug.home.InsecureStorageFragmentHome;
-import app.beetlebug.home.DeviceFragmentHome;
 import app.beetlebug.home.SecretsFragmentHome;
 import app.beetlebug.home.SensitiveDataFragmentHome;
 import app.beetlebug.home.WebViewFragmentHome;
-import app.beetlebug.user.UserProfileActivity;
+import app.beetlebug.user.PlayerStats;
 import app.beetlebug.user.UserSignUp;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
@@ -79,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         startActivity(intent2);
                         break;
                     case R.id.nav_user:
-                        Intent intent3 = new Intent(MainActivity.this, UserProfileActivity.class);
+                        Intent intent3 = new Intent(MainActivity.this, PlayerStats.class);
                         startActivity(intent3);
                         break;
                 }

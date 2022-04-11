@@ -63,21 +63,20 @@ public class DatabasesFragment extends Fragment {
         });
 
 
-        int firebase_score = sharedPreferences.getInt("ctf_score_firebase", 0);
-        int sqli_score = sharedPreferences.getInt("ctf_score_sqli", 0);
+        float firebase_score = sharedPreferences.getFloat("ctf_score_firebase", 0);
+        float sqli_score = sharedPreferences.getFloat("ctf_score_sqli", 0);
 
-        String sqli_string = Integer.toString(sqli_score);
-        if (sqli_string.equals("5")) {
+        String sqli_string = Float.toString(sqli_score);
+        if (sqli_string.equals("6.25")) {
             m_btn.setEnabled(false);
             m_btn.setText("Done");
         }
 
-        String web_string = Integer.toString(firebase_score);
-        if (web_string.equals("5")) {
+        String web_string = Float.toString(firebase_score);
+        if (web_string.equals("6.25")) {
             m_btn2.setEnabled(false);
             m_btn2.setText("Done");
         }
-
         return view;
     }
 }
