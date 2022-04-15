@@ -52,7 +52,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Using ADB, you can send an intent to an exported component and this intent"
+            android:text="Hit Go and launch XSS in the context of the application"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 

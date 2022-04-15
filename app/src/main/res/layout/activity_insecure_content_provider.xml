@@ -52,7 +52,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Securely login to Beetlebug by placing your finger over the touch sensor"
+            android:text="Locate sensitive info exposed by the exported content provider"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 

@@ -54,28 +54,18 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Find out how sensitive credentials is being stored in plaintext, without encryption"
+            android:text="Find out how sensitive credentials is being stored in plaintext in Shared Preferences"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/kanit_regular"
-        android:text="Login with username and password" />
 
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="285dp"
         android:background="@drawable/rectangle_green"
         android:orientation="vertical"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/linear_layout2"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
 

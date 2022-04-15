@@ -65,9 +65,9 @@
         android:layout_below="@+id/linear_layout2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:textAlignment="center"
         android:fontFamily="@font/kanit_regular"
-        android:text="Save your Master PIN. Use complex Alphanumeric Characters" />
+        android:text="Save your Master PIN. Use complex Alphanumeric Characters"
+        android:textAlignment="center" />
 
 
     <LinearLayout
