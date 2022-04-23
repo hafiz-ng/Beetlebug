@@ -124,7 +124,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kanit_regular"
-            android:text="Sensitive data is stored in the clipboard"
+            android:text="Find sensitive clipboard data in the application"
             android:textSize="14sp" />
 
         <Button

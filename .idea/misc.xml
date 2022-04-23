@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_biometric_frida.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_deep_link_study.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_deeplink_account.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_display_xss.xml" value="0.2815734989648033" />
         <entry key="app/src/main/res/layout/activity_embedded_secert_source_code.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/activity_embedded_secret_source_code.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_embedded_secret_strings.xml" value="0.25" />
@@ -28,7 +29,7 @@
         <entry key="app/src/main/res/layout/activity_firebase_database.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_flag_captured.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_flags.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.2379778051787916" />
+        <entry key="app/src/main/res/layout/activity_flags_overview.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_insecure_content_provider.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_insecure_deep_link.xml" value="0.29444444444444445" />
         <entry key="app/src/main/res/layout/activity_insecure_logging.xml" value="0.3098958333333333" />

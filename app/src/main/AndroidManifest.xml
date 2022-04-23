@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beetlebug">
         <activity
+            android:name=".ctf.DisplayXSS"
+            android:exported="false" />
+        <activity
             android:name=".ctf.BinaryPatchActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,6 @@
         <activity
             android:name=".ctf.VulnerableClipboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".ctf.InsecureContentProvider"
             android:exported="false" />
@@ -49,6 +51,7 @@
         <activity android:name=".ctf.DeeplinkAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -68,10 +71,10 @@
         <activity android:name=".ctf.EmbeddedSecretStrings" />
         <activity android:name=".ctf.InsecureLoggingActivity" />
         <activity android:name=".user.UserSignUp" />
-        <activity
-            android:name=".Walkthrough">
+        <activity android:name=".Walkthrough">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -97,13 +100,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <service
             android:name=".handlers.VulnerableService"
             android:enabled="true"
             android:exported="true"
             android:protectionLevel="dangerous" />
-
-
     </application>
 
 </manifest>

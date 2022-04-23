@@ -183,7 +183,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/kanit_regular"
-                    android:text="Without specific permissions, Services can be exploited other applications including malicious ones"
+                    android:text="Without specific permissions, Services can be exploited by other applications including malicious ones"
                     android:textSize="14sp" />
 
                 <Button

@@ -67,17 +67,20 @@ public class WebViewFragmentHome extends Fragment {
         float xss_score = sharedPreferences.getFloat("ctf_score_xss", 0);
         float webview_score = sharedPreferences.getFloat("ctf_score_webview", 0);
 
-        String xss_string = Float.toString(xss_score);
-        if (xss_string.equals("6.25")) {
+
+
+        String web_string = Float.toString(webview_score);
+        if (web_string.equals("6.25")) {
             m_btn.setEnabled(false);
             m_btn.setText("Done");
         }
 
-        String web_string = Float.toString(webview_score);
-        if (web_string.equals("6.25")) {
+        String xss_string = Float.toString(xss_score);
+        if (xss_string.equals("6.25")) {
             m_btn2.setEnabled(false);
             m_btn2.setText("Done");
         }
+
         return view;
     }
 }

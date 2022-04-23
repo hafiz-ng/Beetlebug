@@ -13,7 +13,7 @@
         android:padding="15dp">
 
         <TextView
-            android:id="@+id/current_language"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -52,7 +52,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Hit Go and launch XSS in the context of the application"
+            android:text="Visit the display XSS activity to see what makes this Activity vulnerable."
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
@@ -74,17 +74,18 @@
             android:background="@drawable/edit_text"
             android:ems="10"
             android:fontFamily="@font/kanit_regular"
-            android:hint="Enter URL"
+            android:hint="Enter payload"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:textSize="17dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonSubmit"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:onClick="submitResult"
             android:background="@drawable/rectangle_yellow"
             android:fontFamily="@font/kanit_regular"
             android:text="Go"
@@ -95,15 +96,6 @@
 
 
     </LinearLayout>
-
-
-
-    <WebView
-        android:id="@id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/linear_layout3" />
 
 
     <LinearLayout

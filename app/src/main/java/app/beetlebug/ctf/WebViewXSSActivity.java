@@ -8,22 +8,16 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.nio.charset.StandardCharsets;
-
 import app.beetlebug.FlagCaptured;
 import app.beetlebug.R;
 
@@ -34,15 +28,13 @@ public class WebViewXSSActivity extends AppCompatActivity {
     LinearLayout lin;
     EditText m_flag;
 
-
+    public static final String PACKAGE_STRING = "app.beetlebug.ctf.WebViewXSSActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view_xssactivity);
-        lin = (LinearLayout) findViewById(R.id.linear_layout4);
 
         m_flag = findViewById(R.id.flag);
-        lin.setVisibility(View.GONE);
 
         if(Build.VERSION.SDK_INT>=21){
             Window window=this.getWindow();
@@ -51,39 +43,23 @@ public class WebViewXSSActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
-
-        url2 = findViewById(R.id.editTextUrl);
-        url2.setText("https://xss.rocks/scriptlet.html");
         sharedPreferences = getSharedPreferences("flag_scores", Context.MODE_PRIVATE);
         preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
-        Button btn = (Button) findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lin.setVisibility(View.VISIBLE);
-                m_flag.setText(getString(R.string.xss_string));
-                Log.i("beetlebug", "Clicked XSS button");
-                myWebView.loadUrl("https://xss.rocks/scriptlet.html");
-            }
-        });
-        loadWebView();
     }
 
+    public void submitResult(View view) {
+        EditText editText = findViewById(R.id.editTextUrl);
+        String post = editText.getText().toString();
+        if(post.isEmpty()) {
+            editText.setError("Field is empty");
+        } else {
+            Intent intent = new Intent(this, DisplayXSS.class);
+            intent.putExtra(PACKAGE_STRING, post);
+            startActivity(intent);
+        }
 
-    public void loadWebView() {
-        myWebView = (WebView) findViewById(R.id.webView);
-        WebSettings webSettings = myWebView.getSettings();
-        myWebView.setWebChromeClient(new WebChromeClient());
-
-        // setting up configuration for WebView
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setAllowFileAccess(true);
-        webSettings.setPluginState(WebSettings.PluginState.ON);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
     }
-
-
 
 
         public void captureFlag(View view) {
