@@ -27,7 +27,7 @@
         android:paddingRight="16dp"
         android:textAlignment="center"
         android:fontFamily="@font/kanit_regular"
-        android:text="Need help some help? Download the official Beetlebug User Guide for more tips. "
+        android:text="Need some help? Download the official Beetlebug User Guide for more tips. "
         android:textColor="#9a9a9a"
         android:textSize="16sp" />
 
