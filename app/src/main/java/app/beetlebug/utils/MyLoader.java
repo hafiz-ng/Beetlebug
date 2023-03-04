@@ -17,9 +17,9 @@ public class MyLoader extends CursorLoader {
         myDatabaseHelper = db;
     }
 
-    public Cursor loadInBackground() {
-        return myDatabaseHelper.getAllEmployees();
-
-    }
+//    public Cursor loadInBackground() {
+//        return myDatabaseHelper.getAllEmployees();
+//
+//    }
 
 }

@@ -44,6 +44,6 @@ public class DisplayXSS extends AppCompatActivity {
         ClipData clipData = ClipData.newPlainText("TextView", result);
         clipboardManager.setPrimaryClip(clipData);
 
-        Toast.makeText(DisplayXSS.this, "Copied to clipboard: " + result, Toast.LENGTH_SHORT).show();
+        Toast.makeText(DisplayXSS.this, "Flag copied to clipboard: " + result, Toast.LENGTH_SHORT).show();
     }
 }

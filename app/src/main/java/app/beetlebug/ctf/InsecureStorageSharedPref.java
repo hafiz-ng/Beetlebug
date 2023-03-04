@@ -73,11 +73,8 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences_pref.edit();
             editor.putString(m_username, username);
             editor.putString(m_password, password);
-            editor.putString(pref_flg, "0x1442c04");
             editor.clear();
             editor.apply();
-            Toast.makeText(InsecureStorageSharedPref.this, "Login successful", Toast.LENGTH_SHORT).show();
-
         }
 
     }
@@ -90,6 +87,7 @@ public class InsecureStorageSharedPref extends AppCompatActivity {
 
         if (m_flag.getText().toString().equals(text)) {
             float user_score_shared_pref = 6.25F;
+
             // save user score to shared preferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putFloat(ctf_score_shared_pref, user_score_shared_pref);

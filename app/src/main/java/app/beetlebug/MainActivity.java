@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     public void openDeveloperPage(View view) {
-        String url = "http://www.hafiz.ng";
+        String url = "http://github.com/hafiz-ng/";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);

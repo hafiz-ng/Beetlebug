@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/kanit_regular"
-            android:text="Capture all Flags!"
+            android:text="@string/main_title"
             android:textColor="#000"
             android:textSize="27sp" />
 
@@ -89,7 +89,7 @@
                         android:layout_toEndOf="@+id/imageViewKey"
                         android:layout_toRightOf="@+id/imageViewKey"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 1 - 2"
+                        android:text="@string/flag_1_2"
                         android:textSize="14sp" />
 
                     <TextView
@@ -102,7 +102,7 @@
                         android:layout_toEndOf="@+id/imageViewKey"
                         android:layout_toRightOf="@+id/imageViewKey"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Hardcoded Secrets"
+                        android:text="@string/hardcoded_secrets"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -152,7 +152,7 @@
                         android:layout_toEndOf="@+id/imageViewStorage"
                         android:layout_toRightOf="@+id/imageViewStorage"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 3 - 5"
+                        android:text="@string/flag_3_5"
                         android:textSize="14sp" />
 
                     <TextView
@@ -165,7 +165,7 @@
                         android:layout_toEndOf="@+id/imageViewStorage"
                         android:layout_toRightOf="@+id/imageViewStorage"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Data Storage"
+                        android:text="@string/data_storage"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -214,7 +214,7 @@
                         android:layout_toEndOf="@+id/imageViewWebView"
                         android:layout_toRightOf="@+id/imageViewWebView"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 6 - 7"
+                        android:text="@string/flag_6_7"
                         android:textSize="14sp" />
 
                     <TextView
@@ -227,7 +227,7 @@
                         android:layout_toEndOf="@+id/imageViewWebView"
                         android:layout_toRightOf="@+id/imageViewWebView"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="WebViews"
+                        android:text="@string/webviews"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -276,7 +276,7 @@
                         android:layout_toEndOf="@+id/imageViewDatabases"
                         android:layout_toRightOf="@+id/imageViewDatabases"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 8 - 9"
+                        android:text="@string/flag_8_9"
                         android:textSize="14sp" />
 
                     <TextView
@@ -289,7 +289,7 @@
                         android:layout_toEndOf="@+id/imageViewDatabases"
                         android:layout_toRightOf="@+id/imageViewDatabases"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Databases"
+                        android:text="@string/databases"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -338,7 +338,7 @@
                         android:layout_toEndOf="@+id/imageViewComponents"
                         android:layout_toRightOf="@+id/imageViewComponents"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 10 - 12"
+                        android:text="@string/flag_10_12"
                         android:textSize="14sp" />
 
                     <TextView
@@ -351,7 +351,7 @@
                         android:layout_toEndOf="@+id/imageViewComponents"
                         android:layout_toRightOf="@+id/imageViewComponents"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Android Components"
+                        android:text="@string/android_components"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -400,7 +400,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 13 - 14"
+                        android:text="@string/flag_13_14"
                         android:textSize="14sp" />
 
                     <TextView
@@ -413,7 +413,7 @@
                         android:layout_toEndOf="@+id/imageViewDeeplinks"
                         android:layout_toRightOf="@+id/imageViewDeeplinks"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Info Disclosure"
+                        android:text="@string/info_disclosure"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -463,7 +463,7 @@
                         android:layout_toEndOf="@+id/imageViewBiometric"
                         android:layout_toRightOf="@+id/imageViewBiometric"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 15"
+                        android:text="@string/flag_15"
                         android:textSize="14sp" />
 
                     <TextView
@@ -476,7 +476,7 @@
                         android:layout_toEndOf="@+id/imageViewBiometric"
                         android:layout_toRightOf="@+id/imageViewBiometric"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Biometric Authentication"
+                        android:text="@string/biometric_authentication"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
@@ -526,7 +526,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Flag 16"
+                        android:text="@string/flag_16"
                         android:textSize="14sp" />
 
                     <TextView
@@ -539,7 +539,7 @@
                         android:layout_toEndOf="@+id/imageViewSensitive"
                         android:layout_toRightOf="@+id/imageViewSensitive"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="Binary Patching"
+                        android:text="@string/binary_patching"
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 

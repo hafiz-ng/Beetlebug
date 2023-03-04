@@ -2,6 +2,7 @@
     <string name="app_name">Beetlebug</string>
     <string name="V98bFQrpGkDJ">7432580</string>
 
+
     <!-- On-boarding Screen -->
     <string name="onboarding_one">Learn Android security from real-world bugs</string>
     <string name="onboarding_two">Capture all flags to complete the challenges</string>
@@ -14,11 +15,32 @@
     <string name="embedded_secrets">Find out where sensitive credentials are stored</string>
 
     <string name="vul_activity1">Please input your Master Secret password and place of birth to grant access</string>
-    <string name="hyperlink">Developer: \n<a href="https://hafiz.ng">hafiz.ng</a></string>
+    <string name="hyperlink">Developer: \n<a href="https://github.com/hafiz-ng">hafiz.ng</a></string>
     <string name="sqlite_string">0x1172c04</string>
     <string name="xss_string">0x66r9214</string>
     <string name="_1x33e91A">0x1132c4!</string>
     <string name="_0x532123">0x55541d3</string>
+    <string name="_0x444123">0x3982c%4</string>
     <string name="_0x43j123"><![CDATA[0x43J123&]]></string>
+    <string name="data_storage">Data Storage</string>
+    <string name="main_title">Capture all Flags!</string>
+    <string name="hardcoded_secrets">Hardcoded Secrets</string>
+    <string name="webviews">WebViews</string>
+    <string name="databases">Databases</string>
+    <string name="info_disclosure">Info Disclosure</string>
+    <string name="biometric_authentication">Biometric Authentication</string>
+    <string name="android_components">Android Components</string>
+    <string name="binary_patching">Binary Patching</string>
+    <string name="flag_13_14">Flag 13 – 14</string>
+    <string name="flag_15">Flag 15</string>
+    <string name="flag_16">Flag 16</string>
+    <string name="flag_10_12">Flag 10 – 12</string>
+    <string name="flag_8_9">Flag 8 – 9</string>
+    <string name="flag_6_7">Flag 6 – 7</string>
+    <string name="flag_3_5">Flag 3 – 5</string>
+    <string name="flag_1_2">Flag 1 – 2</string>
+    <string name="hardcoded_secrets_part_2">Hardcoded Secrets - Part 2</string>
+    <string name="hardcoded_secrets_part_1">Hardcoded Secrets - Part 1</string>
+    <string name="a_mis_configured_firebase_instance_can_be_identified_by_appending_json_to_the_database_url">A mis-configured Firebase instance can be identified by appending .json to the database url</string>
 
 </resources>

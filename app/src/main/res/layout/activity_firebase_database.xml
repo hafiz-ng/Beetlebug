@@ -53,7 +53,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="A misconfigured Firebase instance can be identified by making the following network call: https://firebaseProjectName.firebaseio.com/.json"
+            android:text="@string/a_mis_configured_firebase_instance_can_be_identified_by_appending_json_to_the_database_url"
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 

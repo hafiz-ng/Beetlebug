@@ -64,7 +64,7 @@ public class InsecureLoggingActivity extends AppCompatActivity {
                 if (isAllFieldsChecked) {
                     String card = m_card_number.getText().toString();
                     m_card_number.setError("An Error Occurred");
-                    Log.e("beetle-log", "Transaction Failed: " + card + "\n" + "flg: " + getString(R.string._0x532123));
+                    Log.e("beetle-log", "Transaction Failed - on " + "Card Number: " + card + "\n" + "flg: " + getString(R.string._0x532123));
                 }
             }
         });

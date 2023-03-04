@@ -88,7 +88,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
 
 
         if (email.isEmpty()) {
-            Toast.makeText(InsecureStorageExternal.this, "Enter username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InsecureStorageExternal.this, "Enter email", Toast.LENGTH_SHORT).show();
             m_email.setError("Email cannot be blank");
         } else if (pass.isEmpty()){
             m_pass.setError("Enter your password");
@@ -98,7 +98,7 @@ public class InsecureStorageExternal extends AppCompatActivity {
             sb.append("\n");
             sb.append("Email: " + email);
             sb.append("\n");
-            sb.append("flag : 0x3982c%4");
+            sb.append(getString(R.string._0x444123));
 
             String data = sb.toString();
 
@@ -106,7 +106,6 @@ public class InsecureStorageExternal extends AppCompatActivity {
             // We can use following directories: MUSIC, PODCASTS, ALARMS, RINGTONES, NOTIFICATIONS, PICTURES, MOVIES
             File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-            // Storing the data in file with name as beetle-user.log
             File file = new File(folder, "user.txt");
             writeTextData(file, data);
             Toast.makeText(this, "Data saved to" + file.getAbsolutePath(), Toast.LENGTH_LONG).show();

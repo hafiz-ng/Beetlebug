@@ -30,9 +30,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + _ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT NOT NULL, " + PASS + " CHAR(50));";
 
-//    CREATE TABLE (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, address CHAR 50)
-
-
     // create a constructor to initialize member variables
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -71,36 +68,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // get all employees
-    public Cursor getAllEmployees() {
+//    public Cursor getAllEmployees() {
+//
+//        // columns we want to retrieve from our table
+//        String[] projection = {
+//                _ID, NAME, PASS
+//        };
+//
+//        // create a cursor and call the query method on that object
+//        Cursor cursor = database.query(TABLE_NAME, projection, null, null, null, null, null);
+//
+//        return cursor;
+//
+//    }
 
-        // columns we want to retrieve from our table
-        String[] projection = {
-                _ID, NAME, PASS
-        };
+//    public int update(long _id, String name, String address) {
+//        ContentValues contentValues = new ContentValues();
+//
+//        contentValues.put(NAME, name);
+//        contentValues.put(PASS, address);
+//
+//        // we have to make sure you update the correct record
+//        // so we pass in a selection criteria for the update method
+//        // the update method returns a count of how many records we are updating
+//        int count = database.update(TABLE_NAME, contentValues, this._ID + " = " + _id, null);
+//        return count;
+//    }
 
-        // create a cursor and call the query method on that object
-        Cursor cursor = database.query(TABLE_NAME, projection, null, null, null, null, null);
-
-        return cursor;
-
-    }
-
-    public int update(long _id, String name, String address) {
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(NAME, name);
-        contentValues.put(PASS, address);
-
-        // we have to make sure you update the correct record
-        // so we pass in a selection criteria for the update method
-        // the update method returns a count of how many records we are updating
-        int count = database.update(TABLE_NAME, contentValues, this._ID + " = " + _id, null);
-        return count;
-    }
-
-    public void delete(long _id) {
-        // passing the delete method on the database instance
-        // pass in the table table and the WHERE clause
-        database.delete(TABLE_NAME, _ID + " = " + _id, null);
-    }
 }

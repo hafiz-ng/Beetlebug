@@ -304,8 +304,6 @@ public class FlagsOverview extends AppCompatActivity {
 
         String num = Float.toString(total_score);
 
-//        Toast.makeText(FlagsOverview.this, num, Toast.LENGTH_LONG).show();
-
         switch (num) {
             case "6.25":
                 finish_dialog.setContentView(R.layout.try_again_sheet);

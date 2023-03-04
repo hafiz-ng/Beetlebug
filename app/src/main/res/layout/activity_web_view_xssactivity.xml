@@ -52,7 +52,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/kanit_regular"
             android:paddingLeft="16dp"
-            android:text="Visit the display XSS activity to see what makes this Activity vulnerable."
+            android:text="Visit the DisplayXSS activity to see what makes this code vulnerable."
             android:textColor="#bfbfbf"
             android:textSize="16sp" />
 
