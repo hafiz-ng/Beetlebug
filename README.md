@@ -1,4 +1,4 @@
-![Screenshot](https://hafiz.ng/wp-content/uploads/2022/03/github_header.png)
+![Screenshot](https://hafiz.ng/assets/68747470733a2f2f686166697a2e6e672f77702d636f6e74656e742f75706c6f6164732f323032322f30332f6769746875625f6865616465722e706e67.png)
 
 # Beetlebug
 
