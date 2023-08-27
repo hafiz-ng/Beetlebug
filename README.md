@@ -19,16 +19,15 @@ Beetlebug is a beginner-friendly Capture the Flag Android application that aims 
 - Input Validation (XSS)
 
 
-Download APK file [here](https://github.com/hafiz-ng/Beetlebug/releases/download/v1.0/beetlebug.apk)
 
 ## How to Use
 You can compile the source code in [Android Studio](https://developer.android.com/) or use the button below to download the APK file.
 
-[![Screenshot](https://hafiz.ng/wp-content/uploads/2022/04/download-e1649447487625.png)](https://github.com/hafiz-ng/Beetlebug/releases/download/v1.0/beetlebug.apk)
+[![Screenshot](https://hafiz.ng/assets/images/apk_btn.png)](https://github.com/hafiz-ng/Beetlebug/releases/download/v1.0/beetlebug.apk)
 
 
 ## Screenshots
-![Screenshot](https://hafiz.ng/wp-content/uploads/2022/05/app_screenshots.png)
+![Screenshot](https://hafiz.ng/assets/images/screenshots.png)
 
 
 ## User Feedback
