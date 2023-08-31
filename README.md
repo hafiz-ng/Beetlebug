@@ -31,5 +31,5 @@ You can compile the source code in [Android Studio](https://developer.android.co
 
 
 ## User Feedback
-I would love to hear from you about your experience with Beetlebug. Please send me an email at contact@hafiz.ng with your feedback and possible ways to improve the app.
+I would love to hear from you about your experience with Beetlebug. Please send me an email at security@hafiz.ng with your feedback and possible ways to improve the app.
 
